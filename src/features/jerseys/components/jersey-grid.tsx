@@ -11,11 +11,18 @@ import type { League } from '../types';
 export function JerseyGrid() {
   const t = useTranslations('jerseys');
   const [activeLeague, setActiveLeague] = useState<League | null>(null);
+  const [activeTeam, setActiveTeam] = useState<string | null>(null);
 
   const filteredJerseys = useMemo(() => {
-    if (!activeLeague) return jerseys;
-    return jerseys.filter((j) => j.league === activeLeague);
-  }, [activeLeague]);
+    let result = jerseys;
+    if (activeLeague) {
+      result = result.filter((j) => j.league === activeLeague);
+    }
+    if (activeTeam) {
+      result = result.filter((j) => j.team === activeTeam);
+    }
+    return result;
+  }, [activeLeague, activeTeam]);
 
   return (
     <section id="catalog" className="py-20 bg-black">
@@ -32,7 +39,12 @@ export function JerseyGrid() {
         </div>
 
         {/* Filters */}
-        <FilterBar activeLeague={activeLeague} onFilterChange={setActiveLeague} />
+        <FilterBar
+          activeLeague={activeLeague}
+          activeTeam={activeTeam}
+          onLeagueChange={setActiveLeague}
+          onTeamChange={setActiveTeam}
+        />
 
         {/* Results count */}
         <p className="text-sm text-zinc-500 mt-6 mb-8 text-center md:text-left">
@@ -51,7 +63,10 @@ export function JerseyGrid() {
           <div className="text-center py-20">
             <p className="text-zinc-500 text-lg">{t('catalog.empty')}</p>
             <button
-              onClick={() => setActiveLeague(null)}
+              onClick={() => {
+                setActiveLeague(null);
+                setActiveTeam(null);
+              }}
               className="mt-4 text-primary hover:underline font-medium"
             >
               {t('catalog.clearFilters')}

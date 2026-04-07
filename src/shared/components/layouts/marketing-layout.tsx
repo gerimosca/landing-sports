@@ -42,28 +42,6 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
               {brand.name}
             </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              <Link
-                href={`/${locale}`}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              >
-                {t('home')}
-              </Link>
-              <Link
-                href={`/${locale}#catalog`}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              >
-                {t('catalog')}
-              </Link>
-              <Link
-                href={`/${locale}#catalog`}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              >
-                {t('leagues')}
-              </Link>
-            </nav>
-
             {/* Actions */}
             <div className="flex items-center gap-3">
               <CartIcon />
@@ -95,25 +73,12 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
             <div className="md:hidden border-t border-zinc-800 bg-black">
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
                 <Link
-                  href={`/${locale}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium text-zinc-300 hover:text-white py-2"
-                >
-                  {t('home')}
-                </Link>
-                <Link
                   href={`/${locale}#catalog`}
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-sm font-medium text-zinc-300 hover:text-white py-2"
                 >
+                  <ShoppingBag className="h-4 w-4 inline mr-1.5" />
                   {t('catalog')}
-                </Link>
-                <Link
-                  href={`/${locale}#catalog`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium text-zinc-300 hover:text-white py-2"
-                >
-                  {t('leagues')}
                 </Link>
               </nav>
             </div>

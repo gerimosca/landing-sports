@@ -195,7 +195,7 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
       {/* Info */}
       <div className="p-4">
         <p className="text-[11px] text-zinc-500 uppercase tracking-wider font-medium">
-          {jersey.season} &middot; {t(`variant.${jersey.variant}`)}
+          {jersey.season}
         </p>
         <h3 className="mt-1 font-bold text-white text-sm group-hover:text-primary transition-colors">
           {jersey.team}
