@@ -16,6 +16,7 @@ import { getGtagInitScript } from '@/features/consent/lib/gtag';
 import { InfoBar } from '@/shared/components/info-bar';
 import { CrispProvider } from '@/features/crisp/components';
 import { brand } from '@/shared/config/brand';
+import { CartProvider } from '@/features/cart';
 import type { Locale } from '@/i18n/request';
 import './globals.css';
 
@@ -64,6 +65,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
             disableTransitionOnChange
           >
             <ConsentProvider>
+              <CartProvider>
               <InfoBar locale={locale} />
               <CrispProvider locale={locale} />
               {children}
@@ -91,6 +93,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
               {/* Cookie consent UI */}
               <ConsentBanner />
               <ConsentModal />
+              </CartProvider>
 
               <Toaster
                 position="bottom-right"

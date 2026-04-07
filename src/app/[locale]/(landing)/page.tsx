@@ -1,7 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import {
   HeroSection,
-  FeaturedSection,
   PromoBanner,
   JerseyGrid,
   NewsletterSection,
@@ -20,10 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default function HomePage() {
   return (
     <>
+      <JerseyGrid />
       <HeroSection />
       <PromoBanner />
-      <FeaturedSection />
-      <JerseyGrid />
       <NewsletterSection />
     </>
   );

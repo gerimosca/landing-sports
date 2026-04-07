@@ -242,8 +242,10 @@ async function main() {
   }
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Run if called directly (works on both Unix and Windows)
+const scriptPath = fileURLToPath(import.meta.url);
+const calledPath = path.resolve(process.argv[1]);
+if (scriptPath === calledPath) {
   main();
 }
 

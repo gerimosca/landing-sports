@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { Menu, X, ShoppingBag } from 'lucide-react';
+import { CartIcon } from '@/features/cart';
 import { Button } from '@/shared/components/ui/button';
 import { SkipLink } from '@/shared/components/ui/skip-link';
 import { brand } from '@/shared/config';
@@ -65,6 +66,8 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
 
             {/* Actions */}
             <div className="flex items-center gap-3">
+              <CartIcon />
+
               <Button
                 size="sm"
                 className="hidden sm:inline-flex bg-primary text-black font-bold hover:bg-primary/90"
