@@ -17,10 +17,10 @@ export const brand = {
   // ═══════════════════════════════════════════════════════════════════
 
   /** Your product/company name */
-  name: 'AI SaaS',
+  name: 'FutbolKits',
 
   /** Short tagline (appears in hero, metadata) */
-  tagline: 'Build faster with AI',
+  tagline: 'Camisetas de fútbol originales',
 
   // ═══════════════════════════════════════════════════════════════════
   // CONTACT & URLS
@@ -80,7 +80,7 @@ export const brand = {
      *   Best for: B2B products, enterprise software
      *   Colors: Corporate blue, clean layouts, minimal
      */
-    variant: 'standard' as const, // 'standard' | 'luxury' | 'corporate'
+    variant: 'sports' as const, // 'standard' | 'luxury' | 'corporate' | 'sports'
 
     /** Enable glassmorphism effect (backdrop-blur, transparency) */
     glass: false,
@@ -93,17 +93,17 @@ export const brand = {
 
   seo: {
     /** Title template for pages. %s is replaced with page title */
-    titleTemplate: '%s | AI SaaS',
+    titleTemplate: '%s | FutbolKits',
 
     /** Default title when no page title is set */
-    defaultTitle: 'AI SaaS - Build faster with AI',
+    defaultTitle: 'FutbolKits - Camisetas de Fútbol Originales',
 
     /** Default meta description (max 160 characters recommended) */
     defaultDescription:
-      'Production-ready AI SaaS boilerplate with Next.js, Supabase, and Stripe',
+      'Camisetas de fútbol originales de las mejores ligas del mundo. La Liga, Premier League, Serie A, Bundesliga y más.',
 
     /** Keywords for meta tags (comma-separated) */
-    keywords: ['saas', 'boilerplate', 'nextjs', 'supabase', 'stripe'],
+    keywords: ['camisetas futbol', 'football jerseys', 'soccer shirts', 'la liga', 'premier league', 'serie a'],
 
     /** Default Open Graph image (1200x630 recommended) */
     ogImage: '/og-image.png',
@@ -237,7 +237,7 @@ export const brand = {
   // ═══════════════════════════════════════════════════════════════════
 
   /** Copyright notice in footer */
-  copyright: `© ${new Date().getFullYear()} AI SaaS. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} FutbolKits. All rights reserved.`,
 };
 
 export type Brand = typeof brand;
