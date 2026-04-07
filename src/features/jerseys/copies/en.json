@@ -1,5 +1,5 @@
 {
-  "hero": { "badge": "Season 2024/25", "title1": "Wear Your", "title2": "Passion", "subtitle": "Original football jerseys from the best leagues in the world.", "cta": "Explore Collection", "stat1": "Jerseys", "stat2": "Leagues", "stat3": "Shipping", "scrollDown": "Scroll to catalog" },
+  "hero": { "badge": "New Season", "title1": "Wear Your", "title2": "Passion", "subtitle": "Original football jerseys from the best leagues in the world.", "cta": "Explore Collection", "stat1": "Jerseys", "stat2": "Leagues", "stat3": "Shipping", "scrollDown": "Scroll to catalog" },
   "filters": { "all": "All Leagues", "allTeams": "All Teams" },
   "catalog": { "subtitle": "Catalog", "title": "Find Your Jersey", "showing": "{count, plural, one {# jersey} other {# jerseys}} available", "empty": "No jerseys found for this league", "clearFilters": "Show all jerseys" },
   "card": { "new": "New", "bestseller": "Bestseller", "addToCart": "Add to Cart" },

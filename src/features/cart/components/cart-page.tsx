@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft } from 'lucide-react';
+import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
 import { cartItemKey } from '../types';
@@ -11,6 +12,8 @@ export function CartPage() {
   const t = useTranslations('cart');
   const locale = useLocale();
   const { items, updateQuantity, removeItem, totalPrice, totalItems } = useCart();
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
 
   const getKey = (item: (typeof items)[0]) =>
     cartItemKey(item.jersey.id, {
@@ -20,19 +23,27 @@ export function CartPage() {
     });
 
   const handleCheckout = async () => {
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      setEmailError(true);
+      return;
+    }
+    setEmailError(false);
+
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           items: items.map(({ jersey, quantity, size, dorsalName, dorsalNumber }) => {
-            const parts = [`${jersey.team} - ${jersey.variant} ${jersey.season}`, `(${size})`];
+            const parts = [`${jersey.team} - ${jersey.variant}`, `(${size})`];
             if (dorsalName || dorsalNumber) {
               parts.push(`#${dorsalNumber || ''} ${dorsalName || ''}`.trim());
             }
             return { name: parts.join(' '), price: jersey.price, quantity };
           }),
           locale,
+          email: trimmedEmail,
         }),
       });
       const { url } = await res.json();
@@ -106,8 +117,8 @@ export function CartPage() {
                     <h3 className="font-bold text-white text-sm md:text-base truncate">
                       {jersey.team}
                     </h3>
-                    <p className="text-xs text-zinc-500 mt-0.5">
-                      {jersey.season} &middot; {jersey.variant}
+                    <p className="text-xs text-zinc-500 mt-0.5 capitalize">
+                      {jersey.variant}
                     </p>
 
                     {/* Size & dorsal details */}
@@ -192,6 +203,39 @@ export function CartPage() {
                     ${totalPrice.toFixed(2)}
                   </span>
                 </div>
+              </div>
+
+              {/* Email field */}
+              <div className="mb-6">
+                <label htmlFor="checkout-email" className="block text-sm font-semibold text-white mb-1.5">
+                  <Mail className="inline h-4 w-4 mr-1.5 text-primary" />
+                  {t('emailLabel')} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="checkout-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (emailError) setEmailError(false);
+                  }}
+                  placeholder={t('emailPlaceholder')}
+                  aria-required="true"
+                  aria-invalid={emailError}
+                  aria-describedby="email-help email-error"
+                  className={cn(
+                    'w-full px-4 py-2.5 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                    emailError ? 'border-red-500' : 'border-zinc-700'
+                  )}
+                />
+                {emailError && (
+                  <p id="email-error" role="alert" className="text-xs text-red-500 mt-1">
+                    {t('emailRequired')}
+                  </p>
+                )}
+                <p id="email-help" className="text-xs text-primary/80 mt-1.5 font-medium">
+                  {t('emailHelp')}
+                </p>
               </div>
 
               <button

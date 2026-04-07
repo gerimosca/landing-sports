@@ -9,9 +9,10 @@ interface CheckoutItem {
 
 export async function POST(request: NextRequest) {
   try {
-    const { items, locale } = (await request.json()) as {
+    const { items, locale, email } = (await request.json()) as {
       items: CheckoutItem[];
       locale: string;
+      email?: string;
     };
 
     if (!items || items.length === 0) {
@@ -22,6 +23,7 @@ export async function POST(request: NextRequest) {
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
+      customer_email: email || undefined,
       line_items: items.map((item) => ({
         price_data: {
           currency: 'usd',

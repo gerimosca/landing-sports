@@ -1,5 +1,5 @@
 {
-  "hero": { "badge": "Temporada 2024/25", "title1": "Vestí Tu", "title2": "Pasión", "subtitle": "Camisetas de fútbol originales de las mejores ligas del mundo.", "cta": "Explorar Colección", "stat1": "Camisetas", "stat2": "Ligas", "stat3": "Envío", "scrollDown": "Ir al catálogo" },
+  "hero": { "badge": "Nueva Temporada", "title1": "Vestí Tu", "title2": "Pasión", "subtitle": "Camisetas de fútbol originales de las mejores ligas del mundo.", "cta": "Explorar Colección", "stat1": "Camisetas", "stat2": "Ligas", "stat3": "Envío", "scrollDown": "Ir al catálogo" },
   "filters": { "all": "Todas las Ligas", "allTeams": "Todos los Equipos" },
   "catalog": { "subtitle": "Catálogo", "title": "Encontrá Tu Camiseta", "showing": "{count, plural, one {# camiseta} other {# camisetas}} disponibles", "empty": "No se encontraron camisetas para esta liga", "clearFilters": "Mostrar todas las camisetas" },
   "card": { "new": "Nuevo", "bestseller": "Más Vendido", "addToCart": "Agregar al Carrito" },

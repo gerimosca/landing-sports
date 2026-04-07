@@ -820,6 +820,690 @@ export const jerseys: Jersey[] = [
     variant: 'away',
     season: '2024/25',
   },
+
+  // La Liga - Valencia
+  {
+    id: 'valencia-home',
+    team: 'Valencia',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/valencia-home.webp',
+    badge: '/badges/valencia.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Oviedo
+  {
+    id: 'oviedo-home',
+    team: 'Oviedo',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/oviedo-home.webp',
+    badge: '/badges/oviedo.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Real Betis
+  {
+    id: 'real-betis-home',
+    team: 'Real Betis',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/real-betis-home.webp',
+    badge: '/badges/real-betis.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Tenerife
+  {
+    id: 'tenerife-home',
+    team: 'Tenerife',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/tenerife-home.webp',
+    badge: '/badges/tenerife.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Sevilla
+  {
+    id: 'sevilla-home',
+    team: 'Sevilla',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/sevilla-home.webp',
+    badge: '/badges/sevilla.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - RCD Mallorca
+  {
+    id: 'rcd-mallorca-home',
+    team: 'RCD Mallorca',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/rcd-mallorca-home.webp',
+    badge: '/badges/rcd-mallorca.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Málaga
+  {
+    id: 'malaga-home',
+    team: 'Málaga',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/malaga-home.webp',
+    badge: '/badges/malaga.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Girona
+  {
+    id: 'girona-home',
+    team: 'Girona',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/girona-home.webp',
+    badge: '/badges/girona.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Deportivo la Coruña
+  {
+    id: 'deportivo-la-coruna-home',
+    team: 'Deportivo la Coruña',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/deportivo-la-coruna-home.webp',
+    badge: '/badges/deportivo-la-coruna.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Córdoba
+  {
+    id: 'cordoba-home',
+    team: 'Córdoba',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/cordoba-home.webp',
+    badge: '/badges/cordoba.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Celta
+  {
+    id: 'celta-home',
+    team: 'Celta',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/celta-home.webp',
+    badge: '/badges/celta.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Cádiz
+  {
+    id: 'cadiz-home',
+    team: 'Cádiz',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/cadiz-home.webp',
+    badge: '/badges/cadiz.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Athletic Bilbao
+  {
+    id: 'athletic-bilbao-home',
+    team: 'Athletic Bilbao',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/athletic-bilbao-home.webp',
+    badge: '/badges/athletic-bilbao.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Zaragoza
+  {
+    id: 'zaragoza-home',
+    team: 'Zaragoza',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/zaragoza-home.webp',
+    badge: '/badges/zaragoza.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // La Liga - Racing de Santander
+  {
+    id: 'racing-de-santander-home',
+    team: 'Racing de Santander',
+    league: 'la-liga',
+    price: 79.99,
+    image: '/jerseys/racing-de-santander-home.webp',
+    badge: '/badges/racing-de-santander.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Manchester United
+  {
+    id: 'manchester-united-home',
+    team: 'Manchester United',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/manchester-united-home.webp',
+    badge: '/badges/manchester-united.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Tottenham
+  {
+    id: 'tottenham-home',
+    team: 'Tottenham',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/tottenham-home.webp',
+    badge: '/badges/tottenham.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Newcastle
+  {
+    id: 'newcastle-home',
+    team: 'Newcastle',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/newcastle-home.webp',
+    badge: '/badges/newcastle.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Leeds United
+  {
+    id: 'leeds-united-home',
+    team: 'Leeds United',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/leeds-united-home.webp',
+    badge: '/badges/leeds-united.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Everton
+  {
+    id: 'everton-home',
+    team: 'Everton',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/everton-home.webp',
+    badge: '/badges/everton.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Brighton
+  {
+    id: 'brighton-home',
+    team: 'Brighton',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/brighton-home.webp',
+    badge: '/badges/brighton.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Premier League - Aston Villa
+  {
+    id: 'aston-villa-home',
+    team: 'Aston Villa',
+    league: 'premier-league',
+    price: 84.99,
+    image: '/jerseys/aston-villa-home.webp',
+    badge: '/badges/aston-villa.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - Schalke 04
+  {
+    id: 'schalke-04-home',
+    team: 'Schalke 04',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/schalke-04-home.webp',
+    badge: '/badges/schalke-04.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - RB Leipzig
+  {
+    id: 'rb-leipzig-home',
+    team: 'RB Leipzig',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/rb-leipzig-home.webp',
+    badge: '/badges/rb-leipzig.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - Wolfsburg
+  {
+    id: 'wolfsburg-home',
+    team: 'Wolfsburg',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/wolfsburg-home.webp',
+    badge: '/badges/wolfsburg.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - Eintracht Frankfurt
+  {
+    id: 'eintracht-frankfurt-home',
+    team: 'Eintracht Frankfurt',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/eintracht-frankfurt-home.webp',
+    badge: '/badges/eintracht-frankfurt.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - Borussia Mönchengladbach
+  {
+    id: 'borussia-monchengladbach-home',
+    team: 'Borussia Mönchengladbach',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/borussia-monchengladbach-home.webp',
+    badge: '/badges/borussia-monchengladbach.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - Stuttgart
+  {
+    id: 'stuttgart-home',
+    team: 'Stuttgart',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/stuttgart-home.webp',
+    badge: '/badges/stuttgart.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Bundesliga - FC Union Berlin
+  {
+    id: 'fc-union-berlin-home',
+    team: 'FC Union Berlin',
+    league: 'bundesliga',
+    price: 79.99,
+    image: '/jerseys/fc-union-berlin-home.webp',
+    badge: '/badges/fc-union-berlin.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Ligue 1 - Olympique Lyon
+  {
+    id: 'olympique-lyon-home',
+    team: 'Olympique Lyon',
+    league: 'ligue-1',
+    price: 79.99,
+    image: '/jerseys/olympique-lyon-home.webp',
+    badge: '/badges/olympique-lyon.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Ligue 1 - Lille
+  {
+    id: 'lille-home',
+    team: 'Lille',
+    league: 'ligue-1',
+    price: 79.99,
+    image: '/jerseys/lille-home.webp',
+    badge: '/badges/lille.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Ligue 1 - Stade Rennais
+  {
+    id: 'stade-rennais-home',
+    team: 'Stade Rennais',
+    league: 'ligue-1',
+    price: 79.99,
+    image: '/jerseys/stade-rennais-home.webp',
+    badge: '/badges/stade-rennais.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Serie A - Roma
+  {
+    id: 'roma-home',
+    team: 'Roma',
+    league: 'serie-a',
+    price: 79.99,
+    image: '/jerseys/roma-home.webp',
+    badge: '/badges/roma.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Serie A - Fiorentina
+  {
+    id: 'fiorentina-home',
+    team: 'Fiorentina',
+    league: 'serie-a',
+    price: 79.99,
+    image: '/jerseys/fiorentina-home.webp',
+    badge: '/badges/fiorentina.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Serie A - Atalanta
+  {
+    id: 'atalanta-home',
+    team: 'Atalanta',
+    league: 'serie-a',
+    price: 79.99,
+    image: '/jerseys/atalanta-home.webp',
+    badge: '/badges/atalanta.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Serie A - Lazio
+  {
+    id: 'lazio-home',
+    team: 'Lazio',
+    league: 'serie-a',
+    price: 79.99,
+    image: '/jerseys/lazio-home.webp',
+    badge: '/badges/lazio.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Serie A - Parma
+  {
+    id: 'parma-home',
+    team: 'Parma',
+    league: 'serie-a',
+    price: 79.99,
+    image: '/jerseys/parma-home.webp',
+    badge: '/badges/parma.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Corinthians
+  {
+    id: 'corinthians-home',
+    team: 'Corinthians',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/corinthians-home.webp',
+    badge: '/badges/corinthians.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Internacional
+  {
+    id: 'internacional-home',
+    team: 'Internacional',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/internacional-home.webp',
+    badge: '/badges/internacional.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Fluminense
+  {
+    id: 'fluminense-home',
+    team: 'Fluminense',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/fluminense-home.webp',
+    badge: '/badges/fluminense.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Cruzeiro
+  {
+    id: 'cruzeiro-home',
+    team: 'Cruzeiro',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/cruzeiro-home.webp',
+    badge: '/badges/cruzeiro.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Vasco Da Gama
+  {
+    id: 'vasco-da-gama-home',
+    team: 'Vasco Da Gama',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/vasco-da-gama-home.webp',
+    badge: '/badges/vasco-da-gama.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Atlético Mineiro
+  {
+    id: 'atletico-mineiro-home',
+    team: 'Atlético Mineiro',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/atletico-mineiro-home.webp',
+    badge: '/badges/atletico-mineiro.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Brasileirão - Botafogo
+  {
+    id: 'botafogo-home',
+    team: 'Botafogo',
+    league: 'brasileirao',
+    price: 69.99,
+    image: '/jerseys/botafogo-home.webp',
+    badge: '/badges/botafogo.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Noruega
+  {
+    id: 'noruega-home',
+    team: 'Noruega',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/noruega-home.webp',
+    badge: '/badges/noruega.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Bolivia
+  {
+    id: 'bolivia-home',
+    team: 'Bolivia',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/bolivia-home.webp',
+    badge: '/badges/bolivia.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - México
+  {
+    id: 'mexico-home',
+    team: 'México',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/mexico-home.webp',
+    badge: '/badges/mexico.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Japón
+  {
+    id: 'japon-home',
+    team: 'Japón',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/japon-home.webp',
+    badge: '/badges/japon.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Colombia
+  {
+    id: 'colombia-home',
+    team: 'Colombia',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/colombia-home.webp',
+    badge: '/badges/colombia.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Holanda
+  {
+    id: 'holanda-home',
+    team: 'Holanda',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/holanda-home.webp',
+    badge: '/badges/holanda.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Jamaica
+  {
+    id: 'jamaica-home',
+    team: 'Jamaica',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/jamaica-home.webp',
+    badge: '/badges/jamaica.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - EEUU
+  {
+    id: 'eeuu-home',
+    team: 'EEUU',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/eeuu-home.webp',
+    badge: '/badges/eeuu.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Portugal
+  {
+    id: 'portugal-home',
+    team: 'Portugal',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/portugal-home.webp',
+    badge: '/badges/portugal.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Perú
+  {
+    id: 'peru-home',
+    team: 'Perú',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/peru-home.webp',
+    badge: '/badges/peru.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Suecia
+  {
+    id: 'suecia-home',
+    team: 'Suecia',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/suecia-home.webp',
+    badge: '/badges/suecia.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Grecia
+  {
+    id: 'grecia-home',
+    team: 'Grecia',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/grecia-home.webp',
+    badge: '/badges/grecia.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
+
+  // Selecciones - Venezuela
+  {
+    id: 'venezuela-home',
+    team: 'Venezuela',
+    league: 'selecciones',
+    price: 89.99,
+    image: '/jerseys/venezuela-home.webp',
+    badge: '/badges/venezuela.webp',
+    variant: 'home',
+    season: '2024/25',
+  },
 ];
 
 export function getJerseysByLeague(league: League): Jersey[] {
