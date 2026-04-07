@@ -1,0 +1,11 @@
+{
+  "hero": { "badge": "Temporada 2024/25", "title1": "Vestí Tu", "title2": "Pasión", "subtitle": "Camisetas de fútbol originales de las mejores ligas del mundo.", "cta": "Explorar Colección", "stat1": "Camisetas", "stat2": "Ligas", "stat3": "Envío", "scrollDown": "Ir al catálogo" },
+  "filters": { "all": "Todas las Ligas" },
+  "catalog": { "subtitle": "Catálogo", "title": "Encontrá Tu Camiseta", "showing": "{count, plural, one {# camiseta} other {# camisetas}} disponibles", "empty": "No se encontraron camisetas para esta liga", "clearFilters": "Mostrar todas las camisetas" },
+  "card": { "new": "Nuevo", "bestseller": "Más Vendido", "addToCart": "Agregar al Carrito" },
+  "variant": { "home": "Titular", "away": "Suplente", "third": "Tercera" },
+  "featured": { "bestsellers": "Más Vendidos", "newArrivals": "Novedades" },
+  "promo": { "shipping": { "title": "Envío Gratis", "description": "En compras superiores a $100" }, "authentic": { "title": "100% Originales", "description": "Productos con licencia oficial" }, "returns": { "title": "Devoluciones Fáciles", "description": "Política de 30 días" }, "payment": { "title": "Pago Seguro", "description": "Transacciones encriptadas" } },
+  "newsletter": { "title": "Quedate en el Juego", "description": "Suscribite para recibir lanzamientos exclusivos y descuentos especiales.", "placeholder": "Tu email", "submit": "Suscribirme", "privacy": "Respetamos tu privacidad. Podés darte de baja en cualquier momento." },
+  "nav": { "home": "Inicio", "catalog": "Catálogo", "leagues": "Ligas", "contact": "Contacto" }
+}
