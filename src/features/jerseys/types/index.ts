@@ -21,6 +21,7 @@ export interface Jersey {
   price: number;
   originalPrice?: number;
   image: string;
+  images?: string[];
   badge: string;
   variant: string;
   season: string;

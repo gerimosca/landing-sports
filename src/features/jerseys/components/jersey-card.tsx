@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { ShoppingCart, Star } from 'lucide-react';
+import { ShoppingCart, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/shared/lib/utils';
 import { useCart } from '@/features/cart';
@@ -48,9 +48,37 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
     setDorsalNumber('');
   };
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Placeholder slides: front, back, detail views
+  const slideCount = jersey.images?.length || 3;
+
+  const scrollToSlide = useCallback((index: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const slideWidth = container.offsetWidth;
+    container.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const slideWidth = container.offsetWidth;
+    const newIndex = Math.round(container.scrollLeft / slideWidth);
+    setActiveSlide(newIndex);
+  }, []);
+
   const discount = jersey.originalPrice
     ? Math.round(((jersey.originalPrice - jersey.price) / jersey.originalPrice) * 100)
     : null;
+
+  const placeholderLabels = ['FRONT', 'BACK', 'DETAIL'];
+  const placeholderGradients = [
+    'from-zinc-800 to-zinc-900',
+    'from-zinc-850 to-zinc-800',
+    'from-zinc-900 to-zinc-800',
+  ];
 
   return (
     <article className="group relative rounded-lg overflow-hidden bg-zinc-900/80 border border-zinc-800/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
@@ -74,25 +102,107 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
         )}
       </div>
 
-      {/* Image placeholder */}
-      <div className="relative aspect-[3/4] bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center overflow-hidden">
-        <div className="relative w-3/5 h-3/5 flex items-center justify-center">
-          <svg
-            viewBox="0 0 100 120"
-            fill="none"
-            className="w-full h-full text-zinc-700 group-hover:text-zinc-600 transition-colors"
-          >
-            <path
-              d="M30 10 L20 20 L5 15 L10 40 L20 35 L20 110 L80 110 L80 35 L90 40 L95 15 L80 20 L70 10 Z"
-              fill="currentColor"
-              stroke="none"
-            />
-          </svg>
-          <span className="absolute text-zinc-500 text-xs font-bold uppercase tracking-widest">
-            {jersey.team}
-          </span>
+      {/* Image carousel */}
+      <div className="relative aspect-[3/4] overflow-hidden">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex w-full h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+        >
+          {jersey.images ? (
+            jersey.images.map((src, i) => (
+              <div
+                key={i}
+                className="w-full h-full flex-shrink-0 snap-center bg-gradient-to-b from-zinc-800 to-zinc-900"
+              >
+                <img
+                  src={src}
+                  alt={`${jersey.team} - ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          ) : (
+            placeholderLabels.map((label, i) => (
+              <div
+                key={i}
+                className={cn(
+                  'w-full h-full flex-shrink-0 snap-center flex items-center justify-center bg-gradient-to-b',
+                  placeholderGradients[i]
+                )}
+              >
+                <div className="relative w-3/5 h-3/5 flex items-center justify-center">
+                  <svg
+                    viewBox="0 0 100 120"
+                    fill="none"
+                    className="w-full h-full text-zinc-700 group-hover:text-zinc-600 transition-colors"
+                  >
+                    <path
+                      d="M30 10 L20 20 L5 15 L10 40 L20 35 L20 110 L80 110 L80 35 L90 40 L95 15 L80 20 L70 10 Z"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                  <div className="absolute flex flex-col items-center gap-1">
+                    <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">
+                      {jersey.team}
+                    </span>
+                    <span className="text-zinc-600 text-[9px] uppercase tracking-wider">
+                      {label}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
 
+        {/* Navigation arrows - visible on hover */}
+        {slideCount > 1 && (
+          <>
+            <button
+              onClick={() => scrollToSlide(Math.max(0, activeSlide - 1))}
+              className={cn(
+                'absolute left-1.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity',
+                activeSlide === 0 && 'hidden'
+              )}
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => scrollToSlide(Math.min(slideCount - 1, activeSlide + 1))}
+              className={cn(
+                'absolute right-1.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity',
+                activeSlide === slideCount - 1 && 'hidden'
+              )}
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </>
+        )}
+
+        {/* Dot indicators */}
+        {slideCount > 1 && (
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
+            {Array.from({ length: slideCount }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToSlide(i)}
+                className={cn(
+                  'w-1.5 h-1.5 rounded-full transition-all',
+                  activeSlide === i
+                    ? 'bg-primary w-3'
+                    : 'bg-white/40 hover:bg-white/60'
+                )}
+                aria-label={`Image ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Info */}

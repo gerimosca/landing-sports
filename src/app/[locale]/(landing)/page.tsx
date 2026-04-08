@@ -1,6 +1,5 @@
 import { getTranslations } from 'next-intl/server';
 import {
-  HeroSection,
   PromoBanner,
   JerseyGrid,
   NewsletterSection,
@@ -20,7 +19,6 @@ export default function HomePage() {
   return (
     <>
       <JerseyGrid />
-      <HeroSection />
       <PromoBanner />
       <NewsletterSection />
     </>
