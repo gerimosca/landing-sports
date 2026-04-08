@@ -58,7 +58,7 @@ type ShippingErrors = Partial<Record<keyof ShippingForm, boolean>>;
 export function CartPage() {
   const t = useTranslations('cart');
   const locale = useLocale();
-  const { items, updateQuantity, removeItem, totalPrice, totalItems } = useCart();
+  const { items, updateQuantity, removeItem, totalPrice, totalItems, discount, shippingCost, finalPrice } = useCart();
   const [form, setForm] = useState<ShippingForm>({
     email: '',
     firstName: '',
@@ -211,17 +211,14 @@ export function CartPage() {
                     <h3 className="font-bold text-white text-sm md:text-base truncate">
                       {jersey.team}
                     </h3>
-                    <p className="text-xs text-zinc-500 mt-0.5 capitalize">
-                      {jersey.variant}
-                    </p>
 
                     {/* Size & dorsal details */}
-                    <div className="flex flex-wrap gap-2 mt-1.5">
-                      <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold bg-zinc-800 text-zinc-300 rounded">
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="inline-flex items-center px-3 py-1 text-xs font-bold bg-zinc-800 text-zinc-200 rounded-md">
                         {t('size')}: {size}
                       </span>
                       {(dorsalName || dorsalNumber) && (
-                        <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold bg-zinc-800 text-zinc-300 rounded">
+                        <span className="inline-flex items-center px-3 py-1 text-xs font-bold bg-zinc-800 text-zinc-200 rounded-md">
                           {t('dorsal')}: {dorsalNumber && `#${dorsalNumber}`}{' '}
                           {dorsalName}
                         </span>
@@ -256,9 +253,16 @@ export function CartPage() {
                       </div>
 
                       {/* Price */}
-                      <span className="text-white font-bold text-sm md:text-base">
-                        ${(jersey.price * quantity).toFixed(2)}
-                      </span>
+                      <div className="text-right">
+                        <span className="text-white font-bold text-sm md:text-base">
+                          €{(jersey.price * quantity).toFixed(2)}
+                        </span>
+                        {quantity > 1 && (
+                          <p className="text-[11px] text-zinc-500">
+                            €{jersey.price.toFixed(2)} / u.
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
 
@@ -283,18 +287,24 @@ export function CartPage() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-sm">
                   <span className="text-zinc-400">{t('subtotal')}</span>
-                  <span className="text-white font-medium">${totalPrice.toFixed(2)}</span>
+                  <span className="text-white font-medium">€{totalPrice.toFixed(2)}</span>
                 </div>
+                {discount > 0 && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-emerald-400">{t('promoDiscount')}</span>
+                    <span className="text-emerald-400 font-medium">-€{discount.toFixed(2)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-sm">
                   <span className="text-zinc-400">{t('shipping')}</span>
-                  <span className="text-emerald-400 font-medium">
-                    {totalPrice >= 100 ? t('shippingFree') : t('shippingCost')}
+                  <span className={cn('font-medium', shippingCost === 0 ? 'text-emerald-400' : 'text-white')}>
+                    {shippingCost === 0 ? t('shippingFree') : `€${shippingCost.toFixed(2)}`}
                   </span>
                 </div>
                 <div className="border-t border-zinc-800 pt-3 flex justify-between">
                   <span className="text-white font-bold">{t('total')}</span>
                   <span className="text-white font-black text-xl">
-                    ${totalPrice.toFixed(2)}
+                    €{finalPrice.toFixed(2)}
                   </span>
                 </div>
               </div>

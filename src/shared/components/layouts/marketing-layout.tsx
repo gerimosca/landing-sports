@@ -1,23 +1,24 @@
 'use client';
 
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
-import { useState } from 'react';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { ShoppingBag } from 'lucide-react';
 import { CartIcon } from '@/features/cart';
-import { Button } from '@/shared/components/ui/button';
 import { SkipLink } from '@/shared/components/ui/skip-link';
 import { brand } from '@/shared/config';
-import { cn } from '@/shared/lib/utils';
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
 }
 
 export function MarketingLayout({ children }: MarketingLayoutProps) {
-  const t = useTranslations('jerseys.nav');
   const locale = useLocale();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const switchLocale = (newLocale: string) => {
+    // Replace /en/ or /es/ at the start of the path
+    return pathname.replace(`/${locale}`, `/${newLocale}`);
+  };
 
   return (
     <>
@@ -26,8 +27,8 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
         {/* Top promo bar */}
         <div className="bg-primary text-black text-center py-2 text-xs sm:text-sm font-semibold tracking-wide">
           {locale === 'es'
-            ? 'ENVÍO GRATIS en pedidos superiores a $100'
-            : 'FREE SHIPPING on orders over $100'}
+            ? '3x2 EN TODAS LAS CAMISETAS + ENVÍO GRATUITO'
+            : '3 FOR 2 ON ALL JERSEYS + FREE SHIPPING'}
         </div>
 
         {/* Header */}
@@ -43,46 +44,26 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
             </Link>
 
             {/* Actions */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              {/* Language switcher */}
+              <Link
+                href={switchLocale('en')}
+                className={`text-xs font-bold px-1.5 py-0.5 rounded transition-opacity ${locale === 'en' ? 'text-white opacity-100' : 'text-zinc-500 opacity-60 hover:opacity-90'}`}
+                aria-label="English"
+              >
+                GB
+              </Link>
+              <Link
+                href={switchLocale('es')}
+                className={`text-xs font-bold px-1.5 py-0.5 rounded transition-opacity ${locale === 'es' ? 'text-white opacity-100' : 'text-zinc-500 opacity-60 hover:opacity-90'}`}
+                aria-label="Español"
+              >
+                ES
+              </Link>
+
               <CartIcon />
-
-              <Button
-                size="sm"
-                className="hidden sm:inline-flex bg-primary text-black font-bold hover:bg-primary/90"
-                asChild
-              >
-                <Link href={`/${locale}#catalog`}>
-                  <ShoppingBag className="h-4 w-4 mr-1.5" />
-                  {t('catalog')}
-                </Link>
-              </Button>
-
-              {/* Mobile menu button */}
-              <button
-                className="md:hidden text-zinc-400 hover:text-white"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle menu"
-              >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
             </div>
           </div>
-
-          {/* Mobile menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden border-t border-zinc-800 bg-black">
-              <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
-                <Link
-                  href={`/${locale}#catalog`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium text-zinc-300 hover:text-white py-2"
-                >
-                  <ShoppingBag className="h-4 w-4 inline mr-1.5" />
-                  {t('catalog')}
-                </Link>
-              </nav>
-            </div>
-          )}
         </header>
 
         {/* Main */}
@@ -111,16 +92,6 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
                   {locale === 'es' ? 'Enlaces' : 'Links'}
                 </h3>
                 <ul className="space-y-2">
-                  <li>
-                    <Link href={`/${locale}`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
-                      {t('home')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={`/${locale}#catalog`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
-                      {t('catalog')}
-                    </Link>
-                  </li>
                   <li>
                     <Link href={`/${locale}/privacy`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
                       {locale === 'es' ? 'Privacidad' : 'Privacy'}

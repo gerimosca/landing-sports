@@ -37,8 +37,8 @@ export function FilterBar({ activeLeague, activeTeam, onLeagueChange, onTeamChan
   return (
     <div className="space-y-3">
       {/* League filters */}
-      <div className="w-full overflow-x-auto scrollbar-hide py-2">
-        <div className="flex items-center gap-2 min-w-max px-4 md:px-0 md:justify-center md:flex-wrap">
+      <div className="w-full py-2">
+        <div className="flex flex-wrap items-center justify-center gap-2 px-4 md:px-0">
           <button
             onClick={() => {
               onLeagueChange(null);
@@ -77,8 +77,8 @@ export function FilterBar({ activeLeague, activeTeam, onLeagueChange, onTeamChan
 
       {/* Team sub-filters (shown when a league is selected) */}
       {activeLeague && teamsInLeague.length > 0 && (
-        <div className="w-full overflow-x-auto scrollbar-hide py-2">
-          <div className="flex items-center gap-2 min-w-max px-4 md:px-0 md:justify-center md:flex-wrap">
+        <div className="w-full py-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 px-4 md:px-0">
             <ChevronRight className="h-4 w-4 text-zinc-600 hidden md:block" />
             <button
               onClick={() => onTeamChange(null)}

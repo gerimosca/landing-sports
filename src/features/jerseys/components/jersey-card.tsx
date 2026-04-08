@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { ShoppingCart, Star, X } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/shared/lib/utils';
 import { useCart } from '@/features/cart';
@@ -93,93 +93,108 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
           </span>
         </div>
 
-        {/* Hover overlay - open options */}
-        {!showOptions && (
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      </div>
+
+      {/* Info */}
+      <div className="p-4">
+        <h3 className="font-bold text-white text-sm group-hover:text-primary transition-colors">
+          {jersey.team}
+        </h3>
+        <div className="mt-2 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-lg font-black text-white">
+              €{jersey.price.toFixed(2)}
+            </span>
+            {jersey.originalPrice && (
+              <span className="text-sm text-zinc-500 line-through">
+                €{jersey.originalPrice.toFixed(2)}
+              </span>
+            )}
+          </div>
+          {!showOptions && (
             <button
               onClick={handleOpenOptions}
-              className="flex items-center gap-2 px-6 py-3 bg-primary text-black font-bold rounded-full text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+              className="flex items-center gap-1.5 px-4 py-2 bg-primary text-black font-bold rounded-full text-xs hover:brightness-110 transition-all"
             >
-              <ShoppingCart className="h-4 w-4" />
+              <ShoppingCart className="h-3.5 w-3.5" />
               {t('card.addToCart')}
             </button>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
 
-        {/* Options panel overlay */}
-        {showOptions && (
-          <div className="absolute inset-0 bg-black/90 flex flex-col p-3 z-20 animate-in fade-in duration-200">
-            {/* Close */}
+      {/* Options panel - expands below info */}
+      {showOptions && (
+        <div className="border-t border-zinc-800 bg-zinc-950 p-4 space-y-3 animate-in slide-in-from-top-2 fade-in duration-200">
+          {/* Size selector - full width grid */}
+          <div>
+            <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+              {tc('size')}
+            </p>
+            <div className="grid grid-cols-4 gap-1.5">
+              {SIZES.map((size) => (
+                <button
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
+                  className={cn(
+                    'py-2 text-xs font-bold rounded border transition-colors text-center',
+                    selectedSize === size
+                      ? 'border-primary bg-primary text-black'
+                      : 'border-zinc-700 text-zinc-300 hover:border-primary'
+                  )}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Dorsal fields */}
+          <div className="space-y-2">
+            <div>
+              <label className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
+                {tc('dorsalName')}
+              </label>
+              <input
+                type="text"
+                value={dorsalName}
+                onChange={(e) => setDorsalName(e.target.value.toUpperCase())}
+                placeholder={tc('dorsalNamePlaceholder')}
+                maxLength={20}
+                className="w-full mt-0.5 px-3 py-2 text-xs bg-zinc-800 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
+                {tc('dorsalNumber')}
+              </label>
+              <input
+                type="text"
+                value={dorsalNumber}
+                onChange={(e) => {
+                  const val = e.target.value.replace(/\D/g, '');
+                  if (val.length <= 2) setDorsalNumber(val);
+                }}
+                placeholder={tc('dorsalNumberPlaceholder')}
+                maxLength={2}
+                className="w-full mt-0.5 px-3 py-2 text-xs bg-zinc-800 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="flex gap-2 pt-1">
             <button
               onClick={handleClose}
-              className="absolute top-2 right-2 p-1 text-zinc-400 hover:text-white"
-              aria-label="Close"
+              className="flex-1 py-2.5 text-xs font-bold rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors"
             >
-              <X className="h-4 w-4" />
+              {tc('continueShopping')}
             </button>
-
-            {/* Size selector */}
-            <div className="mb-2">
-              <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">
-                {tc('size')}
-              </p>
-              <div className="flex flex-wrap gap-1">
-                {SIZES.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={cn(
-                      'px-2 py-1 text-[10px] font-bold rounded border transition-colors',
-                      selectedSize === size
-                        ? 'border-primary bg-primary text-black'
-                        : 'border-zinc-700 text-zinc-300 hover:border-primary'
-                    )}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Dorsal fields */}
-            <div className="space-y-1.5 flex-1">
-              <div>
-                <label className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
-                  {tc('dorsalName')}
-                </label>
-                <input
-                  type="text"
-                  value={dorsalName}
-                  onChange={(e) => setDorsalName(e.target.value.toUpperCase())}
-                  placeholder={tc('dorsalNamePlaceholder')}
-                  maxLength={20}
-                  className="w-full mt-0.5 px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
-                  {tc('dorsalNumber')}
-                </label>
-                <input
-                  type="text"
-                  value={dorsalNumber}
-                  onChange={(e) => {
-                    const val = e.target.value.replace(/\D/g, '');
-                    if (val.length <= 2) setDorsalNumber(val);
-                  }}
-                  placeholder={tc('dorsalNumberPlaceholder')}
-                  maxLength={2}
-                  className="w-full mt-0.5 px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
-                />
-              </div>
-            </div>
-
-            {/* Add button */}
             <button
               onClick={handleAddToCart}
               disabled={!selectedSize}
               className={cn(
-                'w-full mt-2 py-2 text-xs font-bold rounded-full transition-all',
+                'flex-1 py-2.5 text-xs font-bold rounded-full transition-all',
                 selectedSize
                   ? 'bg-primary text-black hover:brightness-110'
                   : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
@@ -189,25 +204,8 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
               {selectedSize ? t('card.addToCart') : tc('selectSize')}
             </button>
           </div>
-        )}
-      </div>
-
-      {/* Info */}
-      <div className="p-4">
-        <h3 className="font-bold text-white text-sm group-hover:text-primary transition-colors">
-          {jersey.team}
-        </h3>
-        <div className="mt-2 flex items-center gap-2">
-          <span className="text-lg font-black text-white">
-            ${jersey.price.toFixed(2)}
-          </span>
-          {jersey.originalPrice && (
-            <span className="text-sm text-zinc-500 line-through">
-              ${jersey.originalPrice.toFixed(2)}
-            </span>
-          )}
         </div>
-      </div>
+      )}
     </article>
   );
 }

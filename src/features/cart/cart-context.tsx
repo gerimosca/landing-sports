@@ -23,6 +23,9 @@ interface CartContextValue {
   clearCart: () => void;
   totalItems: number;
   totalPrice: number;
+  discount: number;
+  shippingCost: number;
+  finalPrice: number;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -114,9 +117,34 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [items]
   );
 
+  // 3x2 logic: for every 3 jerseys, the cheapest one is free
+  const discount = useMemo(() => {
+    // Expand items by quantity into individual unit prices
+    const unitPrices: number[] = [];
+    for (const item of items) {
+      for (let i = 0; i < item.quantity; i++) {
+        unitPrices.push(item.jersey.price);
+      }
+    }
+    if (unitPrices.length < 3) return 0;
+    // Sort ascending so cheapest are first
+    unitPrices.sort((a, b) => a - b);
+    // Every group of 3, the cheapest (first in group) is free
+    const freeCount = Math.floor(unitPrices.length / 3);
+    return unitPrices.slice(0, freeCount).reduce((sum, p) => sum + p, 0);
+  }, [items]);
+
+  // Shipping: free if 3+ jerseys, otherwise €7
+  const shippingCost = useMemo(() => (totalItems >= 3 ? 0 : 7), [totalItems]);
+
+  const finalPrice = useMemo(
+    () => totalPrice - discount + shippingCost,
+    [totalPrice, discount, shippingCost]
+  );
+
   const value = useMemo(
-    () => ({ items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice }),
-    [items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice]
+    () => ({ items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice, discount, shippingCost, finalPrice }),
+    [items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice, discount, shippingCost, finalPrice]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
