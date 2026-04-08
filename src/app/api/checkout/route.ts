@@ -7,12 +7,23 @@ interface CheckoutItem {
   quantity: number;
 }
 
+interface ShippingInfo {
+  firstName: string;
+  lastName: string;
+  address: string;
+  address2?: string;
+  city: string;
+  postalCode: string;
+  phone: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { items, locale, email } = (await request.json()) as {
+    const { items, locale, email, shipping } = (await request.json()) as {
       items: CheckoutItem[];
       locale: string;
       email?: string;
+      shipping?: ShippingInfo;
     };
 
     if (!items || items.length === 0) {
@@ -24,6 +35,16 @@ export async function POST(request: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: email || undefined,
+      metadata: shipping
+        ? {
+            shipping_name: `${shipping.firstName} ${shipping.lastName}`,
+            shipping_address: shipping.address,
+            shipping_address2: shipping.address2 || '',
+            shipping_city: shipping.city,
+            shipping_postal_code: shipping.postalCode,
+            shipping_phone: shipping.phone,
+          }
+        : undefined,
       line_items: items.map((item) => ({
         price_data: {
           currency: 'usd',

@@ -2,18 +2,75 @@
 
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail } from 'lucide-react';
+import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
 import { cartItemKey } from '../types';
 import { cn } from '@/shared/lib/utils';
 
+const PHONE_PREFIXES = [
+  { code: '+1', country: 'US/CA' },
+  { code: '+34', country: 'ES' },
+  { code: '+44', country: 'UK' },
+  { code: '+49', country: 'DE' },
+  { code: '+33', country: 'FR' },
+  { code: '+39', country: 'IT' },
+  { code: '+351', country: 'PT' },
+  { code: '+52', country: 'MX' },
+  { code: '+54', country: 'AR' },
+  { code: '+55', country: 'BR' },
+  { code: '+56', country: 'CL' },
+  { code: '+57', country: 'CO' },
+  { code: '+58', country: 'VE' },
+  { code: '+502', country: 'GT' },
+  { code: '+503', country: 'SV' },
+  { code: '+504', country: 'HN' },
+  { code: '+505', country: 'NI' },
+  { code: '+506', country: 'CR' },
+  { code: '+507', country: 'PA' },
+  { code: '+51', country: 'PE' },
+  { code: '+593', country: 'EC' },
+  { code: '+595', country: 'PY' },
+  { code: '+598', country: 'UY' },
+  { code: '+591', country: 'BO' },
+  { code: '+81', country: 'JP' },
+  { code: '+82', country: 'KR' },
+  { code: '+86', country: 'CN' },
+  { code: '+91', country: 'IN' },
+  { code: '+61', country: 'AU' },
+  { code: '+64', country: 'NZ' },
+];
+
+interface ShippingForm {
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  address2: string;
+  city: string;
+  postalCode: string;
+  phonePrefix: string;
+  phone: string;
+}
+
+type ShippingErrors = Partial<Record<keyof ShippingForm, boolean>>;
+
 export function CartPage() {
   const t = useTranslations('cart');
   const locale = useLocale();
   const { items, updateQuantity, removeItem, totalPrice, totalItems } = useCart();
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState(false);
+  const [form, setForm] = useState<ShippingForm>({
+    email: '',
+    firstName: '',
+    lastName: '',
+    address: '',
+    address2: '',
+    city: '',
+    postalCode: '',
+    phonePrefix: '+34',
+    phone: '',
+  });
+  const [errors, setErrors] = useState<ShippingErrors>({});
 
   const getKey = (item: (typeof items)[0]) =>
     cartItemKey(item.jersey.id, {
@@ -22,13 +79,41 @@ export function CartPage() {
       dorsalNumber: item.dorsalNumber,
     });
 
-  const handleCheckout = async () => {
-    const trimmedEmail = email.trim();
-    if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
-      setEmailError(true);
-      return;
+  const updateField = (field: keyof ShippingForm, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: false }));
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: ShippingErrors = {};
+    const trimmed = {
+      email: form.email.trim(),
+      firstName: form.firstName.trim(),
+      lastName: form.lastName.trim(),
+      address: form.address.trim(),
+      city: form.city.trim(),
+      postalCode: form.postalCode.trim(),
+      phone: form.phone.trim(),
+    };
+
+    if (!trimmed.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed.email)) {
+      newErrors.email = true;
     }
-    setEmailError(false);
+    if (!trimmed.firstName) newErrors.firstName = true;
+    if (!trimmed.lastName) newErrors.lastName = true;
+    if (!trimmed.address) newErrors.address = true;
+    if (!trimmed.city) newErrors.city = true;
+    if (!trimmed.postalCode) newErrors.postalCode = true;
+    if (!trimmed.phone || !/^[\d\s()-]{6,20}$/.test(trimmed.phone)) {
+      newErrors.phone = true;
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleCheckout = async () => {
+    if (!validateForm()) return;
 
     try {
       const res = await fetch('/api/checkout', {
@@ -43,7 +128,16 @@ export function CartPage() {
             return { name: parts.join(' '), price: jersey.price, quantity };
           }),
           locale,
-          email: trimmedEmail,
+          email: form.email.trim(),
+          shipping: {
+            firstName: form.firstName.trim(),
+            lastName: form.lastName.trim(),
+            address: form.address.trim(),
+            address2: form.address2.trim(),
+            city: form.city.trim(),
+            postalCode: form.postalCode.trim(),
+            phone: `${form.phonePrefix} ${form.phone.trim()}`,
+          },
         }),
       });
       const { url } = await res.json();
@@ -205,37 +299,211 @@ export function CartPage() {
                 </div>
               </div>
 
-              {/* Email field */}
-              <div className="mb-6">
-                <label htmlFor="checkout-email" className="block text-sm font-semibold text-white mb-1.5">
-                  <Mail className="inline h-4 w-4 mr-1.5 text-primary" />
-                  {t('emailLabel')} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="checkout-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (emailError) setEmailError(false);
-                  }}
-                  placeholder={t('emailPlaceholder')}
-                  aria-required="true"
-                  aria-invalid={emailError}
-                  aria-describedby="email-help email-error"
-                  className={cn(
-                    'w-full px-4 py-2.5 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
-                    emailError ? 'border-red-500' : 'border-zinc-700'
+              {/* Shipping details */}
+              <div className="mb-6 space-y-4">
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  {t('shippingTitle')}
+                </h3>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="checkout-email" className="block text-xs font-semibold text-zinc-300 mb-1">
+                    <Mail className="inline h-3.5 w-3.5 mr-1 text-primary" />
+                    {t('emailLabel')} <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="checkout-email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => updateField('email', e.target.value)}
+                    placeholder={t('emailPlaceholder')}
+                    aria-required="true"
+                    aria-invalid={errors.email}
+                    aria-describedby="email-help email-error"
+                    className={cn(
+                      'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                      errors.email ? 'border-red-500' : 'border-zinc-700'
+                    )}
+                  />
+                  {errors.email && (
+                    <p id="email-error" role="alert" className="text-xs text-red-500 mt-1">
+                      {t('emailRequired')}
+                    </p>
                   )}
-                />
-                {emailError && (
-                  <p id="email-error" role="alert" className="text-xs text-red-500 mt-1">
-                    {t('emailRequired')}
+                  <p id="email-help" className="text-[11px] text-primary/80 mt-1">
+                    {t('emailHelp')}
                   </p>
-                )}
-                <p id="email-help" className="text-xs text-primary/80 mt-1.5 font-medium">
-                  {t('emailHelp')}
-                </p>
+                </div>
+
+                {/* First Name & Last Name */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="checkout-firstName" className="block text-xs font-semibold text-zinc-300 mb-1">
+                      {t('firstNameLabel')} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="checkout-firstName"
+                      type="text"
+                      value={form.firstName}
+                      onChange={(e) => updateField('firstName', e.target.value)}
+                      placeholder={t('firstNamePlaceholder')}
+                      aria-required="true"
+                      aria-invalid={errors.firstName}
+                      className={cn(
+                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        errors.firstName ? 'border-red-500' : 'border-zinc-700'
+                      )}
+                    />
+                    {errors.firstName && (
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="checkout-lastName" className="block text-xs font-semibold text-zinc-300 mb-1">
+                      {t('lastNameLabel')} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="checkout-lastName"
+                      type="text"
+                      value={form.lastName}
+                      onChange={(e) => updateField('lastName', e.target.value)}
+                      placeholder={t('lastNamePlaceholder')}
+                      aria-required="true"
+                      aria-invalid={errors.lastName}
+                      className={cn(
+                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        errors.lastName ? 'border-red-500' : 'border-zinc-700'
+                      )}
+                    />
+                    {errors.lastName && (
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div>
+                  <label htmlFor="checkout-address" className="block text-xs font-semibold text-zinc-300 mb-1">
+                    {t('addressLabel')} <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="checkout-address"
+                    type="text"
+                    value={form.address}
+                    onChange={(e) => updateField('address', e.target.value)}
+                    placeholder={t('addressPlaceholder')}
+                    aria-required="true"
+                    aria-invalid={errors.address}
+                    className={cn(
+                      'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                      errors.address ? 'border-red-500' : 'border-zinc-700'
+                    )}
+                  />
+                  {errors.address && (
+                    <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                  )}
+                  <input
+                    id="checkout-address2"
+                    type="text"
+                    value={form.address2}
+                    onChange={(e) => updateField('address2', e.target.value)}
+                    placeholder={t('address2Placeholder')}
+                    aria-label={t('address2Label')}
+                    className="w-full mt-2 px-3 py-2 text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors"
+                  />
+                </div>
+
+                {/* City & Postal Code */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="checkout-city" className="block text-xs font-semibold text-zinc-300 mb-1">
+                      {t('cityLabel')} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="checkout-city"
+                      type="text"
+                      value={form.city}
+                      onChange={(e) => updateField('city', e.target.value)}
+                      placeholder={t('cityPlaceholder')}
+                      aria-required="true"
+                      aria-invalid={errors.city}
+                      className={cn(
+                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        errors.city ? 'border-red-500' : 'border-zinc-700'
+                      )}
+                    />
+                    {errors.city && (
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="checkout-postalCode" className="block text-xs font-semibold text-zinc-300 mb-1">
+                      {t('postalCodeLabel')} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="checkout-postalCode"
+                      type="text"
+                      value={form.postalCode}
+                      onChange={(e) => updateField('postalCode', e.target.value)}
+                      placeholder={t('postalCodePlaceholder')}
+                      aria-required="true"
+                      aria-invalid={errors.postalCode}
+                      className={cn(
+                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        errors.postalCode ? 'border-red-500' : 'border-zinc-700'
+                      )}
+                    />
+                    {errors.postalCode && (
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Phone with prefix */}
+                <div>
+                  <label htmlFor="checkout-phone" className="block text-xs font-semibold text-zinc-300 mb-1">
+                    <Phone className="inline h-3.5 w-3.5 mr-1 text-primary" />
+                    {t('phoneLabel')} <span className="text-red-500">*</span>
+                  </label>
+                  <div className="flex gap-2">
+                    <select
+                      id="checkout-phonePrefix"
+                      value={form.phonePrefix}
+                      onChange={(e) => updateField('phonePrefix', e.target.value)}
+                      aria-label={t('phonePrefix')}
+                      className="w-[110px] flex-shrink-0 px-2 py-2 text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
+                    >
+                      {PHONE_PREFIXES.map(({ code, country }) => (
+                        <option key={code} value={code}>
+                          {code} {country}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      id="checkout-phone"
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => updateField('phone', e.target.value)}
+                      placeholder={t('phonePlaceholder')}
+                      aria-required="true"
+                      aria-invalid={errors.phone}
+                      aria-describedby="phone-help phone-error"
+                      className={cn(
+                        'flex-1 px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        errors.phone ? 'border-red-500' : 'border-zinc-700'
+                      )}
+                    />
+                  </div>
+                  {errors.phone && (
+                    <p id="phone-error" role="alert" className="text-xs text-red-500 mt-1">
+                      {t('phoneInvalid')}
+                    </p>
+                  )}
+                  <p id="phone-help" className="text-[11px] text-primary/80 mt-1">
+                    {t('phoneHelp')}
+                  </p>
+                </div>
               </div>
 
               <button
