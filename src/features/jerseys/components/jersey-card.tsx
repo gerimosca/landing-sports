@@ -206,21 +206,19 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
       </div>
 
       {/* Info */}
-      <div className="p-3 sm:p-4">
-        <div className="flex items-center justify-between gap-2">
-          <h3 className="font-bold text-white text-xs sm:text-sm group-hover:text-primary transition-colors truncate">
-            {jersey.team}
-          </h3>
-          <div className="flex items-center gap-1.5 shrink-0">
-            <span className="text-sm sm:text-lg font-black text-white">
-              €{jersey.price.toFixed(2)}
+      <div className="p-3 sm:p-4 text-center">
+        <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-primary transition-colors truncate">
+          {jersey.team}
+        </h3>
+        <div className="flex items-center justify-center gap-1.5 mt-1">
+          <span className="text-xs sm:text-sm font-black text-white">
+            €{jersey.price.toFixed(2)}
+          </span>
+          {jersey.originalPrice && (
+            <span className="text-[10px] sm:text-sm text-zinc-500 line-through">
+              €{jersey.originalPrice.toFixed(2)}
             </span>
-            {jersey.originalPrice && (
-              <span className="text-[10px] sm:text-sm text-zinc-500 line-through">
-                €{jersey.originalPrice.toFixed(2)}
-              </span>
-            )}
-          </div>
+          )}
         </div>
         {!showOptions && (
           <button
@@ -293,18 +291,12 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2 pt-1">
-            <button
-              onClick={handleClose}
-              className="flex-1 py-2.5 text-xs font-bold rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors"
-            >
-              {tc('continueShopping')}
-            </button>
+          <div className="flex flex-col gap-2 pt-1">
             <button
               onClick={handleAddToCart}
               disabled={!selectedSize}
               className={cn(
-                'flex-1 py-2.5 text-xs font-bold rounded-full transition-all',
+                'w-full py-2.5 text-xs font-bold rounded-full transition-all text-center',
                 selectedSize
                   ? 'bg-primary text-black hover:brightness-110'
                   : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
@@ -312,6 +304,12 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
             >
               <ShoppingCart className="h-3.5 w-3.5 inline mr-1.5" />
               {selectedSize ? t('card.addToCart') : tc('selectSize')}
+            </button>
+            <button
+              onClick={handleClose}
+              className="w-full py-2 text-xs font-bold rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors text-center"
+            >
+              {tc('continueShopping')}
             </button>
           </div>
         </div>
