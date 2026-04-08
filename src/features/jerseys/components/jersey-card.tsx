@@ -206,31 +206,31 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
       </div>
 
       {/* Info */}
-      <div className="p-4">
-        <h3 className="font-bold text-white text-sm group-hover:text-primary transition-colors">
-          {jersey.team}
-        </h3>
-        <div className="mt-2 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-black text-white">
+      <div className="p-3 sm:p-4">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="font-bold text-white text-xs sm:text-sm group-hover:text-primary transition-colors truncate">
+            {jersey.team}
+          </h3>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="text-sm sm:text-lg font-black text-white">
               €{jersey.price.toFixed(2)}
             </span>
             {jersey.originalPrice && (
-              <span className="text-sm text-zinc-500 line-through">
+              <span className="text-[10px] sm:text-sm text-zinc-500 line-through">
                 €{jersey.originalPrice.toFixed(2)}
               </span>
             )}
           </div>
-          {!showOptions && (
-            <button
-              onClick={handleOpenOptions}
-              className="flex items-center gap-1.5 px-4 py-2 bg-primary text-black font-bold rounded-full text-xs hover:brightness-110 transition-all"
-            >
-              <ShoppingCart className="h-3.5 w-3.5" />
-              {t('card.addToCart')}
-            </button>
-          )}
         </div>
+        {!showOptions && (
+          <button
+            onClick={handleOpenOptions}
+            className="mt-2 w-full flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 bg-primary text-black font-bold rounded-full text-[11px] sm:text-xs hover:brightness-110 transition-all"
+          >
+            <ShoppingCart className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            {t('card.addToCart')}
+          </button>
+        )}
       </div>
 
       {/* Options panel - expands below info */}
