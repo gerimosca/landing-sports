@@ -28,6 +28,7 @@ yarn-error.log*
 # .env is tracked (template with placeholders)
 # .env.local and .env*.local are gitignored (contain real credentials)
 .env*.local
+.env.test
 
 # vercel
 .vercel
