@@ -44,5 +44,19 @@
   "checkout": "Proceed to Checkout",
   "continueShopping": "Continue Shopping",
   "added": "Added to cart!",
-  "itemCount": "{count, plural, one {# item} other {# items}}"
+  "itemCount": "{count, plural, one {# item} other {# items}}",
+  "successTitle": "Order Confirmed!",
+  "successDescription": "Thank you for your purchase. Your order is on its way.",
+  "orderSummary": "Order Summary",
+  "qty": "Qty:",
+  "discount": "3 for 2 Promo",
+  "total": "Total",
+  "shippingTo": "Shipping to",
+  "emailNotice": "You will receive all the details of your order by email",
+  "emailNoticeDetail": "We've sent the confirmation to {email}",
+  "cancelTitle": "Order not completed",
+  "cancelDescription": "Your payment was not processed. No charges have been made. Your cart items are still saved.",
+  "errorTitle": "Something went wrong",
+  "errorDescription": "We couldn't verify your payment. If you were charged, please contact us.",
+  "backToCart": "Back to Cart"
 }

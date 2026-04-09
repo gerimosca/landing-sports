@@ -90,23 +90,28 @@ export async function POST(request: NextRequest) {
       discounts = [{ coupon: coupon.id }];
     }
 
+    const shippingMetadata = shipping
+      ? {
+          shipping_name: `${shipping.firstName} ${shipping.lastName}`,
+          shipping_address: shipping.address,
+          shipping_address2: shipping.address2 || '',
+          shipping_city: shipping.city,
+          shipping_postal_code: shipping.postalCode,
+          shipping_phone: shipping.phone,
+        }
+      : undefined;
+
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: email || undefined,
-      metadata: shipping
-        ? {
-            shipping_name: `${shipping.firstName} ${shipping.lastName}`,
-            shipping_address: shipping.address,
-            shipping_address2: shipping.address2 || '',
-            shipping_city: shipping.city,
-            shipping_postal_code: shipping.postalCode,
-            shipping_phone: shipping.phone,
-          }
+      metadata: shippingMetadata,
+      payment_intent_data: shippingMetadata
+        ? { metadata: shippingMetadata }
         : undefined,
       line_items: lineItems,
       discounts,
-      success_url: `${origin}/${locale}/cart?success=true`,
-      cancel_url: `${origin}/${locale}/cart`,
+      success_url: `${origin}/${locale}/order/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/${locale}/order/cancel`,
     });
 
     return NextResponse.json({ url: session.url });
