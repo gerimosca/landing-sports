@@ -27,8 +27,8 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
         {/* Top promo bar */}
         <div className="bg-primary text-black text-center py-2 text-xs sm:text-sm font-semibold tracking-wide">
           {locale === 'es'
-            ? '3x2 EN TODAS LAS CAMISETAS + ENVÍO GRATUITO'
-            : '3 FOR 2 ON ALL JERSEYS + FREE SHIPPING'}
+            ? '3x2 EN TODAS LAS CAMISETAS - LA MAS BARATA TE LA REGALAMOS + ENVÍO GRATUITO INCLUIDO'
+            : '3 FOR 2 ON ALL JERSEYS - CHEAPEST ONE IS FREE + FREE SHIPPING INCLUDED'}
         </div>
 
         {/* Header */}

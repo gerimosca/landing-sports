@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       status: session.payment_status,
+      order_number: session.metadata?.['01_order_number'] || null,
       customer_email: session.customer_details?.email || session.customer_email,
       line_items: session.line_items?.data.map((item) => ({
         name: item.description,
@@ -31,14 +32,14 @@ export async function GET(request: NextRequest) {
       shipping_cost: (session.line_items?.data.find(
         (item) => item.description === 'Shipping / Envío'
       )?.amount_total || 0) / 100,
-      shipping: session.metadata?.shipping_name
+      shipping: session.metadata?.['02_shipping_name']
         ? {
-            name: session.metadata.shipping_name,
-            address: session.metadata.shipping_address,
-            address2: session.metadata.shipping_address2 || '',
-            city: session.metadata.shipping_city,
-            postalCode: session.metadata.shipping_postal_code,
-            phone: session.metadata.shipping_phone || '',
+            name: session.metadata['02_shipping_name'],
+            address: session.metadata['04_shipping_address'],
+            address2: session.metadata['05_shipping_address2'] || '',
+            city: session.metadata['06_shipping_city'],
+            postalCode: session.metadata['07_shipping_postal_code'],
+            phone: session.metadata['03_shipping_phone'] || '',
           }
         : null,
     });

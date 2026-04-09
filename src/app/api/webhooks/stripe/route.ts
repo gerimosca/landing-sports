@@ -10,6 +10,8 @@ import {
 import type { CancellationDetails } from '@/features/billing';
 import { trackServerPurchase } from '@/features/attribution';
 import type { AttributionData } from '@/features/attribution';
+import { sendEmail, OrderConfirmationEmail } from '@/shared/email';
+import { createElement } from 'react';
 import type Stripe from 'stripe';
 
 // Helper to safely convert Stripe timestamp to Date
@@ -67,75 +69,150 @@ export async function POST(req: Request) {
       case 'checkout.session.completed': {
         const session = event.data.object as Stripe.Checkout.Session;
 
-        // Get user_id from client_reference_id (set in Pricing Table)
         const userId = session.client_reference_id;
-        if (!userId) {
-          console.error('No client_reference_id in checkout session');
-          break;
-        }
 
-        // Parse attribution data from metadata
-        let attributionData: AttributionData = {};
-        if (session.metadata?.attribution_data) {
-          try {
-            attributionData = JSON.parse(session.metadata.attribution_data);
-          } catch {
-            console.warn('Failed to parse attribution data from metadata');
+        // Handle subscription checkout (SaaS billing)
+        if (userId) {
+          // Parse attribution data from metadata
+          let attributionData: AttributionData = {};
+          if (session.metadata?.attribution_data) {
+            try {
+              attributionData = JSON.parse(session.metadata.attribution_data);
+            } catch {
+              console.warn('Failed to parse attribution data from metadata');
+            }
+          }
+
+          // Create/update customer mapping
+          await upsertCustomer({
+            user_id: userId,
+            stripe_customer_id: session.customer as string,
+          });
+
+          // If this is a subscription checkout, sync the subscription
+          if (session.subscription) {
+            const stripeSubscription = await stripe.subscriptions.retrieve(
+              session.subscription as string
+            );
+
+            const subscriptionItem = stripeSubscription.items.data[0];
+            const priceAmount = subscriptionItem.price.unit_amount || session.amount_total || null;
+            const priceCurrency = subscriptionItem.price.currency || session.currency || 'usd';
+
+            await upsertSubscription({
+              id: stripeSubscription.id,
+              user_id: userId,
+              stripe_customer_id: stripeSubscription.customer as string,
+              stripe_price_id: subscriptionItem.price.id,
+              status: stripeSubscription.status,
+              current_period_start: stripeTimestampToDate(subscriptionItem.current_period_start),
+              current_period_end: stripeTimestampToDate(subscriptionItem.current_period_end),
+              cancel_at_period_end: stripeSubscription.cancel_at_period_end,
+              trial_start_at: stripeTimestampToDate(stripeSubscription.trial_start),
+              trial_end_at: stripeTimestampToDate(stripeSubscription.trial_end),
+              canceled_at: stripeTimestampToDate(stripeSubscription.canceled_at),
+              ended_at: stripeTimestampToDate(stripeSubscription.ended_at),
+              cancel_at: stripeTimestampToDate(stripeSubscription.cancel_at),
+              cancellation_details: extractCancellationDetails(stripeSubscription),
+              metadata: stripeSubscription.metadata || {},
+              attribution_data: attributionData,
+              price_amount: priceAmount,
+              price_currency: priceCurrency,
+            });
+
+            // Send server-side conversion tracking
+            const eventId = session.metadata?.event_id || crypto.randomUUID();
+            const value = session.amount_total ? session.amount_total / 100 : 0;
+            const currency = session.currency?.toUpperCase() || 'USD';
+
+            await trackServerPurchase(
+              eventId,
+              attributionData,
+              value,
+              currency,
+              session.customer_email || undefined,
+              userId
+            ).catch((err) => {
+              console.error('Failed to track server purchase:', err);
+            });
           }
         }
 
-        // Create/update customer mapping
-        await upsertCustomer({
-          user_id: userId,
-          stripe_customer_id: session.customer as string,
-        });
+        // Send order confirmation email for one-time payments (store orders)
+        const orderNumber = session.metadata?.['01_order_number'];
+        const customerEmail =
+          session.customer_details?.email || session.customer_email;
 
-        // If this is a subscription checkout, sync the subscription
-        if (session.subscription) {
-          const stripeSubscription = await stripe.subscriptions.retrieve(
-            session.subscription as string
-          );
+        if (orderNumber && customerEmail && session.mode === 'payment') {
+          try {
+            // Retrieve line items from Stripe
+            const fullSession = await stripe.checkout.sessions.retrieve(
+              session.id,
+              { expand: ['line_items'] }
+            );
 
-          const subscriptionItem = stripeSubscription.items.data[0];
-          const priceAmount = subscriptionItem.price.unit_amount || session.amount_total || null;
-          const priceCurrency = subscriptionItem.price.currency || session.currency || 'usd';
+            const lineItems = fullSession.line_items?.data || [];
+            const productItems = lineItems
+              .filter((item) => item.description !== 'Shipping / Envío')
+              .map((item) => ({
+                name: item.description || '',
+                quantity: item.quantity || 1,
+                amount: (item.amount_subtotal || 0) / 100,
+              }));
 
-          await upsertSubscription({
-            id: stripeSubscription.id,
-            user_id: userId,
-            stripe_customer_id: stripeSubscription.customer as string,
-            stripe_price_id: subscriptionItem.price.id,
-            status: stripeSubscription.status,
-            current_period_start: stripeTimestampToDate(subscriptionItem.current_period_start),
-            current_period_end: stripeTimestampToDate(subscriptionItem.current_period_end),
-            cancel_at_period_end: stripeSubscription.cancel_at_period_end,
-            trial_start_at: stripeTimestampToDate(stripeSubscription.trial_start),
-            trial_end_at: stripeTimestampToDate(stripeSubscription.trial_end),
-            canceled_at: stripeTimestampToDate(stripeSubscription.canceled_at),
-            ended_at: stripeTimestampToDate(stripeSubscription.ended_at),
-            cancel_at: stripeTimestampToDate(stripeSubscription.cancel_at),
-            cancellation_details: extractCancellationDetails(stripeSubscription),
-            metadata: stripeSubscription.metadata || {},
-            attribution_data: attributionData,
-            price_amount: priceAmount,
-            price_currency: priceCurrency,
-          });
+            const shippingLineItem = lineItems.find(
+              (item) => item.description === 'Shipping / Envío'
+            );
 
-          // Send server-side conversion tracking
-          const eventId = session.metadata?.event_id || crypto.randomUUID();
-          const value = session.amount_total ? session.amount_total / 100 : 0;
-          const currency = session.currency?.toUpperCase() || 'USD';
+            const subtotal = (fullSession.amount_subtotal || 0) / 100;
+            const discount =
+              (fullSession.total_details?.amount_discount || 0) / 100;
+            const shippingCost = shippingLineItem
+              ? (shippingLineItem.amount_total || 0) / 100
+              : 0;
+            const total = (fullSession.amount_total || 0) / 100;
 
-          await trackServerPurchase(
-            eventId,
-            attributionData,
-            value,
-            currency,
-            session.customer_email || undefined,
-            userId
-          ).catch((err) => {
-            console.error('Failed to track server purchase:', err);
-          });
+            const shippingName = session.metadata?.['02_shipping_name'];
+            const shipping = shippingName
+              ? {
+                  name: shippingName,
+                  phone: session.metadata?.['03_shipping_phone'] || '',
+                  address: session.metadata?.['04_shipping_address'] || '',
+                  address2: session.metadata?.['05_shipping_address2'] || '',
+                  city: session.metadata?.['06_shipping_city'] || '',
+                  postalCode:
+                    session.metadata?.['07_shipping_postal_code'] || '',
+                }
+              : null;
+
+            // Detect locale from success_url
+            const locale =
+              fullSession.success_url?.match(/\/(\w{2})\/order/)?.[1] || 'es';
+
+            await sendEmail({
+              to: customerEmail,
+              subject:
+                locale === 'es'
+                  ? `Pedido #${orderNumber} confirmado`
+                  : `Order #${orderNumber} confirmed`,
+              react: createElement(OrderConfirmationEmail, {
+                orderNumber,
+                items: productItems,
+                subtotal,
+                discount,
+                shippingCost,
+                total,
+                shipping,
+                locale,
+              }),
+            });
+
+            console.log(
+              `Order confirmation email sent to ${customerEmail} for order ${orderNumber}`
+            );
+          } catch (emailError) {
+            console.error('Failed to send order confirmation email:', emailError);
+          }
         }
 
         console.log('Checkout session completed:', session.id);

@@ -17,6 +17,13 @@ interface ShippingInfo {
   phone: string;
 }
 
+function generateOrderNumber(): string {
+  const now = new Date();
+  const date = now.toISOString().slice(0, 10).replace(/-/g, '');
+  const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+  return `LS-${date}-${random}`;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { items, locale, email, shipping } = (await request.json()) as {
@@ -31,6 +38,7 @@ export async function POST(request: NextRequest) {
     }
 
     const origin = request.headers.get('origin') || process.env.NEXT_PUBLIC_APP_URL || '';
+    const orderNumber = generateOrderNumber();
 
     // Expand items into individual units for 3x2 calculation
     const units: { name: string; price: number }[] = [];
@@ -90,24 +98,24 @@ export async function POST(request: NextRequest) {
       discounts = [{ coupon: coupon.id }];
     }
 
-    const shippingMetadata = shipping
-      ? {
-          shipping_name: `${shipping.firstName} ${shipping.lastName}`,
-          shipping_address: shipping.address,
-          shipping_address2: shipping.address2 || '',
-          shipping_city: shipping.city,
-          shipping_postal_code: shipping.postalCode,
-          shipping_phone: shipping.phone,
-        }
-      : undefined;
+    const metadata: Record<string, string> = {
+      '01_order_number': orderNumber,
+    };
+
+    if (shipping) {
+      metadata['02_shipping_name'] = `${shipping.firstName} ${shipping.lastName}`;
+      metadata['03_shipping_phone'] = shipping.phone;
+      metadata['04_shipping_address'] = shipping.address;
+      metadata['05_shipping_address2'] = shipping.address2 || '';
+      metadata['06_shipping_city'] = shipping.city;
+      metadata['07_shipping_postal_code'] = shipping.postalCode;
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: email || undefined,
-      metadata: shippingMetadata,
-      payment_intent_data: shippingMetadata
-        ? { metadata: shippingMetadata }
-        : undefined,
+      metadata,
+      payment_intent_data: { metadata },
       line_items: lineItems,
       discounts,
       success_url: `${origin}/${locale}/order/success?session_id={CHECKOUT_SESSION_ID}`,

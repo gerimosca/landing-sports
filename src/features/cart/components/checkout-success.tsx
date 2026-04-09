@@ -15,6 +15,7 @@ interface OrderItem {
 
 interface OrderData {
   status: string;
+  order_number: string | null;
   customer_email: string;
   line_items: OrderItem[];
   amount_total: number;
@@ -111,6 +112,11 @@ export function CheckoutSuccess() {
           <h1 className="text-3xl md:text-4xl font-black text-white mb-3">
             {t('successTitle')}
           </h1>
+          {order.order_number && (
+            <p className="text-primary font-mono font-bold text-lg mb-1">
+              {t('orderNumber', { number: order.order_number })}
+            </p>
+          )}
           <p className="text-zinc-400 text-lg">{t('successDescription')}</p>
         </div>
 
