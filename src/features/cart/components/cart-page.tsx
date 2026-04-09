@@ -121,7 +121,7 @@ export function CartPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           items: items.map(({ jersey, quantity, size, dorsalName, dorsalNumber }) => {
-            const parts = [`${jersey.team} - ${jersey.variant}`, `(${size})`];
+            const parts = [`${jersey.team}`, `(${size})`];
             if (dorsalName || dorsalNumber) {
               parts.push(`#${dorsalNumber || ''} ${dorsalName || ''}`.trim());
             }

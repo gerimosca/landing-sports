@@ -1,9 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { ShoppingBag } from 'lucide-react';
+
 import { CartIcon } from '@/features/cart';
 import { SkipLink } from '@/shared/components/ui/skip-link';
 import { brand } from '@/shared/config';
@@ -27,8 +28,8 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
         {/* Top promo bar */}
         <div className="bg-primary text-black text-center py-2 text-xs sm:text-sm font-semibold tracking-wide">
           {locale === 'es'
-            ? '3x2 EN TODAS LAS CAMISETAS - LA MAS BARATA TE LA REGALAMOS + ENVÍO GRATUITO INCLUIDO'
-            : '3 FOR 2 ON ALL JERSEYS - CHEAPEST ONE IS FREE + FREE SHIPPING INCLUDED'}
+            ? '3x2 EN TODAS LAS CAMISETAS - LA DE MENOR PRECIO TE LA REGALAMOS + ENVÍO GRATUITO INCLUIDO'
+            : '3 FOR 2 ON ALL JERSEYS - THE LOWEST PRICED ONE IS FREE + FREE SHIPPING INCLUDED'}
         </div>
 
         {/* Header */}
@@ -37,10 +38,15 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
             {/* Logo */}
             <Link
               href={`/${locale}`}
-              className="flex items-center gap-2 text-white font-black text-xl tracking-tight"
+              className="flex items-center"
             >
-              <ShoppingBag className="h-6 w-6 text-primary" />
-              {brand.name}
+              <Image
+                src="/logo_somos_pasion_final.svg"
+                alt={brand.name}
+                width={140}
+                height={66}
+                priority
+              />
             </Link>
 
             {/* Actions */}
@@ -75,14 +81,16 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Brand */}
               <div>
-                <div className="flex items-center gap-2 text-white font-black text-lg">
-                  <ShoppingBag className="h-5 w-5 text-primary" />
-                  {brand.name}
-                </div>
+                <Image
+                  src="/logo_somos_pasion_final.svg"
+                  alt={brand.name}
+                  width={120}
+                  height={56}
+                />
                 <p className="mt-3 text-sm text-zinc-500 max-w-xs">
                   {locale === 'es'
-                    ? 'Camisetas de fútbol originales de las mejores ligas del mundo.'
-                    : 'Original football jerseys from the best leagues in the world.'}
+                    ? 'Tu camiseta. Tu identidad.'
+                    : 'Your jersey. Your identity.'}
                 </p>
               </div>
 

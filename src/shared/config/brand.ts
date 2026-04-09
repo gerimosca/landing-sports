@@ -17,7 +17,7 @@ export const brand = {
   // ═══════════════════════════════════════════════════════════════════
 
   /** Your product/company name */
-  name: 'FutbolKits',
+  name: 'Somos Pasión',
 
   /** Short tagline (appears in hero, metadata) */
   tagline: 'Camisetas de fútbol originales',
@@ -93,10 +93,10 @@ export const brand = {
 
   seo: {
     /** Title template for pages. %s is replaced with page title */
-    titleTemplate: '%s | FutbolKits',
+    titleTemplate: 'Somos Pasión - %s',
 
     /** Default title when no page title is set */
-    defaultTitle: 'FutbolKits - Camisetas de Fútbol Originales',
+    defaultTitle: 'Somos Pasión - Tu camiseta. Tu identidad.',
 
     /** Default meta description (max 160 characters recommended) */
     defaultDescription:
@@ -237,7 +237,7 @@ export const brand = {
   // ═══════════════════════════════════════════════════════════════════
 
   /** Copyright notice in footer */
-  copyright: `© ${new Date().getFullYear()} FutbolKits. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} Somos Pasión. All rights reserved.`,
 };
 
 export type Brand = typeof brand;

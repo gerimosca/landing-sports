@@ -14,35 +14,54 @@ export const leagues: LeagueInfo[] = [
 export const jerseys: Jersey[] = [
   // La Liga - Real Madrid
   {
-    id: 'real-madrid-home',
+    id: 'real-madrid-1',
     team: 'Real Madrid',
     league: 'la-liga',
     price: 89.99,
     originalPrice: 109.99,
-    image: '/jerseys/real-madrid-home.webp',
+    image: '/images/la-liga/real-madrid/1/1.jpg',
+    images: [
+      '/images/la-liga/real-madrid/1/1.jpg',
+      '/images/la-liga/real-madrid/1/2.jpg',
+      '/images/la-liga/real-madrid/1/3.jpg',
+      '/images/la-liga/real-madrid/1/4.jpg',
+      '/images/la-liga/real-madrid/1/5.jpg',
+    ],
     badge: '/badges/real-madrid.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
   {
-    id: 'real-madrid-away',
+    id: 'real-madrid-2',
     team: 'Real Madrid',
     league: 'la-liga',
     price: 89.99,
-    image: '/jerseys/real-madrid-away.webp',
+    image: '/images/la-liga/real-madrid/2/1.jpg',
+    images: [
+      '/images/la-liga/real-madrid/2/1.jpg',
+      '/images/la-liga/real-madrid/2/2.jpg',
+      '/images/la-liga/real-madrid/2/3.jpg',
+      '/images/la-liga/real-madrid/2/4.jpg',
+      '/images/la-liga/real-madrid/2/5.jpg',
+    ],
     badge: '/badges/real-madrid.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
-    id: 'real-madrid-third',
+    id: 'real-madrid-3',
     team: 'Real Madrid',
     league: 'la-liga',
     price: 89.99,
-    image: '/jerseys/real-madrid-third.webp',
+    image: '/images/la-liga/real-madrid/3/1.jpg',
+    images: [
+      '/images/la-liga/real-madrid/3/1.jpg',
+      '/images/la-liga/real-madrid/3/2.jpg',
+      '/images/la-liga/real-madrid/3/3.jpg',
+      '/images/la-liga/real-madrid/3/4.jpg',
+      '/images/la-liga/real-madrid/3/5.jpg',
+      '/images/la-liga/real-madrid/3/6.jpg',
+    ],
     badge: '/badges/real-madrid.webp',
-    variant: 'third',
     season: '2024/25',
     isNew: true,
   },
@@ -56,7 +75,6 @@ export const jerseys: Jersey[] = [
     originalPrice: 109.99,
     image: '/jerseys/barcelona-home.webp',
     badge: '/badges/barcelona.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -67,7 +85,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/barcelona-away.webp',
     badge: '/badges/barcelona.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -77,7 +94,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/barcelona-third.webp',
     badge: '/badges/barcelona.webp',
-    variant: 'third',
     season: '2024/25',
     isNew: true,
   },
@@ -90,7 +106,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/atletico-home.webp',
     badge: '/badges/atletico.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -100,7 +115,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/atletico-away.webp',
     badge: '/badges/atletico.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -110,7 +124,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/atletico-third.webp',
     badge: '/badges/atletico.webp',
-    variant: 'third',
     season: '2024/25',
   },
 
@@ -122,7 +135,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/real-sociedad-home.webp',
     badge: '/badges/real-sociedad.webp',
-    variant: 'home',
     season: '2024/25',
     isNew: true,
   },
@@ -133,7 +145,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/real-sociedad-away.webp',
     badge: '/badges/real-sociedad.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -145,7 +156,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/man-city-home.webp',
     badge: '/badges/man-city.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -156,7 +166,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/man-city-away.webp',
     badge: '/badges/man-city.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -166,7 +175,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/man-city-third.webp',
     badge: '/badges/man-city.webp',
-    variant: 'third',
     season: '2024/25',
   },
 
@@ -179,7 +187,6 @@ export const jerseys: Jersey[] = [
     originalPrice: 109.99,
     image: '/jerseys/liverpool-home.webp',
     badge: '/badges/liverpool.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -190,7 +197,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/liverpool-away.webp',
     badge: '/badges/liverpool.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -200,7 +206,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/liverpool-third.webp',
     badge: '/badges/liverpool.webp',
-    variant: 'third',
     season: '2024/25',
     isNew: true,
   },
@@ -213,7 +218,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/arsenal-home.webp',
     badge: '/badges/arsenal.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -223,7 +227,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/arsenal-away.webp',
     badge: '/badges/arsenal.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -235,7 +238,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/chelsea-home.webp',
     badge: '/badges/chelsea.webp',
-    variant: 'home',
     season: '2024/25',
     isNew: true,
   },
@@ -246,7 +248,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/chelsea-away.webp',
     badge: '/badges/chelsea.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -258,7 +259,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/inter-home.webp',
     badge: '/badges/inter.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -269,7 +269,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/inter-away.webp',
     badge: '/badges/inter.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -279,7 +278,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/inter-third.webp',
     badge: '/badges/inter.webp',
-    variant: 'third',
     season: '2024/25',
   },
 
@@ -291,7 +289,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/ac-milan-home.webp',
     badge: '/badges/ac-milan.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -301,7 +298,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/ac-milan-away.webp',
     badge: '/badges/ac-milan.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -314,7 +310,6 @@ export const jerseys: Jersey[] = [
     originalPrice: 99.99,
     image: '/jerseys/juventus-home.webp',
     badge: '/badges/juventus.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -324,7 +319,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/juventus-away.webp',
     badge: '/badges/juventus.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -336,7 +330,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/napoli-home.webp',
     badge: '/badges/napoli.webp',
-    variant: 'home',
     season: '2024/25',
     isNew: true,
   },
@@ -347,7 +340,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/napoli-away.webp',
     badge: '/badges/napoli.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -359,7 +351,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/bayern-home.webp',
     badge: '/badges/bayern.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -370,7 +361,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/bayern-away.webp',
     badge: '/badges/bayern.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -380,7 +370,6 @@ export const jerseys: Jersey[] = [
     price: 89.99,
     image: '/jerseys/bayern-third.webp',
     badge: '/badges/bayern.webp',
-    variant: 'third',
     season: '2024/25',
   },
 
@@ -392,7 +381,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/dortmund-home.webp',
     badge: '/badges/dortmund.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -402,7 +390,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/dortmund-away.webp',
     badge: '/badges/dortmund.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -414,7 +401,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/leverkusen-home.webp',
     badge: '/badges/leverkusen.webp',
-    variant: 'home',
     season: '2024/25',
     isNew: true,
   },
@@ -425,7 +411,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/leverkusen-away.webp',
     badge: '/badges/leverkusen.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -437,7 +422,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/psg-home.webp',
     badge: '/badges/psg.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -448,7 +432,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/psg-away.webp',
     badge: '/badges/psg.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -458,7 +441,6 @@ export const jerseys: Jersey[] = [
     price: 94.99,
     image: '/jerseys/psg-third.webp',
     badge: '/badges/psg.webp',
-    variant: 'third',
     season: '2024/25',
     isNew: true,
   },
@@ -471,7 +453,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/marseille-home.webp',
     badge: '/badges/marseille.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -481,7 +462,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/marseille-away.webp',
     badge: '/badges/marseille.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -493,7 +473,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/flamengo-home.webp',
     badge: '/badges/flamengo.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -504,7 +483,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/flamengo-away.webp',
     badge: '/badges/flamengo.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -516,7 +494,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/palmeiras-home.webp',
     badge: '/badges/palmeiras.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -526,7 +503,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/palmeiras-away.webp',
     badge: '/badges/palmeiras.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -538,7 +514,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/santos-home.webp',
     badge: '/badges/santos.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -548,7 +523,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/santos-away.webp',
     badge: '/badges/santos.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -560,7 +534,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/boca-home.webp',
     badge: '/badges/boca.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -571,7 +544,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/boca-away.webp',
     badge: '/badges/boca.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -581,7 +553,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/boca-third.webp',
     badge: '/badges/boca.webp',
-    variant: 'third',
     season: '2024/25',
   },
 
@@ -593,7 +564,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/river-home.webp',
     badge: '/badges/river.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
   },
@@ -604,7 +574,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/river-away.webp',
     badge: '/badges/river.webp',
-    variant: 'away',
     season: '2024/25',
   },
   {
@@ -614,7 +583,6 @@ export const jerseys: Jersey[] = [
     price: 74.99,
     image: '/jerseys/river-third.webp',
     badge: '/badges/river.webp',
-    variant: 'third',
     season: '2024/25',
     isNew: true,
   },
@@ -627,7 +595,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/racing-home.webp',
     badge: '/badges/racing.webp',
-    variant: 'home',
     season: '2024/25',
   },
   {
@@ -637,7 +604,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/racing-away.webp',
     badge: '/badges/racing.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -649,7 +615,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/independiente-home.webp',
     badge: '/badges/independiente.webp',
-    variant: 'home',
     season: '2024/25',
     isNew: true,
   },
@@ -660,164 +625,143 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/independiente-away.webp',
     badge: '/badges/independiente.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
   // Selecciones - Argentina
   {
-    id: 'argentina-home',
+    id: 'argentina-1',
     team: 'Argentina',
     league: 'selecciones',
     price: 99.99,
-    image: '/jerseys/argentina-home.webp',
+    image: '/images/selecciones/argentina/1/1.jpg',
+    images: [
+      '/images/selecciones/argentina/1/1.jpg',
+      '/images/selecciones/argentina/1/2.jpg',
+      '/images/selecciones/argentina/1/3.jpg',
+      '/images/selecciones/argentina/1/4.jpg',
+      '/images/selecciones/argentina/1/5.jpg',
+      '/images/selecciones/argentina/1/6.jpg',
+      '/images/selecciones/argentina/1/7.jpg',
+    ],
     badge: '/badges/argentina.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
-  },
-  {
-    id: 'argentina-away',
-    team: 'Argentina',
-    league: 'selecciones',
-    price: 99.99,
-    image: '/jerseys/argentina-away.webp',
-    badge: '/badges/argentina.webp',
-    variant: 'away',
-    season: '2024/25',
   },
 
   // Selecciones - Brasil
   {
-    id: 'brasil-home',
+    id: 'brasil-1',
     team: 'Brasil',
     league: 'selecciones',
     price: 99.99,
-    image: '/jerseys/brasil-home.webp',
+    image: '/images/selecciones/brasil/1/1.jpg',
+    images: [
+      '/images/selecciones/brasil/1/1.jpg',
+      '/images/selecciones/brasil/1/2.jpg',
+      '/images/selecciones/brasil/1/3.jpg',
+      '/images/selecciones/brasil/1/4.jpg',
+      '/images/selecciones/brasil/1/5.jpg',
+      '/images/selecciones/brasil/1/6.jpg',
+    ],
     badge: '/badges/brasil.webp',
-    variant: 'home',
     season: '2024/25',
     isBestseller: true,
-  },
-  {
-    id: 'brasil-away',
-    team: 'Brasil',
-    league: 'selecciones',
-    price: 99.99,
-    image: '/jerseys/brasil-away.webp',
-    badge: '/badges/brasil.webp',
-    variant: 'away',
-    season: '2024/25',
   },
 
   // Selecciones - España
   {
-    id: 'espana-home',
+    id: 'espana-1',
     team: 'España',
     league: 'selecciones',
     price: 94.99,
-    image: '/jerseys/espana-home.webp',
+    image: '/images/selecciones/espana/1/1.jpg',
+    images: [
+      '/images/selecciones/espana/1/1.jpg',
+      '/images/selecciones/espana/1/2.jpg',
+      '/images/selecciones/espana/1/3.jpg',
+      '/images/selecciones/espana/1/4.jpg',
+      '/images/selecciones/espana/1/5.jpg',
+    ],
     badge: '/badges/espana.webp',
-    variant: 'home',
-    season: '2024/25',
-  },
-  {
-    id: 'espana-away',
-    team: 'España',
-    league: 'selecciones',
-    price: 94.99,
-    image: '/jerseys/espana-away.webp',
-    badge: '/badges/espana.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
   // Selecciones - Francia
   {
-    id: 'francia-home',
+    id: 'francia-1',
     team: 'Francia',
     league: 'selecciones',
     price: 94.99,
-    image: '/jerseys/francia-home.webp',
+    image: '/images/selecciones/francia/1/1.jpg',
+    images: [
+      '/images/selecciones/francia/1/1.jpg',
+      '/images/selecciones/francia/1/2.jpg',
+      '/images/selecciones/francia/1/3.jpg',
+      '/images/selecciones/francia/1/4.jpg',
+      '/images/selecciones/francia/1/5.jpg',
+      '/images/selecciones/francia/1/6.jpg',
+    ],
     badge: '/badges/francia.webp',
-    variant: 'home',
-    season: '2024/25',
-  },
-  {
-    id: 'francia-away',
-    team: 'Francia',
-    league: 'selecciones',
-    price: 94.99,
-    image: '/jerseys/francia-away.webp',
-    badge: '/badges/francia.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
   // Selecciones - Alemania
   {
-    id: 'alemania-home',
+    id: 'alemania-1',
     team: 'Alemania',
     league: 'selecciones',
     price: 94.99,
-    image: '/jerseys/alemania-home.webp',
+    image: '/images/selecciones/alemania/1/1.jpg',
+    images: [
+      '/images/selecciones/alemania/1/1.jpg',
+      '/images/selecciones/alemania/1/2.jpg',
+      '/images/selecciones/alemania/1/3.jpg',
+      '/images/selecciones/alemania/1/4.jpg',
+      '/images/selecciones/alemania/1/5.jpg',
+      '/images/selecciones/alemania/1/6.jpg',
+      '/images/selecciones/alemania/1/7.jpg',
+    ],
     badge: '/badges/alemania.webp',
-    variant: 'home',
     season: '2024/25',
     isNew: true,
-  },
-  {
-    id: 'alemania-away',
-    team: 'Alemania',
-    league: 'selecciones',
-    price: 94.99,
-    image: '/jerseys/alemania-away.webp',
-    badge: '/badges/alemania.webp',
-    variant: 'away',
-    season: '2024/25',
   },
 
   // Selecciones - Italia
   {
-    id: 'italia-home',
+    id: 'italia-1',
     team: 'Italia',
     league: 'selecciones',
     price: 94.99,
-    image: '/jerseys/italia-home.webp',
+    image: '/images/selecciones/italia/1/1.jpg',
+    images: [
+      '/images/selecciones/italia/1/1.jpg',
+      '/images/selecciones/italia/1/2.jpg',
+      '/images/selecciones/italia/1/3.jpg',
+      '/images/selecciones/italia/1/4.jpg',
+      '/images/selecciones/italia/1/5.jpg',
+      '/images/selecciones/italia/1/6.jpg',
+    ],
     badge: '/badges/italia.webp',
-    variant: 'home',
-    season: '2024/25',
-  },
-  {
-    id: 'italia-away',
-    team: 'Italia',
-    league: 'selecciones',
-    price: 94.99,
-    image: '/jerseys/italia-away.webp',
-    badge: '/badges/italia.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
   // Selecciones - Inglaterra
   {
-    id: 'inglaterra-home',
+    id: 'inglaterra-1',
     team: 'Inglaterra',
     league: 'selecciones',
     price: 94.99,
-    image: '/jerseys/inglaterra-home.webp',
+    image: '/images/selecciones/inglaterra/1/1.jpg',
+    images: [
+      '/images/selecciones/inglaterra/1/1.jpg',
+      '/images/selecciones/inglaterra/1/2.jpg',
+      '/images/selecciones/inglaterra/1/3.jpg',
+      '/images/selecciones/inglaterra/1/4.jpg',
+      '/images/selecciones/inglaterra/1/5.jpg',
+      '/images/selecciones/inglaterra/1/6.jpg',
+    ],
     badge: '/badges/inglaterra.webp',
-    variant: 'home',
-    season: '2024/25',
-  },
-  {
-    id: 'inglaterra-away',
-    team: 'Inglaterra',
-    league: 'selecciones',
-    price: 94.99,
-    image: '/jerseys/inglaterra-away.webp',
-    badge: '/badges/inglaterra.webp',
-    variant: 'away',
     season: '2024/25',
   },
 
@@ -829,7 +773,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/valencia-home.webp',
     badge: '/badges/valencia.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -841,7 +784,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/oviedo-home.webp',
     badge: '/badges/oviedo.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -853,7 +795,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/real-betis-home.webp',
     badge: '/badges/real-betis.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -865,7 +806,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/tenerife-home.webp',
     badge: '/badges/tenerife.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -877,7 +817,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/sevilla-home.webp',
     badge: '/badges/sevilla.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -889,7 +828,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/rcd-mallorca-home.webp',
     badge: '/badges/rcd-mallorca.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -901,7 +839,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/malaga-home.webp',
     badge: '/badges/malaga.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -913,7 +850,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/girona-home.webp',
     badge: '/badges/girona.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -925,7 +861,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/deportivo-la-coruna-home.webp',
     badge: '/badges/deportivo-la-coruna.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -937,7 +872,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/cordoba-home.webp',
     badge: '/badges/cordoba.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -949,7 +883,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/celta-home.webp',
     badge: '/badges/celta.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -961,7 +894,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/cadiz-home.webp',
     badge: '/badges/cadiz.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -973,7 +905,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/athletic-bilbao-home.webp',
     badge: '/badges/athletic-bilbao.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -985,7 +916,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/zaragoza-home.webp',
     badge: '/badges/zaragoza.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -997,7 +927,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/racing-de-santander-home.webp',
     badge: '/badges/racing-de-santander.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1009,7 +938,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/manchester-united-home.webp',
     badge: '/badges/manchester-united.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1021,7 +949,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/tottenham-home.webp',
     badge: '/badges/tottenham.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1033,7 +960,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/newcastle-home.webp',
     badge: '/badges/newcastle.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1045,7 +971,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/leeds-united-home.webp',
     badge: '/badges/leeds-united.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1057,7 +982,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/everton-home.webp',
     badge: '/badges/everton.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1069,7 +993,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/brighton-home.webp',
     badge: '/badges/brighton.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1081,7 +1004,6 @@ export const jerseys: Jersey[] = [
     price: 84.99,
     image: '/jerseys/aston-villa-home.webp',
     badge: '/badges/aston-villa.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1093,7 +1015,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/schalke-04-home.webp',
     badge: '/badges/schalke-04.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1105,7 +1026,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/rb-leipzig-home.webp',
     badge: '/badges/rb-leipzig.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1117,7 +1037,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/wolfsburg-home.webp',
     badge: '/badges/wolfsburg.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1129,7 +1048,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/eintracht-frankfurt-home.webp',
     badge: '/badges/eintracht-frankfurt.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1141,7 +1059,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/borussia-monchengladbach-home.webp',
     badge: '/badges/borussia-monchengladbach.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1153,7 +1070,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/stuttgart-home.webp',
     badge: '/badges/stuttgart.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1165,7 +1081,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/fc-union-berlin-home.webp',
     badge: '/badges/fc-union-berlin.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1177,7 +1092,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/olympique-lyon-home.webp',
     badge: '/badges/olympique-lyon.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1189,7 +1103,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/lille-home.webp',
     badge: '/badges/lille.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1201,7 +1114,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/stade-rennais-home.webp',
     badge: '/badges/stade-rennais.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1213,7 +1125,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/roma-home.webp',
     badge: '/badges/roma.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1225,7 +1136,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/fiorentina-home.webp',
     badge: '/badges/fiorentina.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1237,7 +1147,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/atalanta-home.webp',
     badge: '/badges/atalanta.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1249,7 +1158,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/lazio-home.webp',
     badge: '/badges/lazio.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1261,7 +1169,6 @@ export const jerseys: Jersey[] = [
     price: 79.99,
     image: '/jerseys/parma-home.webp',
     badge: '/badges/parma.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1273,7 +1180,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/corinthians-home.webp',
     badge: '/badges/corinthians.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1285,7 +1191,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/internacional-home.webp',
     badge: '/badges/internacional.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1297,7 +1202,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/fluminense-home.webp',
     badge: '/badges/fluminense.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1309,7 +1213,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/cruzeiro-home.webp',
     badge: '/badges/cruzeiro.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1321,7 +1224,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/vasco-da-gama-home.webp',
     badge: '/badges/vasco-da-gama.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1333,7 +1235,6 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/atletico-mineiro-home.webp',
     badge: '/badges/atletico-mineiro.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
@@ -1345,163 +1246,248 @@ export const jerseys: Jersey[] = [
     price: 69.99,
     image: '/jerseys/botafogo-home.webp',
     badge: '/badges/botafogo.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Noruega
   {
-    id: 'noruega-home',
+    id: 'noruega-1',
     team: 'Noruega',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/noruega-home.webp',
+    image: '/images/selecciones/noruega/1/1.jpg',
+    images: [
+      '/images/selecciones/noruega/1/1.jpg',
+      '/images/selecciones/noruega/1/2.jpg',
+      '/images/selecciones/noruega/1/3.jpg',
+      '/images/selecciones/noruega/1/4.jpg',
+      '/images/selecciones/noruega/1/5.jpg',
+      '/images/selecciones/noruega/1/6.jpg',
+    ],
     badge: '/badges/noruega.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Bolivia
   {
-    id: 'bolivia-home',
+    id: 'bolivia-1',
     team: 'Bolivia',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/bolivia-home.webp',
+    image: '/images/selecciones/bolivia/1/1.jpg',
+    images: [
+      '/images/selecciones/bolivia/1/1.jpg',
+      '/images/selecciones/bolivia/1/2.jpg',
+      '/images/selecciones/bolivia/1/3.jpg',
+      '/images/selecciones/bolivia/1/4.jpg',
+      '/images/selecciones/bolivia/1/5.jpg',
+    ],
     badge: '/badges/bolivia.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - México
   {
-    id: 'mexico-home',
+    id: 'mexico-1',
     team: 'México',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/mexico-home.webp',
+    image: '/images/selecciones/mexico/1/1.jpg',
+    images: [
+      '/images/selecciones/mexico/1/1.jpg',
+      '/images/selecciones/mexico/1/2.jpg',
+      '/images/selecciones/mexico/1/3.jpg',
+      '/images/selecciones/mexico/1/4.jpg',
+      '/images/selecciones/mexico/1/5.jpg',
+      '/images/selecciones/mexico/1/6.jpg',
+    ],
     badge: '/badges/mexico.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Japón
   {
-    id: 'japon-home',
+    id: 'japon-1',
     team: 'Japón',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/japon-home.webp',
+    image: '/images/selecciones/japon/1/1.jpg',
+    images: [
+      '/images/selecciones/japon/1/1.jpg',
+      '/images/selecciones/japon/1/2.jpg',
+      '/images/selecciones/japon/1/3.jpg',
+      '/images/selecciones/japon/1/4.jpg',
+      '/images/selecciones/japon/1/5.jpg',
+      '/images/selecciones/japon/1/6.jpg',
+    ],
     badge: '/badges/japon.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Colombia
   {
-    id: 'colombia-home',
+    id: 'colombia-1',
     team: 'Colombia',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/colombia-home.webp',
+    image: '/images/selecciones/colombia/1/1.jpg',
+    images: [
+      '/images/selecciones/colombia/1/1.jpg',
+      '/images/selecciones/colombia/1/2.jpg',
+      '/images/selecciones/colombia/1/3.jpg',
+      '/images/selecciones/colombia/1/4.jpg',
+      '/images/selecciones/colombia/1/5.jpg',
+      '/images/selecciones/colombia/1/6.jpg',
+    ],
     badge: '/badges/colombia.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Holanda
   {
-    id: 'holanda-home',
+    id: 'holanda-1',
     team: 'Holanda',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/holanda-home.webp',
+    image: '/images/selecciones/holanda/1/1.jpg',
+    images: [
+      '/images/selecciones/holanda/1/1.jpg',
+      '/images/selecciones/holanda/1/2.jpg',
+      '/images/selecciones/holanda/1/3.jpg',
+      '/images/selecciones/holanda/1/4.jpg',
+      '/images/selecciones/holanda/1/5.jpg',
+    ],
     badge: '/badges/holanda.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Jamaica
   {
-    id: 'jamaica-home',
+    id: 'jamaica-1',
     team: 'Jamaica',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/jamaica-home.webp',
+    image: '/images/selecciones/jamaica/1/1.jpg',
+    images: [
+      '/images/selecciones/jamaica/1/1.jpg',
+      '/images/selecciones/jamaica/1/2.jpg',
+      '/images/selecciones/jamaica/1/3.jpg',
+      '/images/selecciones/jamaica/1/4.jpg',
+      '/images/selecciones/jamaica/1/5.jpg',
+    ],
     badge: '/badges/jamaica.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - EEUU
   {
-    id: 'eeuu-home',
+    id: 'eeuu-1',
     team: 'EEUU',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/eeuu-home.webp',
+    image: '/images/selecciones/eeuu/1/1.jpg',
+    images: [
+      '/images/selecciones/eeuu/1/1.jpg',
+      '/images/selecciones/eeuu/1/2.jpg',
+      '/images/selecciones/eeuu/1/3.jpg',
+      '/images/selecciones/eeuu/1/4.jpg',
+      '/images/selecciones/eeuu/1/5.jpg',
+    ],
     badge: '/badges/eeuu.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Portugal
   {
-    id: 'portugal-home',
+    id: 'portugal-1',
     team: 'Portugal',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/portugal-home.webp',
+    image: '/images/selecciones/portugal/1/1.jpg',
+    images: [
+      '/images/selecciones/portugal/1/1.jpg',
+      '/images/selecciones/portugal/1/2.jpg',
+      '/images/selecciones/portugal/1/3.jpg',
+      '/images/selecciones/portugal/1/4.jpg',
+      '/images/selecciones/portugal/1/5.jpg',
+      '/images/selecciones/portugal/1/6.jpg',
+    ],
     badge: '/badges/portugal.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Perú
   {
-    id: 'peru-home',
+    id: 'peru-1',
     team: 'Perú',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/peru-home.webp',
+    image: '/images/selecciones/peru/1/1.jpg',
+    images: [
+      '/images/selecciones/peru/1/1.jpg',
+      '/images/selecciones/peru/1/2.jpg',
+      '/images/selecciones/peru/1/3.jpg',
+      '/images/selecciones/peru/1/4.jpg',
+      '/images/selecciones/peru/1/5.jpg',
+    ],
     badge: '/badges/peru.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Suecia
   {
-    id: 'suecia-home',
+    id: 'suecia-1',
     team: 'Suecia',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/suecia-home.webp',
+    image: '/images/selecciones/suecia/1/1.jpg',
+    images: [
+      '/images/selecciones/suecia/1/1.jpg',
+      '/images/selecciones/suecia/1/2.jpg',
+      '/images/selecciones/suecia/1/3.jpg',
+      '/images/selecciones/suecia/1/4.jpg',
+      '/images/selecciones/suecia/1/5.jpg',
+    ],
     badge: '/badges/suecia.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Grecia
   {
-    id: 'grecia-home',
+    id: 'grecia-1',
     team: 'Grecia',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/grecia-home.webp',
+    image: '/images/selecciones/grecia/1/1.jpg',
+    images: [
+      '/images/selecciones/grecia/1/1.jpg',
+      '/images/selecciones/grecia/1/2.jpg',
+      '/images/selecciones/grecia/1/3.jpg',
+      '/images/selecciones/grecia/1/4.jpg',
+      '/images/selecciones/grecia/1/5.jpg',
+      '/images/selecciones/grecia/1/6.jpg',
+      '/images/selecciones/grecia/1/7.jpg',
+    ],
     badge: '/badges/grecia.webp',
-    variant: 'home',
     season: '2024/25',
   },
 
   // Selecciones - Venezuela
   {
-    id: 'venezuela-home',
+    id: 'venezuela-1',
     team: 'Venezuela',
     league: 'selecciones',
     price: 89.99,
-    image: '/jerseys/venezuela-home.webp',
+    image: '/images/selecciones/venezuela/1/1.jpg',
+    images: [
+      '/images/selecciones/venezuela/1/1.jpg',
+      '/images/selecciones/venezuela/1/2.jpg',
+      '/images/selecciones/venezuela/1/3.jpg',
+      '/images/selecciones/venezuela/1/4.jpg',
+      '/images/selecciones/venezuela/1/5.jpg',
+      '/images/selecciones/venezuela/1/6.jpg',
+    ],
     badge: '/badges/venezuela.webp',
-    variant: 'home',
     season: '2024/25',
   },
 ];

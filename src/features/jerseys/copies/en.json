@@ -1,9 +1,9 @@
 {
   "hero": { "badge": "New Season", "title1": "Wear Your", "title2": "Passion", "subtitle": "Original football jerseys from the best leagues in the world.", "cta": "Explore Collection", "stat1": "Jerseys", "stat2": "Leagues", "stat3": "Shipping", "scrollDown": "Scroll to catalog" },
   "filters": { "all": "All Leagues", "allTeams": "All Teams" },
-  "catalog": { "subtitle": "Catalog", "title": "Find Your Jersey", "showing": "{count, plural, one {# jersey} other {# jerseys}} available", "empty": "No jerseys found for this league", "clearFilters": "Show all jerseys" },
+  "catalog": { "subtitle": "Find Your Passion", "title": "Find Your Jersey", "showing": "{count, plural, one {# jersey} other {# jerseys}} available", "empty": "No jerseys found for this league", "clearFilters": "Show all jerseys" },
   "card": { "new": "New", "bestseller": "Bestseller", "addToCart": "Add to Cart" },
-  "variant": { "home": "Home", "away": "Away", "third": "Third" },
+
   "featured": { "bestsellers": "Bestsellers", "newArrivals": "New Arrivals" },
   "promo": { "shipping": { "title": "Free Shipping", "description": "On 3 for 2 orders" }, "authentic": { "title": "100% Authentic", "description": "Official licensed products" }, "returns": { "title": "Easy Returns", "description": "30-day return policy" }, "payment": { "title": "Secure Payment", "description": "Encrypted transactions" } },
   "newsletter": { "title": "Stay in the Game", "description": "Subscribe to get exclusive drops and special discounts.", "placeholder": "Your email address", "submit": "Subscribe", "privacy": "We respect your privacy. Unsubscribe at any time." },

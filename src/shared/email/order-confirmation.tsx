@@ -83,7 +83,7 @@ export function OrderConfirmationEmail({
         <Container style={container}>
           {/* Header */}
           <Section style={header}>
-            <Text style={brandName}>FutbolKits</Text>
+            <Text style={brandName}>Somos Pasión</Text>
           </Section>
 
           {/* Title */}
