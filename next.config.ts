@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   // TODO: Re-enable after fixing all route references
   // typedRoutes: true,
 
+  // Disable image optimization in dev to avoid LRUCache bug
+  images: {
+    unoptimized: process.env.NODE_ENV === 'development',
+  },
+
   // Optimize logging for reduced output
   logging: {
     fetches: {
