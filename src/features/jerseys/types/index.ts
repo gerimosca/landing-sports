@@ -1,12 +1,13 @@
 export type League =
+  | 'selecciones'
   | 'la-liga'
   | 'premier-league'
   | 'serie-a'
   | 'bundesliga'
   | 'ligue-1'
   | 'brasileirao'
-  | 'lpf-argentina'
-  | 'selecciones';
+  | 'resto-de-ligas'
+  | 'retro';
 
 export interface LeagueInfo {
   id: League;
