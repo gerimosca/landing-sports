@@ -5,6 +5,7 @@ interface CheckoutItem {
   name: string;
   price: number;
   quantity: number;
+  isCustomization?: boolean;
 }
 
 interface ShippingInfo {
@@ -40,25 +41,26 @@ export async function POST(request: NextRequest) {
     const origin = request.headers.get('origin') || process.env.NEXT_PUBLIC_APP_URL || '';
     const orderNumber = generateOrderNumber();
 
-    // Expand items into individual units for 3x2 calculation
-    const units: { name: string; price: number }[] = [];
+    // Expand only jersey items (not customizations) for 3x2 calculation
+    const jerseyUnits: number[] = [];
     for (const item of items) {
+      if (item.isCustomization) continue;
       for (let i = 0; i < item.quantity; i++) {
-        units.push({ name: item.name, price: item.price });
+        jerseyUnits.push(item.price);
       }
     }
 
-    const totalCount = units.length;
+    const totalCount = jerseyUnits.length;
 
-    // 3x2: for every 3 jerseys, the cheapest is free
+    // 3x2: for every 3 jerseys, the cheapest is free (customizations excluded)
     let discount = 0;
     if (totalCount >= 3) {
-      const sorted = [...units].sort((a, b) => a.price - b.price);
+      const sorted = [...jerseyUnits].sort((a, b) => a - b);
       const freeCount = Math.floor(totalCount / 3);
-      discount = sorted.slice(0, freeCount).reduce((sum, u) => sum + u.price, 0);
+      discount = sorted.slice(0, freeCount).reduce((sum, p) => sum + p, 0);
     }
 
-    // Shipping: free if 3+, otherwise €7
+    // Shipping: free if 3+ jerseys, otherwise €7
     const shippingCost = totalCount >= 3 ? 0 : 7;
 
     // Build line items: each unit as a separate line (so Stripe shows correct breakdown)

@@ -11,7 +11,7 @@ import {
 } from 'react';
 import type { Jersey } from '@/features/jerseys';
 import type { CartItem, CartItemOptions } from './types';
-import { cartItemKey } from './types';
+import { cartItemKey, dorsalExtraCost } from './types';
 
 const STORAGE_KEY = 'jersey-cart';
 
@@ -22,6 +22,8 @@ interface CartContextValue {
   updateQuantity: (key: string, quantity: number) => void;
   clearCart: () => void;
   totalItems: number;
+  jerseysSubtotal: number;
+  dorsalTotal: number;
   totalPrice: number;
   discount: number;
   shippingCost: number;
@@ -112,14 +114,23 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [items]
   );
 
-  const totalPrice = useMemo(
+  const jerseysSubtotal = useMemo(
     () => items.reduce((sum, item) => sum + item.jersey.price * item.quantity, 0),
     [items]
   );
 
-  // 3x2 logic: for every 3 jerseys, the cheapest one is free
+  const dorsalTotal = useMemo(
+    () => items.reduce((sum, item) => sum + dorsalExtraCost(item) * item.quantity, 0),
+    [items]
+  );
+
+  const totalPrice = useMemo(
+    () => jerseysSubtotal + dorsalTotal,
+    [jerseysSubtotal, dorsalTotal]
+  );
+
+  // 3x2 logic: for every 3 jerseys, the cheapest one is free (only jersey price, not dorsal)
   const discount = useMemo(() => {
-    // Expand items by quantity into individual unit prices
     const unitPrices: number[] = [];
     for (const item of items) {
       for (let i = 0; i < item.quantity; i++) {
@@ -127,9 +138,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
     }
     if (unitPrices.length < 3) return 0;
-    // Sort ascending so cheapest are first
     unitPrices.sort((a, b) => a - b);
-    // Every group of 3, the cheapest (first in group) is free
     const freeCount = Math.floor(unitPrices.length / 3);
     return unitPrices.slice(0, freeCount).reduce((sum, p) => sum + p, 0);
   }, [items]);
@@ -143,8 +152,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice, discount, shippingCost, finalPrice }),
-    [items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice, discount, shippingCost, finalPrice]
+    () => ({ items, addItem, removeItem, updateQuantity, clearCart, totalItems, jerseysSubtotal, dorsalTotal, totalPrice, discount, shippingCost, finalPrice }),
+    [items, addItem, removeItem, updateQuantity, clearCart, totalItems, jerseysSubtotal, dorsalTotal, totalPrice, discount, shippingCost, finalPrice]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

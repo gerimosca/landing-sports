@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { ShoppingCart, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { toast } from 'sonner';
@@ -114,13 +115,20 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
             jersey.images.map((src, i) => (
               <div
                 key={i}
-                className="w-full h-full flex-shrink-0 snap-center bg-gradient-to-b from-zinc-800 to-zinc-900"
+                className="relative w-full h-full flex-shrink-0 snap-center bg-gradient-to-b from-zinc-800 to-zinc-900"
               >
-                <img
+                <Image
                   src={src}
                   alt={`${jersey.team} - ${i + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover transition-opacity duration-500 ease-in-out"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  onLoad={(e) => {
+                    const img = e.currentTarget;
+                    img.style.opacity = '1';
+                  }}
+                  style={{ opacity: i === 0 ? 1 : 0 }}
                 />
               </div>
             ))

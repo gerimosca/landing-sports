@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
-import { cartItemKey } from '../types';
+import { cartItemKey, dorsalExtraCost } from '../types';
 import { cn } from '@/shared/lib/utils';
 
 const PHONE_PREFIXES = [
@@ -58,7 +59,7 @@ type ShippingErrors = Partial<Record<keyof ShippingForm, boolean>>;
 export function CartPage() {
   const t = useTranslations('cart');
   const locale = useLocale();
-  const { items, updateQuantity, removeItem, totalPrice, totalItems, discount, shippingCost, finalPrice } = useCart();
+  const { items, updateQuantity, removeItem, totalItems, jerseysSubtotal, dorsalTotal, discount, shippingCost, finalPrice } = useCart();
   const [form, setForm] = useState<ShippingForm>({
     email: '',
     firstName: '',
@@ -120,12 +121,25 @@ export function CartPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          items: items.map(({ jersey, quantity, size, dorsalName, dorsalNumber }) => {
+          items: items.flatMap((item) => {
+            const { jersey, quantity, size, dorsalName, dorsalNumber } = item;
             const parts = [`${jersey.team}`, `(${size})`];
             if (dorsalName || dorsalNumber) {
               parts.push(`#${dorsalNumber || ''} ${dorsalName || ''}`.trim());
             }
-            return { name: parts.join(' '), price: jersey.price, quantity };
+            const lineItems: Array<{ name: string; price: number; quantity: number; isCustomization?: boolean }> = [
+              { name: parts.join(' '), price: jersey.price, quantity },
+            ];
+            const dorsal = dorsalExtraCost(item);
+            if (dorsal > 0) {
+              lineItems.push({
+                name: `${t('dorsalExtra')} - ${jersey.team} (${size})`,
+                price: dorsal,
+                quantity,
+                isCustomization: true,
+              });
+            }
+            return lineItems;
           }),
           locale,
           email: form.email.trim(),
@@ -189,19 +203,16 @@ export function CartPage() {
                   className="flex gap-4 p-4 rounded-lg bg-zinc-900/80 border border-zinc-800/50"
                 >
                   {/* Jersey thumbnail */}
-                  <div className="w-20 h-24 md:w-24 md:h-28 flex-shrink-0 bg-zinc-800 rounded-md flex items-center justify-center relative">
-                    <svg
-                      viewBox="0 0 100 120"
-                      fill="none"
-                      className="w-12 h-12 text-zinc-600"
-                    >
-                      <path
-                        d="M30 10 L20 20 L5 15 L10 40 L20 35 L20 110 L80 110 L80 35 L90 40 L95 15 L80 20 L70 10 Z"
-                        fill="currentColor"
-                      />
-                    </svg>
+                  <div className="w-20 h-24 md:w-24 md:h-28 flex-shrink-0 bg-zinc-800 rounded-md overflow-hidden relative">
+                    <Image
+                      src={jersey.image}
+                      alt={jersey.team}
+                      fill
+                      sizes="96px"
+                      className="object-cover"
+                    />
                     {/* Size badge on thumbnail */}
-                    <span className="absolute bottom-1 right-1 px-1.5 py-0.5 text-[9px] font-bold bg-primary text-black rounded">
+                    <span className="absolute bottom-1 right-1 px-1.5 py-0.5 text-[9px] font-bold bg-primary text-black rounded z-10">
                       {size}
                     </span>
                   </div>
@@ -262,6 +273,11 @@ export function CartPage() {
                             €{jersey.price.toFixed(2)} / u.
                           </p>
                         )}
+                        {dorsalExtraCost(item) > 0 && (
+                          <p className="text-[11px] text-primary">
+                            +€{(dorsalExtraCost(item) * quantity).toFixed(2)} {t('dorsalExtra').toLowerCase()}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -286,9 +302,15 @@ export function CartPage() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-sm">
-                  <span className="text-zinc-400">{t('subtotal')}</span>
-                  <span className="text-white font-medium">€{totalPrice.toFixed(2)}</span>
+                  <span className="text-zinc-400">{t('jerseysSubtotal')}</span>
+                  <span className="text-white font-medium">€{jerseysSubtotal.toFixed(2)}</span>
                 </div>
+                {dorsalTotal > 0 && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-zinc-400">{t('dorsalExtra')}</span>
+                    <span className="text-white font-medium">€{dorsalTotal.toFixed(2)}</span>
+                  </div>
+                )}
                 {discount > 0 && (
                   <div className="flex justify-between text-sm">
                     <span className="text-emerald-400">{t('promoDiscount')}</span>
