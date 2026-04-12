@@ -1062,7 +1062,7 @@ export const jerseys: Jersey[] = [
     id: 'argentina-1',
     team: 'Argentina',
     league: 'selecciones',
-    price: 32.99,
+    price: 35.99,
     image: '/images/selecciones/argentina/1/1.jpg',
     images: [
       '/images/selecciones/argentina/1/1.jpg',
@@ -1082,7 +1082,7 @@ export const jerseys: Jersey[] = [
     id: 'brasil-1',
     team: 'Brasil',
     league: 'selecciones',
-    price: 32.99,
+    price: 35.99,
     image: '/images/selecciones/brasil/1/1.jpg',
     images: [
       '/images/selecciones/brasil/1/1.jpg',
@@ -1101,7 +1101,7 @@ export const jerseys: Jersey[] = [
     id: 'espana-1',
     team: 'España',
     league: 'selecciones',
-    price: 32.99,
+    price: 35.99,
     image: '/images/selecciones/espana/1/1.jpg',
     images: [
       '/images/selecciones/espana/1/1.jpg',
@@ -3315,6 +3315,24 @@ export const jerseys: Jersey[] = [
       '/images/retro/japon/1/2.jpg',
       '/images/retro/japon/1/3.jpg',
       '/images/retro/japon/1/4.jpg',
+    ],
+    season: 'Retro',
+  },
+
+  // Retro - Napoli
+  {
+    id: 'retro-napoli-1',
+    team: 'Napoli',
+    league: 'retro',
+    price: 38.99,
+    image: '/images/retro/napoli/1/1.jpg',
+    images: [
+      '/images/retro/napoli/1/1.jpg',
+      '/images/retro/napoli/1/2.jpg',
+      '/images/retro/napoli/1/3.jpg',
+      '/images/retro/napoli/1/4.jpg',
+      '/images/retro/napoli/1/5.jpg',
+      '/images/retro/napoli/1/6.jpg',
     ],
     season: 'Retro',
   },
