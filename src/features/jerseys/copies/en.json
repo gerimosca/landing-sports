@@ -5,7 +5,7 @@
   "card": { "new": "New", "bestseller": "Bestseller", "addToCart": "Add to Cart" },
 
   "featured": { "bestsellers": "Bestsellers", "newArrivals": "New Arrivals" },
-  "promo": { "shipping": { "title": "Free Shipping", "description": "On 3 for 2 orders" }, "authentic": { "title": "100% Authentic", "description": "Official licensed products" }, "returns": { "title": "Easy Returns", "description": "30-day return policy" }, "payment": { "title": "Secure Payment", "description": "Encrypted transactions" } },
+  "promo": { "shipping": { "title": "Free shipping", "description": "On 3 for 2 orders" }, "quality": { "title": "Guaranteed quality", "description": "Satisfied customers" }, "delivery": { "title": "Estimated delivery", "description": "10 to 21 days" }, "returns": { "title": "Easy returns", "description": "14-day return policy" }, "payment": { "title": "Secure payment", "description": "Encrypted transactions" } },
   "newsletter": { "title": "Stay in the Game", "description": "Subscribe to get exclusive drops and special discounts.", "placeholder": "Your email address", "submit": "Subscribe", "privacy": "We respect your privacy. Unsubscribe at any time." },
   "nav": { "home": "Home", "catalog": "Catalog", "leagues": "Leagues", "contact": "Contact" }
 }

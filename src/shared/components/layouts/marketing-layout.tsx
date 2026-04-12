@@ -110,6 +110,11 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
                       {locale === 'es' ? 'Términos' : 'Terms'}
                     </Link>
                   </li>
+                  <li>
+                    <Link href={`/${locale}/returns`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
+                      {locale === 'es' ? 'Política de Devolución' : 'Return Policy'}
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

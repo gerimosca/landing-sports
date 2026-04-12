@@ -70,10 +70,6 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
     setActiveSlide(newIndex);
   }, []);
 
-  const discount = jersey.originalPrice
-    ? Math.round(((jersey.originalPrice - jersey.price) / jersey.originalPrice) * 100)
-    : null;
-
   const placeholderLabels = ['FRONT', 'BACK', 'DETAIL'];
   const placeholderGradients = [
     'from-zinc-800 to-zinc-900',
@@ -94,11 +90,6 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
           <span className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-primary text-black rounded">
             <Star className="h-3 w-3" />
             {t('card.bestseller')}
-          </span>
-        )}
-        {discount && (
-          <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-red-500 text-white rounded">
-            -{discount}%
           </span>
         )}
       </div>
@@ -222,11 +213,6 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
           <span className="text-xs sm:text-sm font-black text-white">
             €{jersey.price.toFixed(2)}
           </span>
-          {jersey.originalPrice && (
-            <span className="text-[10px] sm:text-sm text-zinc-500 line-through">
-              €{jersey.originalPrice.toFixed(2)}
-            </span>
-          )}
         </div>
         {!showOptions && (
           <button

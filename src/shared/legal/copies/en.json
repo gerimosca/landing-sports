@@ -176,5 +176,38 @@
         "updatePrompt": "⚠️ Remember to update this contact information with your actual legal contact details before launching to production."
       }
     }
+  },
+  "returns": {
+    "meta": {
+      "title": "Return Policy",
+      "description": "SOMOS PASIÓN return, cancellation and refund conditions"
+    },
+    "title": "Return Policy",
+    "sections": {
+      "returns": {
+        "title": "Returns",
+        "p1": "SOMOS PASIÓN only accepts returns of new products, without any type of damage or signs of use, within a maximum period of 14 (fourteen) days after receiving the order. To proceed with the return, you must contact us by email. This email must contain the order number and the reference of the product you wish to return.",
+        "p2": "Once our team confirms the return, you must send the item to the indicated address within a maximum period of 14 (fourteen) days. Items for return must be sent directly to us.",
+        "p3": "We do not accept returns on the following items: personalized items.",
+        "p4": "If we receive returns that do not meet the above conditions, the customer will not be entitled to any refund."
+      },
+      "cancellation": {
+        "title": "Order Cancellation",
+        "content": "Once an order has been confirmed, it is not possible to cancel it. All confirmed orders go directly into the preparation and shipping process, so we cannot guarantee cancellation once the purchase has been completed."
+      },
+      "refund": {
+        "title": "Refund Methods and Timelines",
+        "content": "SOMOS PASIÓN will make every effort to refund the customer within a maximum period of 30 (thirty) days from the date the return arrives. In the case of cancelled orders (paid orders that have not yet been shipped), the maximum refund period is 14 (fourteen) days."
+      },
+      "shippingCosts": {
+        "title": "Shipping Cost Refund",
+        "content": "The shipping costs for the order and the return will be borne by the customer."
+      },
+      "unclaimed": {
+        "title": "Unclaimed Orders and Pick-up Point Deliveries",
+        "p1": "In cases where a delivery attempt is made and the recipient is not available, the package may be redirected to a local pick-up point according to the carrier's procedures. If the customer decides not to collect the package at the designated pick-up point, SOMOS PASIÓN will not be held responsible for the non-collection of the order. In such circumstances, we have no obligation to reattempt delivery or issue a refund, unless the package is returned to us in its original condition by the postal service.",
+        "p2": "SOMOS PASIÓN is not responsible at any time if customers do not receive their package because they have provided an incorrect address, without correctly indicating the street name, house number, plot and/or floor, postal code and country. Unfortunately, many customers do not indicate their address correctly. Our top priority is for our customers to receive their order as soon as possible."
+      }
+    }
   }
 }

@@ -176,5 +176,38 @@
         "updatePrompt": "⚠️ Recuerda actualizar esta información de contacto con tus datos legales reales antes de lanzar a producción."
       }
     }
+  },
+  "returns": {
+    "meta": {
+      "title": "Política de Devolución",
+      "description": "Condiciones de devolución, cancelación y reembolso de SOMOS PASIÓN"
+    },
+    "title": "Política de Devolución",
+    "sections": {
+      "returns": {
+        "title": "Devoluciones",
+        "p1": "SOMOS PASIÓN solo acepta devoluciones de productos nuevos, sin ningún tipo de daño o señales de uso, dentro de un plazo máximo de 14 (catorce) días después de recibir el pedido. Para proceder con la devolución, debe contactarnos por correo electrónico. Este correo debe contener el número de pedido y la referencia del producto que desea devolver.",
+        "p2": "Una vez que nuestro equipo confirme la devolución, deberá enviar el artículo a la dirección indicada, dentro de un plazo máximo de 14 (catorce) días. Los artículos para devolución deben enviarse directamente a nosotros.",
+        "p3": "No aceptamos devoluciones de los siguientes artículos: artículos personalizados.",
+        "p4": "Si recibimos devoluciones que no cumplan las condiciones anteriores, el cliente no tendrá derecho a ningún reembolso."
+      },
+      "cancellation": {
+        "title": "Cancelación de Pedidos",
+        "content": "Una vez confirmado el pedido, no es posible realizar su cancelación. Todos los pedidos confirmados entran directamente en proceso de preparación y envío, por lo que no podemos garantizar su cancelación una vez completada la compra."
+      },
+      "refund": {
+        "title": "Métodos y Plazos de Reembolso",
+        "content": "SOMOS PASIÓN hará todo lo posible por reembolsar al cliente dentro de un plazo máximo de 30 (treinta) días desde la fecha de llegada de la devolución. En el caso de pedidos cancelados (pedidos pagados que aún no han sido enviados), el plazo máximo de reembolso es de 14 (catorce) días."
+      },
+      "shippingCosts": {
+        "title": "Reembolso de Gastos de Envío",
+        "content": "Los gastos de envío del pedido y de la devolución correrán a cargo del cliente."
+      },
+      "unclaimed": {
+        "title": "Pedidos No Reclamados y Entregas en Puntos de Recogida",
+        "p1": "En los casos en que se realice un intento de entrega y el destinatario no esté disponible, el paquete podrá ser redirigido a un punto de recogida local según los procedimientos del transportista. Si el cliente decide no recoger el paquete en el punto de recogida designado, SOMOS PASIÓN no se hará responsable de la no recogida del pedido. En tales circunstancias, no tenemos obligación de reintentar la entrega ni de emitir un reembolso, a menos que el paquete nos sea devuelto en su estado original por el servicio postal.",
+        "p2": "SOMOS PASIÓN no se hace responsable en ningún momento si los clientes no reciben su paquete porque han proporcionado una dirección incorrecta, sin indicar correctamente el nombre de la calle, número de casa, parcela y/o piso, código postal y país. Lamentablemente, muchos clientes no indican su dirección correctamente. Nuestra máxima prioridad es que nuestros clientes reciban su pedido lo antes posible."
+      }
+    }
   }
 }

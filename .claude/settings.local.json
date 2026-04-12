@@ -14,7 +14,8 @@
       "Bash(node /tmp/fix-badges.mjs)",
       "Bash(node /tmp/fix-badges2.mjs)",
       "Bash(npm run:*)",
-      "Bash(node /tmp/final-check.mjs)"
+      "Bash(node /tmp/final-check.mjs)",
+      "Bash(node:*)"
     ]
   }
 }
