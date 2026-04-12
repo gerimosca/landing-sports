@@ -30,7 +30,7 @@ export const brand = {
   website: 'https://example.com',
 
   /** Support email address */
-  support: 'support@example.com',
+  support: 'soporte@somospasion.com',
 
   // ═══════════════════════════════════════════════════════════════════
   // ASSETS (place files in /public/)

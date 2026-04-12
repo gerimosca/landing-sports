@@ -22,12 +22,14 @@ export function MarketingFooterClient({ locale, showAffiliateLink, affiliateLink
           {brand.copyright}
         </p>
         <div className="flex items-center gap-4">
+          {/* TODO: Descomentar cuando Privacidad esté lista
           <Link
             href={`/${locale}/privacy`}
             className="text-sm text-muted-foreground hover:text-foreground"
           >
             {tConsent('footer.privacy')}
           </Link>
+          */}
           {showAffiliateLink && (
             <Link
               href={`/${locale}/affiliates`}
