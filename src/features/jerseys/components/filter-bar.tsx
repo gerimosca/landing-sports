@@ -39,21 +39,6 @@ export function FilterBar({ activeLeague, activeTeam, onLeagueChange, onTeamChan
       {/* League filters */}
       <div className="w-full py-2">
         <div className="flex flex-wrap items-center justify-center gap-2 px-4 md:px-0">
-          <button
-            onClick={() => {
-              onLeagueChange(null);
-              onTeamChange(null);
-            }}
-            className={cn(
-              'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap',
-              activeLeague === null
-                ? 'bg-primary text-black shadow-lg shadow-primary/25'
-                : 'bg-zinc-900 text-zinc-400 hover:bg-zinc-800 hover:text-white border border-zinc-800'
-            )}
-          >
-            {t('filters.all')}
-          </button>
-
           {leagues.map((league) => (
             <button
               key={league.id}

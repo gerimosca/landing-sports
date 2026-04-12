@@ -36,8 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       | 'never';
   }> = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' },
-    { path: '/pricing', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/cookies', priority: 0.3, changeFrequency: 'yearly' },

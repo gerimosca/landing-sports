@@ -2,15 +2,14 @@
 
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { SlidersHorizontal } from 'lucide-react';
 import { FilterBar } from './filter-bar';
 import { JerseyCard } from './jersey-card';
-import { jerseys } from '../config/data';
+import { jerseys, leagues } from '../config/data';
 import type { League } from '../types';
 
 export function JerseyGrid() {
   const t = useTranslations('jerseys');
-  const [activeLeague, setActiveLeague] = useState<League | null>(null);
+  const [activeLeague, setActiveLeague] = useState<League | null>(leagues[0]?.id ?? null);
   const [activeTeam, setActiveTeam] = useState<string | null>(null);
 
   const filteredJerseys = useMemo(() => {
@@ -21,7 +20,16 @@ export function JerseyGrid() {
     if (activeTeam) {
       result = result.filter((j) => j.team === activeTeam);
     }
-    return result;
+    return [...result].sort((a, b) => {
+      if (a.team !== b.team) {
+        const firstIndex = result.findIndex((j) => j.team === a.team);
+        const secondIndex = result.findIndex((j) => j.team === b.team);
+        return firstIndex - secondIndex;
+      }
+      const numA = parseInt(a.id.split('-').pop() || '0', 10);
+      const numB = parseInt(b.id.split('-').pop() || '0', 10);
+      return numB - numA;
+    });
   }, [activeLeague, activeTeam]);
 
   return (
@@ -29,11 +37,10 @@ export function JerseyGrid() {
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-            <SlidersHorizontal className="h-4 w-4" />
+          <div className="inline-flex items-center gap-2 text-primary text-xl md:text-2xl font-semibold uppercase tracking-widest mb-4">
             {t('catalog.subtitle')}
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight">
             {t('catalog.title')}
           </h2>
         </div>
@@ -62,15 +69,14 @@ export function JerseyGrid() {
         {filteredJerseys.length === 0 && (
           <div className="text-center py-20">
             <p className="text-zinc-500 text-lg">{t('catalog.empty')}</p>
-            <button
-              onClick={() => {
-                setActiveLeague(null);
-                setActiveTeam(null);
-              }}
-              className="mt-4 text-primary hover:underline font-medium"
-            >
-              {t('catalog.clearFilters')}
-            </button>
+            {activeTeam && (
+              <button
+                onClick={() => setActiveTeam(null)}
+                className="mt-4 text-primary hover:underline font-medium"
+              >
+                {t('catalog.clearFilters')}
+              </button>
+            )}
           </div>
         )}
       </div>

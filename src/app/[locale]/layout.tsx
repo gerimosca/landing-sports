@@ -55,7 +55,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
           </>
         )}
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <GlobalSchemas />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider

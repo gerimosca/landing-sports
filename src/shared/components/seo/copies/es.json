@@ -1,15 +1,7 @@
 {
   "landing": {
     "title": "Tu camiseta. Tu identidad.",
-    "description": "Camisetas de fútbol. 3x2 en todas las camisetas + envío gratuito."
-  },
-  "pricing": {
-    "title": "Planes de Precios",
-    "description": "Elige el plan perfecto para tus necesidades. Comienza gratis, actualiza cuando estés listo."
-  },
-  "about": {
-    "title": "Sobre Nosotros",
-    "description": "Conoce más sobre nuestra misión de ayudar a los desarrolladores a construir mejores productos más rápido."
+    "description": "Camisetas de fútbol y deportes."
   },
   "login": {
     "title": "Iniciar Sesión",

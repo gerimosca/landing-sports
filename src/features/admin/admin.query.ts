@@ -51,7 +51,6 @@ export async function getSetting<T = Record<string, unknown>>(
     .single();
 
   if (error || !data) {
-    console.error(`Error fetching setting ${key}:`, error);
     return null;
   }
 

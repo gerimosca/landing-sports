@@ -1,15 +1,7 @@
 {
   "landing": {
     "title": "Your jersey. Your identity.",
-    "description": "Football jerseys. 3 for 2 on all jerseys + free shipping."
-  },
-  "pricing": {
-    "title": "Pricing Plans",
-    "description": "Choose the perfect plan for your needs. Start free, upgrade when you're ready."
-  },
-  "about": {
-    "title": "About Us",
-    "description": "Learn more about our mission to help developers build better products faster."
+    "description": "Football and sports jerseys."
   },
   "login": {
     "title": "Log In",

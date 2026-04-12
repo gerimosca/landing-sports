@@ -20,7 +20,7 @@ export const brand = {
   name: 'Somos Pasión',
 
   /** Short tagline (appears in hero, metadata) */
-  tagline: 'Camisetas de fútbol originales',
+  tagline: 'Pasión deportiva',
 
   // ═══════════════════════════════════════════════════════════════════
   // CONTACT & URLS
@@ -100,7 +100,7 @@ export const brand = {
 
     /** Default meta description (max 160 characters recommended) */
     defaultDescription:
-      'Camisetas de fútbol originales de las mejores ligas del mundo. La Liga, Premier League, Serie A, Bundesliga y más.',
+      'Pasión por el fútbol y los deportes.',
 
     /** Keywords for meta tags (comma-separated) */
     keywords: ['camisetas futbol', 'football jerseys', 'soccer shirts', 'la liga', 'premier league', 'serie a'],
