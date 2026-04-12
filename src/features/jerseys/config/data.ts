@@ -28,7 +28,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-madrid/1/4.jpg',
       '/images/la-liga/real-madrid/1/5.jpg',
     ],
-    badge: '/badges/real-madrid.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -45,7 +44,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-madrid/2/4.jpg',
       '/images/la-liga/real-madrid/2/5.jpg',
     ],
-    badge: '/badges/real-madrid.webp',
     season: '2024/25',
   },
   {
@@ -62,7 +60,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-madrid/3/5.jpg',
       '/images/la-liga/real-madrid/3/6.jpg',
     ],
-    badge: '/badges/real-madrid.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -82,7 +79,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/barcelona/1/4.jpg',
       '/images/la-liga/barcelona/1/5.jpg',
     ],
-    badge: '/badges/barcelona.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -100,7 +96,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/barcelona/2/5.jpg',
       '/images/la-liga/barcelona/2/6.jpg',
     ],
-    badge: '/badges/barcelona.webp',
     season: '2024/25',
   },
   {
@@ -117,7 +112,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/barcelona/3/5.jpg',
       '/images/la-liga/barcelona/3/6.jpg',
     ],
-    badge: '/badges/barcelona.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -136,7 +130,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/atletico-madrid/1/4.jpg',
       '/images/la-liga/atletico-madrid/1/5.jpg',
     ],
-    badge: '/badges/atletico.webp',
     season: '2024/25',
   },
   {
@@ -153,7 +146,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/atletico-madrid/2/5.jpg',
       '/images/la-liga/atletico-madrid/2/6.jpg',
     ],
-    badge: '/badges/atletico.webp',
     season: '2024/25',
   },
 
@@ -172,7 +164,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-sociedad/1/5.jpg',
       '/images/la-liga/real-sociedad/1/6.jpg',
     ],
-    badge: '/badges/real-sociedad.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -190,7 +181,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-sociedad/2/5.jpg',
       '/images/la-liga/real-sociedad/2/6.jpg',
     ],
-    badge: '/badges/real-sociedad.webp',
     season: '2024/25',
   },
 
@@ -209,7 +199,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/manchester-city/1/5.jpg',
       '/images/premier-league/manchester-city/1/6.jpg',
     ],
-    badge: '/badges/man-city.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -226,7 +215,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/manchester-city/2/4.jpg',
       '/images/premier-league/manchester-city/2/5.jpg',
     ],
-    badge: '/badges/man-city.webp',
     season: '2024/25',
   },
   {
@@ -243,7 +231,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/manchester-city/3/5.jpg',
       '/images/premier-league/manchester-city/3/6.jpg',
     ],
-    badge: '/badges/man-city.webp',
     season: '2024/25',
   },
   {
@@ -260,7 +247,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/manchester-city/4/5.jpg',
       '/images/premier-league/manchester-city/4/6.jpg',
     ],
-    badge: '/badges/man-city.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -280,7 +266,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/arsenal/1/5.jpg',
       '/images/premier-league/arsenal/1/6.jpg',
     ],
-    badge: '/badges/arsenal.webp',
     season: '2024/25',
   },
   {
@@ -296,7 +281,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/arsenal/2/4.jpg',
       '/images/premier-league/arsenal/2/5.jpg',
     ],
-    badge: '/badges/arsenal.webp',
     season: '2024/25',
   },
 
@@ -314,7 +298,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/chelsea/1/4.jpg',
       '/images/premier-league/chelsea/1/5.jpg',
     ],
-    badge: '/badges/chelsea.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -331,7 +314,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/chelsea/2/4.jpg',
       '/images/premier-league/chelsea/2/5.jpg',
     ],
-    badge: '/badges/chelsea.webp',
     season: '2024/25',
   },
 
@@ -349,7 +331,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/inter-milan/1/4.jpg',
       '/images/serie-a/inter-milan/1/5.jpg',
     ],
-    badge: '/badges/inter.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -367,7 +348,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/inter-milan/2/5.jpg',
       '/images/serie-a/inter-milan/2/6.jpg',
     ],
-    badge: '/badges/inter.webp',
     season: '2024/25',
   },
 
@@ -387,7 +367,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/ac-milan/1/6.jpg',
       '/images/serie-a/ac-milan/1/7.jpg',
     ],
-    badge: '/badges/ac-milan.webp',
     season: '2024/25',
   },
   {
@@ -404,7 +383,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/ac-milan/2/5.jpg',
       '/images/serie-a/ac-milan/2/6.jpg',
     ],
-    badge: '/badges/ac-milan.webp',
     season: '2024/25',
   },
 
@@ -424,7 +402,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/juventus/1/5.jpg',
       '/images/serie-a/juventus/1/6.jpg',
     ],
-    badge: '/badges/juventus.webp',
     season: '2024/25',
   },
 
@@ -442,7 +419,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/napoli/1/4.jpg',
       '/images/serie-a/napoli/1/5.jpg',
     ],
-    badge: '/badges/napoli.webp',
     season: '2024/25',
   },
   {
@@ -458,7 +434,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/napoli/2/4.jpg',
       '/images/serie-a/napoli/2/5.jpg',
     ],
-    badge: '/badges/napoli.webp',
     season: '2024/25',
   },
 
@@ -477,7 +452,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/bayern-munich/1/5.jpg',
       '/images/bundesliga/bayern-munich/1/6.jpg',
     ],
-    badge: '/badges/bayern.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -494,7 +468,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/bayern-munich/2/4.jpg',
       '/images/bundesliga/bayern-munich/2/5.jpg',
     ],
-    badge: '/badges/bayern.webp',
     season: '2024/25',
   },
   {
@@ -510,7 +483,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/bayern-munich/3/4.jpg',
       '/images/bundesliga/bayern-munich/3/5.jpg',
     ],
-    badge: '/badges/bayern.webp',
     season: '2024/25',
   },
 
@@ -529,7 +501,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/dortmund/1/5.jpg',
       '/images/bundesliga/dortmund/1/6.jpg',
     ],
-    badge: '/badges/dortmund.webp',
     season: '2024/25',
   },
   {
@@ -545,7 +516,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/dortmund/2/4.jpg',
       '/images/bundesliga/dortmund/2/5.jpg',
     ],
-    badge: '/badges/dortmund.webp',
     season: '2024/25',
   },
 
@@ -564,7 +534,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/leverkusen/1/5.jpg',
       '/images/bundesliga/leverkusen/1/6.jpg',
     ],
-    badge: '/badges/leverkusen.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -582,7 +551,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/leverkusen/2/5.jpg',
       '/images/bundesliga/leverkusen/2/6.jpg',
     ],
-    badge: '/badges/leverkusen.webp',
     season: '2024/25',
   },
 
@@ -601,7 +569,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/psg/1/5.jpg',
       '/images/ligue-1/psg/1/6.jpg',
     ],
-    badge: '/badges/psg.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -619,7 +586,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/psg/2/5.jpg',
       '/images/ligue-1/psg/2/6.jpg',
     ],
-    badge: '/badges/psg.webp',
     season: '2024/25',
   },
   {
@@ -636,7 +602,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/psg/3/5.jpg',
       '/images/ligue-1/psg/3/6.jpg',
     ],
-    badge: '/badges/psg.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -653,7 +618,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/psg/4/4.jpg',
       '/images/ligue-1/psg/4/5.jpg',
     ],
-    badge: '/badges/psg.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -673,7 +637,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/marseille/1/5.jpg',
       '/images/ligue-1/marseille/1/6.jpg',
     ],
-    badge: '/badges/marseille.webp',
     season: '2024/25',
   },
   {
@@ -690,7 +653,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/marseille/2/5.jpg',
       '/images/ligue-1/marseille/2/6.jpg',
     ],
-    badge: '/badges/marseille.webp',
     season: '2024/25',
   },
 
@@ -708,7 +670,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/flamengo/1/4.jpg',
       '/images/brasileirao/flamengo/1/5.jpg',
     ],
-    badge: '/badges/flamengo.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -725,7 +686,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/flamengo/2/4.jpg',
       '/images/brasileirao/flamengo/2/5.jpg',
     ],
-    badge: '/badges/flamengo.webp',
     season: '2024/25',
   },
 
@@ -743,7 +703,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/palmeiras/1/4.jpg',
       '/images/brasileirao/palmeiras/1/5.jpg',
     ],
-    badge: '/badges/palmeiras.webp',
     season: '2024/25',
   },
   {
@@ -759,7 +718,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/palmeiras/2/4.jpg',
       '/images/brasileirao/palmeiras/2/5.jpg',
     ],
-    badge: '/badges/palmeiras.webp',
     season: '2024/25',
   },
 
@@ -777,7 +735,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/santos/1/4.jpg',
       '/images/brasileirao/santos/1/5.jpg',
     ],
-    badge: '/badges/santos.webp',
     season: '2024/25',
   },
   {
@@ -794,7 +751,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/santos/2/5.jpg',
       '/images/brasileirao/santos/2/6.jpg',
     ],
-    badge: '/badges/santos.webp',
     season: '2024/25',
   },
   {
@@ -811,7 +767,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/santos/3/5.jpg',
       '/images/brasileirao/santos/3/6.jpg',
     ],
-    badge: '/badges/santos.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -831,7 +786,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/boca-juniors/1/5.jpg',
       '/images/resto-de-ligas/boca-juniors/1/6.jpg',
     ],
-    badge: '/badges/boca.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -849,7 +803,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/boca-juniors/2/5.jpg',
       '/images/resto-de-ligas/boca-juniors/2/6.jpg',
     ],
-    badge: '/badges/boca.webp',
     season: '2024/25',
   },
   {
@@ -865,7 +818,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/boca-juniors/3/4.jpg',
       '/images/resto-de-ligas/boca-juniors/3/5.jpg',
     ],
-    badge: '/badges/boca.webp',
     season: '2024/25',
   },
 
@@ -884,7 +836,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/river-plate/1/5.jpg',
       '/images/resto-de-ligas/river-plate/1/6.jpg',
     ],
-    badge: '/badges/river.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -901,7 +852,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/river-plate/2/4.jpg',
       '/images/resto-de-ligas/river-plate/2/5.jpg',
     ],
-    badge: '/badges/river.webp',
     season: '2024/25',
   },
 
@@ -920,7 +870,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/independiente/1/5.jpg',
       '/images/resto-de-ligas/independiente/1/6.jpg',
     ],
-    badge: '/badges/independiente.webp',
     season: '2024/25',
   },
 
@@ -938,7 +887,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/ajax/1/4.jpg',
       '/images/resto-de-ligas/ajax/1/5.jpg',
     ],
-    badge: '/badges/ajax.webp',
     season: '2024/25',
   },
 
@@ -957,7 +905,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/benfica/1/5.jpg',
       '/images/resto-de-ligas/benfica/1/6.jpg',
     ],
-    badge: '/badges/benfica.webp',
     season: '2024/25',
   },
 
@@ -975,7 +922,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/galatasaray/1/4.jpg',
       '/images/resto-de-ligas/galatasaray/1/5.jpg',
     ],
-    badge: '/badges/galatasaray.webp',
     season: '2024/25',
   },
 
@@ -993,7 +939,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/inter-miami/1/4.jpg',
       '/images/resto-de-ligas/inter-miami/1/5.jpg',
     ],
-    badge: '/badges/inter-miami.webp',
     season: '2024/25',
   },
   {
@@ -1009,7 +954,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/inter-miami/2/4.jpg',
       '/images/resto-de-ligas/inter-miami/2/5.jpg',
     ],
-    badge: '/badges/inter-miami.webp',
     season: '2024/25',
   },
 
@@ -1027,7 +971,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/la-galaxy/1/4.jpg',
       '/images/resto-de-ligas/la-galaxy/1/5.jpg',
     ],
-    badge: '/badges/la-galaxy.webp',
     season: '2024/25',
   },
   {
@@ -1043,7 +986,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/la-galaxy/2/4.jpg',
       '/images/resto-de-ligas/la-galaxy/2/5.jpg',
     ],
-    badge: '/badges/la-galaxy.webp',
     season: '2024/25',
   },
 
@@ -1061,7 +1003,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/america-cali/1/4.jpg',
       '/images/resto-de-ligas/america-cali/1/5.jpg',
     ],
-    badge: '/badges/america-cali.webp',
     season: '2024/25',
   },
 
@@ -1079,7 +1020,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/colo-colo/1/4.jpg',
       '/images/resto-de-ligas/colo-colo/1/5.jpg',
     ],
-    badge: '/badges/colo-colo.webp',
     season: '2024/25',
   },
 
@@ -1097,7 +1037,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/nacional/1/4.jpg',
       '/images/resto-de-ligas/nacional/1/5.jpg',
     ],
-    badge: '/badges/nacional.webp',
     season: '2024/25',
   },
 
@@ -1115,7 +1054,6 @@ export const jerseys: Jersey[] = [
       '/images/resto-de-ligas/universidad-chile/1/4.jpg',
       '/images/resto-de-ligas/universidad-chile/1/5.jpg',
     ],
-    badge: '/badges/universidad-chile.webp',
     season: '2024/25',
   },
 
@@ -1135,7 +1073,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/argentina/1/6.jpg',
       '/images/selecciones/argentina/1/7.jpg',
     ],
-    badge: '/badges/argentina.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -1155,7 +1092,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/brasil/1/5.jpg',
       '/images/selecciones/brasil/1/6.jpg',
     ],
-    badge: '/badges/brasil.webp',
     season: '2024/25',
     isBestseller: true,
   },
@@ -1174,7 +1110,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/espana/1/4.jpg',
       '/images/selecciones/espana/1/5.jpg',
     ],
-    badge: '/badges/espana.webp',
     season: '2024/25',
   },
 
@@ -1193,7 +1128,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/francia/1/5.jpg',
       '/images/selecciones/francia/1/6.jpg',
     ],
-    badge: '/badges/francia.webp',
     season: '2024/25',
   },
 
@@ -1213,7 +1147,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/alemania/1/6.jpg',
       '/images/selecciones/alemania/1/7.jpg',
     ],
-    badge: '/badges/alemania.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -1233,7 +1166,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/italia/1/5.jpg',
       '/images/selecciones/italia/1/6.jpg',
     ],
-    badge: '/badges/italia.webp',
     season: '2024/25',
   },
 
@@ -1252,7 +1184,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/inglaterra/1/5.jpg',
       '/images/selecciones/inglaterra/1/6.jpg',
     ],
-    badge: '/badges/inglaterra.webp',
     season: '2024/25',
   },
 
@@ -1271,7 +1202,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/valencia/1/5.jpg',
       '/images/la-liga/valencia/1/6.jpg',
     ],
-    badge: '/badges/valencia.webp',
     season: '2024/25',
   },
   {
@@ -1288,7 +1218,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/valencia/2/5.jpg',
       '/images/la-liga/valencia/2/6.jpg',
     ],
-    badge: '/badges/valencia.webp',
     season: '2024/25',
   },
 
@@ -1307,7 +1236,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/oviedo/1/5.jpg',
       '/images/la-liga/oviedo/1/6.jpg',
     ],
-    badge: '/badges/oviedo.webp',
     season: '2024/25',
   },
   {
@@ -1324,7 +1252,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/oviedo/2/5.jpg',
       '/images/la-liga/oviedo/2/6.jpg',
     ],
-    badge: '/badges/oviedo.webp',
     season: '2024/25',
   },
 
@@ -1343,7 +1270,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-betis/1/5.jpg',
       '/images/la-liga/real-betis/1/6.jpg',
     ],
-    badge: '/badges/real-betis.webp',
     season: '2024/25',
   },
   {
@@ -1360,7 +1286,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/real-betis/2/5.jpg',
       '/images/la-liga/real-betis/2/6.jpg',
     ],
-    badge: '/badges/real-betis.webp',
     season: '2024/25',
   },
 
@@ -1378,7 +1303,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/tenerife/1/4.jpg',
       '/images/la-liga/tenerife/1/5.jpg',
     ],
-    badge: '/badges/tenerife.webp',
     season: '2024/25',
   },
   {
@@ -1395,7 +1319,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/tenerife/2/5.jpg',
       '/images/la-liga/tenerife/2/6.jpg',
     ],
-    badge: '/badges/tenerife.webp',
     season: '2024/25',
   },
 
@@ -1415,7 +1338,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/sevilla/1/6.jpg',
       '/images/la-liga/sevilla/1/7.jpg',
     ],
-    badge: '/badges/sevilla.webp',
     season: '2024/25',
   },
   {
@@ -1432,7 +1354,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/sevilla/2/5.jpg',
       '/images/la-liga/sevilla/2/6.jpg',
     ],
-    badge: '/badges/sevilla.webp',
     season: '2024/25',
   },
 
@@ -1451,7 +1372,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/rcd-mallorca/1/5.jpg',
       '/images/la-liga/rcd-mallorca/1/6.jpg',
     ],
-    badge: '/badges/rcd-mallorca.webp',
     season: '2024/25',
   },
   {
@@ -1468,7 +1388,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/rcd-mallorca/2/5.jpg',
       '/images/la-liga/rcd-mallorca/2/6.jpg',
     ],
-    badge: '/badges/rcd-mallorca.webp',
     season: '2024/25',
   },
 
@@ -1487,7 +1406,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/malaga/1/5.jpg',
       '/images/la-liga/malaga/1/6.jpg',
     ],
-    badge: '/badges/malaga.webp',
     season: '2024/25',
   },
   {
@@ -1504,7 +1422,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/malaga/2/5.jpg',
       '/images/la-liga/malaga/2/6.jpg',
     ],
-    badge: '/badges/malaga.webp',
     season: '2024/25',
   },
 
@@ -1524,7 +1441,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/girona/1/6.jpg',
       '/images/la-liga/girona/1/7.jpg',
     ],
-    badge: '/badges/girona.webp',
     season: '2024/25',
   },
   {
@@ -1541,7 +1457,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/girona/2/5.jpg',
       '/images/la-liga/girona/2/6.jpg',
     ],
-    badge: '/badges/girona.webp',
     season: '2024/25',
   },
 
@@ -1560,7 +1475,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/deportivo-la-coruna/1/5.jpg',
       '/images/la-liga/deportivo-la-coruna/1/6.jpg',
     ],
-    badge: '/badges/deportivo-la-coruna.webp',
     season: '2024/25',
   },
   {
@@ -1577,7 +1491,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/deportivo-la-coruna/2/5.jpg',
       '/images/la-liga/deportivo-la-coruna/2/6.jpg',
     ],
-    badge: '/badges/deportivo-la-coruna.webp',
     season: '2024/25',
   },
 
@@ -1595,7 +1508,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/cordoba/1/4.jpg',
       '/images/la-liga/cordoba/1/5.jpg',
     ],
-    badge: '/badges/cordoba.webp',
     season: '2024/25',
   },
   {
@@ -1611,7 +1523,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/cordoba/2/4.jpg',
       '/images/la-liga/cordoba/2/5.jpg',
     ],
-    badge: '/badges/cordoba.webp',
     season: '2024/25',
   },
 
@@ -1630,7 +1541,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/celta/1/5.jpg',
       '/images/la-liga/celta/1/6.jpg',
     ],
-    badge: '/badges/celta.webp',
     season: '2024/25',
   },
   {
@@ -1647,7 +1557,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/celta/2/5.jpg',
       '/images/la-liga/celta/2/6.jpg',
     ],
-    badge: '/badges/celta.webp',
     season: '2024/25',
   },
 
@@ -1666,7 +1575,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/cadiz/1/5.jpg',
       '/images/la-liga/cadiz/1/6.jpg',
     ],
-    badge: '/badges/cadiz.webp',
     season: '2024/25',
   },
   {
@@ -1683,7 +1591,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/cadiz/2/5.jpg',
       '/images/la-liga/cadiz/2/6.jpg',
     ],
-    badge: '/badges/cadiz.webp',
     season: '2024/25',
   },
 
@@ -1702,7 +1609,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/athletic-bilbao/1/5.jpg',
       '/images/la-liga/athletic-bilbao/1/6.jpg',
     ],
-    badge: '/badges/athletic-bilbao.webp',
     season: '2024/25',
   },
   {
@@ -1719,7 +1625,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/athletic-bilbao/2/5.jpg',
       '/images/la-liga/athletic-bilbao/2/6.jpg',
     ],
-    badge: '/badges/athletic-bilbao.webp',
     season: '2024/25',
   },
 
@@ -1738,7 +1643,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/zaragoza/1/5.jpg',
       '/images/la-liga/zaragoza/1/6.jpg',
     ],
-    badge: '/badges/zaragoza.webp',
     season: '2024/25',
   },
 
@@ -1756,7 +1660,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/racing-de-santander/1/4.jpg',
       '/images/la-liga/racing-de-santander/1/5.jpg',
     ],
-    badge: '/badges/racing-de-santander.webp',
     season: '2024/25',
   },
   {
@@ -1773,7 +1676,6 @@ export const jerseys: Jersey[] = [
       '/images/la-liga/racing-de-santander/2/5.jpg',
       '/images/la-liga/racing-de-santander/2/6.jpg',
     ],
-    badge: '/badges/racing-de-santander.webp',
     season: '2024/25',
   },
 
@@ -1792,7 +1694,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/manchester-united/1/5.jpg',
       '/images/premier-league/manchester-united/1/6.jpg',
     ],
-    badge: '/badges/manchester-united.webp',
     season: '2024/25',
   },
   {
@@ -1808,7 +1709,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/manchester-united/2/4.jpg',
       '/images/premier-league/manchester-united/2/5.jpg',
     ],
-    badge: '/badges/manchester-united.webp',
     season: '2024/25',
   },
 
@@ -1827,7 +1727,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/tottenham/1/5.jpg',
       '/images/premier-league/tottenham/1/6.jpg',
     ],
-    badge: '/badges/tottenham.webp',
     season: '2024/25',
   },
   {
@@ -1844,7 +1743,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/tottenham/2/5.jpg',
       '/images/premier-league/tottenham/2/6.jpg',
     ],
-    badge: '/badges/tottenham.webp',
     season: '2024/25',
   },
 
@@ -1863,7 +1761,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/newcastle/1/5.jpg',
       '/images/premier-league/newcastle/1/6.jpg',
     ],
-    badge: '/badges/newcastle.webp',
     season: '2024/25',
   },
   {
@@ -1880,7 +1777,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/newcastle/2/5.jpg',
       '/images/premier-league/newcastle/2/6.jpg',
     ],
-    badge: '/badges/newcastle.webp',
     season: '2024/25',
   },
 
@@ -1899,7 +1795,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/leeds-united/1/5.jpg',
       '/images/premier-league/leeds-united/1/6.jpg',
     ],
-    badge: '/badges/leeds-united.webp',
     season: '2024/25',
   },
   {
@@ -1916,7 +1811,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/leeds-united/2/5.jpg',
       '/images/premier-league/leeds-united/2/6.jpg',
     ],
-    badge: '/badges/leeds-united.webp',
     season: '2024/25',
   },
 
@@ -1935,7 +1829,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/everton/1/5.jpg',
       '/images/premier-league/everton/1/6.jpg',
     ],
-    badge: '/badges/everton.webp',
     season: '2024/25',
   },
   {
@@ -1952,7 +1845,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/everton/2/5.jpg',
       '/images/premier-league/everton/2/6.jpg',
     ],
-    badge: '/badges/everton.webp',
     season: '2024/25',
   },
 
@@ -1971,7 +1863,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/brighton/1/5.jpg',
       '/images/premier-league/brighton/1/6.jpg',
     ],
-    badge: '/badges/brighton.webp',
     season: '2024/25',
   },
   {
@@ -1988,7 +1879,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/brighton/2/5.jpg',
       '/images/premier-league/brighton/2/6.jpg',
     ],
-    badge: '/badges/brighton.webp',
     season: '2024/25',
   },
 
@@ -2006,7 +1896,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/aston-villa/1/4.jpg',
       '/images/premier-league/aston-villa/1/5.jpg',
     ],
-    badge: '/badges/aston-villa.webp',
     season: '2024/25',
   },
   {
@@ -2022,7 +1911,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/aston-villa/2/4.jpg',
       '/images/premier-league/aston-villa/2/5.jpg',
     ],
-    badge: '/badges/aston-villa.webp',
     season: '2024/25',
   },
   {
@@ -2039,7 +1927,6 @@ export const jerseys: Jersey[] = [
       '/images/premier-league/aston-villa/3/5.jpg',
       '/images/premier-league/aston-villa/3/6.jpg',
     ],
-    badge: '/badges/aston-villa.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -2058,7 +1945,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/schalke-04/1/4.jpg',
       '/images/bundesliga/schalke-04/1/5.jpg',
     ],
-    badge: '/badges/schalke-04.webp',
     season: '2024/25',
   },
 
@@ -2076,7 +1962,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/rb-leipzig/1/4.jpg',
       '/images/bundesliga/rb-leipzig/1/5.jpg',
     ],
-    badge: '/badges/rb-leipzig.webp',
     season: '2024/25',
   },
   {
@@ -2093,7 +1978,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/rb-leipzig/2/5.jpg',
       '/images/bundesliga/rb-leipzig/2/6.jpg',
     ],
-    badge: '/badges/rb-leipzig.webp',
     season: '2024/25',
   },
 
@@ -2112,7 +1996,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/wolfsburg/1/5.jpg',
       '/images/bundesliga/wolfsburg/1/6.jpg',
     ],
-    badge: '/badges/wolfsburg.webp',
     season: '2024/25',
   },
   {
@@ -2129,7 +2012,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/wolfsburg/2/5.jpg',
       '/images/bundesliga/wolfsburg/2/6.jpg',
     ],
-    badge: '/badges/wolfsburg.webp',
     season: '2024/25',
   },
 
@@ -2147,7 +2029,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/eintracht-frankfurt/1/4.jpg',
       '/images/bundesliga/eintracht-frankfurt/1/5.jpg',
     ],
-    badge: '/badges/eintracht-frankfurt.webp',
     season: '2024/25',
   },
 
@@ -2165,7 +2046,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/borussia-monchengladbach/1/4.jpg',
       '/images/bundesliga/borussia-monchengladbach/1/5.jpg',
     ],
-    badge: '/badges/borussia-monchengladbach.webp',
     season: '2024/25',
   },
   {
@@ -2181,7 +2061,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/borussia-monchengladbach/2/4.jpg',
       '/images/bundesliga/borussia-monchengladbach/2/5.jpg',
     ],
-    badge: '/badges/borussia-monchengladbach.webp',
     season: '2024/25',
   },
 
@@ -2199,7 +2078,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/stuttgart/1/4.jpg',
       '/images/bundesliga/stuttgart/1/5.jpg',
     ],
-    badge: '/badges/stuttgart.webp',
     season: '2024/25',
   },
   {
@@ -2215,7 +2093,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/stuttgart/2/4.jpg',
       '/images/bundesliga/stuttgart/2/5.jpg',
     ],
-    badge: '/badges/stuttgart.webp',
     season: '2024/25',
   },
 
@@ -2233,7 +2110,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/fc-union-berlin/1/4.jpg',
       '/images/bundesliga/fc-union-berlin/1/5.jpg',
     ],
-    badge: '/badges/fc-union-berlin.webp',
     season: '2024/25',
   },
   {
@@ -2249,7 +2125,6 @@ export const jerseys: Jersey[] = [
       '/images/bundesliga/fc-union-berlin/2/4.jpg',
       '/images/bundesliga/fc-union-berlin/2/5.jpg',
     ],
-    badge: '/badges/fc-union-berlin.webp',
     season: '2024/25',
   },
 
@@ -2268,7 +2143,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/olympique-lyon/1/5.jpg',
       '/images/ligue-1/olympique-lyon/1/6.jpg',
     ],
-    badge: '/badges/olympique-lyon.webp',
     season: '2024/25',
   },
   {
@@ -2285,7 +2159,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/olympique-lyon/2/5.jpg',
       '/images/ligue-1/olympique-lyon/2/6.jpg',
     ],
-    badge: '/badges/olympique-lyon.webp',
     season: '2024/25',
   },
   {
@@ -2302,7 +2175,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/olympique-lyon/3/5.jpg',
       '/images/ligue-1/olympique-lyon/3/6.jpg',
     ],
-    badge: '/badges/olympique-lyon.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -2322,7 +2194,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/lille/1/5.jpg',
       '/images/ligue-1/lille/1/6.jpg',
     ],
-    badge: '/badges/lille.webp',
     season: '2024/25',
   },
   {
@@ -2339,7 +2210,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/lille/2/5.jpg',
       '/images/ligue-1/lille/2/6.jpg',
     ],
-    badge: '/badges/lille.webp',
     season: '2024/25',
   },
 
@@ -2358,7 +2228,6 @@ export const jerseys: Jersey[] = [
       '/images/ligue-1/stade-rennais/1/5.jpg',
       '/images/ligue-1/stade-rennais/1/6.jpg',
     ],
-    badge: '/badges/stade-rennais.webp',
     season: '2024/25',
   },
 
@@ -2377,7 +2246,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/roma/1/5.jpg',
       '/images/serie-a/roma/1/6.jpg',
     ],
-    badge: '/badges/roma.webp',
     season: '2024/25',
   },
   {
@@ -2394,7 +2262,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/roma/2/5.jpg',
       '/images/serie-a/roma/2/6.jpg',
     ],
-    badge: '/badges/roma.webp',
     season: '2024/25',
   },
 
@@ -2415,7 +2282,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/fiorentina/1/7.jpg',
       '/images/serie-a/fiorentina/1/8.jpg',
     ],
-    badge: '/badges/fiorentina.webp',
     season: '2024/25',
   },
 
@@ -2434,7 +2300,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/atalanta/1/5.jpg',
       '/images/serie-a/atalanta/1/6.jpg',
     ],
-    badge: '/badges/atalanta.webp',
     season: '2024/25',
   },
   {
@@ -2451,7 +2316,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/atalanta/2/5.jpg',
       '/images/serie-a/atalanta/2/6.jpg',
     ],
-    badge: '/badges/atalanta.webp',
     season: '2024/25',
   },
 
@@ -2470,7 +2334,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/lazio/1/5.jpg',
       '/images/serie-a/lazio/1/6.jpg',
     ],
-    badge: '/badges/lazio.webp',
     season: '2024/25',
   },
 
@@ -2488,7 +2351,6 @@ export const jerseys: Jersey[] = [
       '/images/serie-a/parma/1/4.jpg',
       '/images/serie-a/parma/1/5.jpg',
     ],
-    badge: '/badges/parma.webp',
     season: '2024/25',
   },
 
@@ -2506,7 +2368,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/corinthians/1/4.jpg',
       '/images/brasileirao/corinthians/1/5.jpg',
     ],
-    badge: '/badges/corinthians.webp',
     season: '2024/25',
   },
   {
@@ -2522,7 +2383,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/corinthians/2/4.jpg',
       '/images/brasileirao/corinthians/2/5.jpg',
     ],
-    badge: '/badges/corinthians.webp',
     season: '2024/25',
   },
   {
@@ -2538,7 +2398,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/corinthians/3/4.jpg',
       '/images/brasileirao/corinthians/3/5.jpg',
     ],
-    badge: '/badges/corinthians.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -2557,7 +2416,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/internacional/1/4.jpg',
       '/images/brasileirao/internacional/1/5.jpg',
     ],
-    badge: '/badges/internacional.webp',
     season: '2024/25',
   },
   {
@@ -2574,7 +2432,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/internacional/2/5.jpg',
       '/images/brasileirao/internacional/2/6.jpg',
     ],
-    badge: '/badges/internacional.webp',
     season: '2024/25',
   },
 
@@ -2593,7 +2450,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/fluminense/1/5.jpg',
       '/images/brasileirao/fluminense/1/6.jpg',
     ],
-    badge: '/badges/fluminense.webp',
     season: '2024/25',
   },
   {
@@ -2610,7 +2466,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/fluminense/2/5.jpg',
       '/images/brasileirao/fluminense/2/6.jpg',
     ],
-    badge: '/badges/fluminense.webp',
     season: '2024/25',
   },
 
@@ -2628,7 +2483,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/cruzeiro/1/4.jpg',
       '/images/brasileirao/cruzeiro/1/5.jpg',
     ],
-    badge: '/badges/cruzeiro.webp',
     season: '2024/25',
   },
   {
@@ -2644,7 +2498,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/cruzeiro/2/4.jpg',
       '/images/brasileirao/cruzeiro/2/5.jpg',
     ],
-    badge: '/badges/cruzeiro.webp',
     season: '2024/25',
   },
 
@@ -2663,7 +2516,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/vasco-da-gama/1/5.jpg',
       '/images/brasileirao/vasco-da-gama/1/6.jpg',
     ],
-    badge: '/badges/vasco-da-gama.webp',
     season: '2024/25',
   },
   {
@@ -2680,7 +2532,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/vasco-da-gama/2/5.jpg',
       '/images/brasileirao/vasco-da-gama/2/6.jpg',
     ],
-    badge: '/badges/vasco-da-gama.webp',
     season: '2024/25',
   },
 
@@ -2698,7 +2549,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/sao-paulo/1/4.jpg',
       '/images/brasileirao/sao-paulo/1/5.jpg',
     ],
-    badge: '/badges/sao-paulo.webp',
     season: '2024/25',
   },
   {
@@ -2714,7 +2564,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/sao-paulo/2/4.jpg',
       '/images/brasileirao/sao-paulo/2/5.jpg',
     ],
-    badge: '/badges/sao-paulo.webp',
     season: '2024/25',
   },
 
@@ -2733,7 +2582,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/atletico-mineiro/1/5.jpg',
       '/images/brasileirao/atletico-mineiro/1/6.jpg',
     ],
-    badge: '/badges/atletico-mineiro.webp',
     season: '2024/25',
   },
   {
@@ -2750,7 +2598,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/atletico-mineiro/2/5.jpg',
       '/images/brasileirao/atletico-mineiro/2/6.jpg',
     ],
-    badge: '/badges/atletico-mineiro.webp',
     season: '2024/25',
   },
   {
@@ -2767,7 +2614,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/atletico-mineiro/3/5.jpg',
       '/images/brasileirao/atletico-mineiro/3/6.jpg',
     ],
-    badge: '/badges/atletico-mineiro.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -2787,7 +2633,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/botafogo/1/5.jpg',
       '/images/brasileirao/botafogo/1/6.jpg',
     ],
-    badge: '/badges/botafogo.webp',
     season: '2024/25',
   },
   {
@@ -2803,7 +2648,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/botafogo/2/4.jpg',
       '/images/brasileirao/botafogo/2/5.jpg',
     ],
-    badge: '/badges/botafogo.webp',
     season: '2024/25',
   },
   {
@@ -2820,7 +2664,6 @@ export const jerseys: Jersey[] = [
       '/images/brasileirao/botafogo/3/5.jpg',
       '/images/brasileirao/botafogo/3/6.jpg',
     ],
-    badge: '/badges/botafogo.webp',
     season: '2024/25',
     isNew: true,
   },
@@ -2840,7 +2683,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/noruega/1/5.jpg',
       '/images/selecciones/noruega/1/6.jpg',
     ],
-    badge: '/badges/noruega.webp',
     season: '2024/25',
   },
 
@@ -2858,7 +2700,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/bolivia/1/4.jpg',
       '/images/selecciones/bolivia/1/5.jpg',
     ],
-    badge: '/badges/bolivia.webp',
     season: '2024/25',
   },
 
@@ -2877,7 +2718,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/mexico/1/5.jpg',
       '/images/selecciones/mexico/1/6.jpg',
     ],
-    badge: '/badges/mexico.webp',
     season: '2024/25',
   },
 
@@ -2896,7 +2736,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/japon/1/5.jpg',
       '/images/selecciones/japon/1/6.jpg',
     ],
-    badge: '/badges/japon.webp',
     season: '2024/25',
   },
 
@@ -2915,7 +2754,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/colombia/1/5.jpg',
       '/images/selecciones/colombia/1/6.jpg',
     ],
-    badge: '/badges/colombia.webp',
     season: '2024/25',
   },
 
@@ -2933,7 +2771,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/holanda/1/4.jpg',
       '/images/selecciones/holanda/1/5.jpg',
     ],
-    badge: '/badges/holanda.webp',
     season: '2024/25',
   },
 
@@ -2951,7 +2788,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/jamaica/1/4.jpg',
       '/images/selecciones/jamaica/1/5.jpg',
     ],
-    badge: '/badges/jamaica.webp',
     season: '2024/25',
   },
 
@@ -2969,7 +2805,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/eeuu/1/4.jpg',
       '/images/selecciones/eeuu/1/5.jpg',
     ],
-    badge: '/badges/eeuu.webp',
     season: '2024/25',
   },
 
@@ -2988,7 +2823,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/portugal/1/5.jpg',
       '/images/selecciones/portugal/1/6.jpg',
     ],
-    badge: '/badges/portugal.webp',
     season: '2024/25',
   },
 
@@ -3006,7 +2840,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/peru/1/4.jpg',
       '/images/selecciones/peru/1/5.jpg',
     ],
-    badge: '/badges/peru.webp',
     season: '2024/25',
   },
 
@@ -3024,7 +2857,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/suecia/1/4.jpg',
       '/images/selecciones/suecia/1/5.jpg',
     ],
-    badge: '/badges/suecia.webp',
     season: '2024/25',
   },
 
@@ -3044,7 +2876,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/grecia/1/6.jpg',
       '/images/selecciones/grecia/1/7.jpg',
     ],
-    badge: '/badges/grecia.webp',
     season: '2024/25',
   },
 
@@ -3063,7 +2894,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/venezuela/1/5.jpg',
       '/images/selecciones/venezuela/1/6.jpg',
     ],
-    badge: '/badges/venezuela.webp',
     season: '2024/25',
   },
 
@@ -3081,7 +2911,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/croacia/1/4.jpg',
       '/images/selecciones/croacia/1/5.jpg',
     ],
-    badge: '/badges/croacia.webp',
     season: '2024/25',
   },
 
@@ -3100,7 +2929,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/marruecos/1/5.jpg',
       '/images/selecciones/marruecos/1/6.jpg',
     ],
-    badge: '/badges/marruecos.webp',
     season: '2024/25',
   },
 
@@ -3118,7 +2946,6 @@ export const jerseys: Jersey[] = [
       '/images/selecciones/uruguay/1/4.jpg',
       '/images/selecciones/uruguay/1/5.jpg',
     ],
-    badge: '/badges/uruguay.webp',
     season: '2024/25',
   },
 
@@ -3136,7 +2963,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/real-madrid/1/4.jpg',
       '/images/retro/real-madrid/1/5.jpg',
     ],
-    badge: '/badges/real-madrid.webp',
     season: 'Retro',
   },
   {
@@ -3152,7 +2978,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/real-madrid/2/4.jpg',
       '/images/retro/real-madrid/2/5.jpg',
     ],
-    badge: '/badges/real-madrid.webp',
     season: 'Retro',
   },
 
@@ -3170,7 +2995,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/barcelona/1/4.jpg',
       '/images/retro/barcelona/1/5.jpg',
     ],
-    badge: '/badges/barcelona.webp',
     season: 'Retro',
   },
   {
@@ -3185,7 +3009,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/barcelona/2/3.jpg',
       '/images/retro/barcelona/2/4.jpg',
     ],
-    badge: '/badges/barcelona.webp',
     season: 'Retro',
   },
 
@@ -3203,7 +3026,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/arsenal/1/4.jpg',
       '/images/retro/arsenal/1/5.jpg',
     ],
-    badge: '/badges/arsenal.webp',
     season: 'Retro',
   },
   {
@@ -3219,7 +3041,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/arsenal/2/4.jpg',
       '/images/retro/arsenal/2/5.jpg',
     ],
-    badge: '/badges/arsenal.webp',
     season: 'Retro',
   },
   {
@@ -3235,7 +3056,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/arsenal/3/4.jpg',
       '/images/retro/arsenal/3/5.jpg',
     ],
-    badge: '/badges/arsenal.webp',
     season: 'Retro',
   },
 
@@ -3254,7 +3074,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/ajax/1/5.jpg',
       '/images/retro/ajax/1/6.jpg',
     ],
-    badge: '/badges/ajax.webp',
     season: 'Retro',
   },
 
@@ -3272,7 +3091,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/inter-milan/1/4.jpg',
       '/images/retro/inter-milan/1/5.jpg',
     ],
-    badge: '/badges/inter.webp',
     season: 'Retro',
   },
 
@@ -3290,7 +3108,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/milan/1/4.jpg',
       '/images/retro/milan/1/5.jpg',
     ],
-    badge: '/badges/ac-milan.webp',
     season: 'Retro',
   },
 
@@ -3308,7 +3125,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/parma/1/4.jpg',
       '/images/retro/parma/1/5.jpg',
     ],
-    badge: '/badges/parma.webp',
     season: 'Retro',
   },
 
@@ -3326,7 +3142,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/argentina/1/4.jpg',
       '/images/retro/argentina/1/5.jpg',
     ],
-    badge: '/badges/argentina.webp',
     season: 'Retro',
   },
   {
@@ -3342,7 +3157,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/argentina/2/4.jpg',
       '/images/retro/argentina/2/5.jpg',
     ],
-    badge: '/badges/argentina.webp',
     season: 'Retro',
   },
   {
@@ -3359,7 +3173,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/argentina/3/5.jpg',
       '/images/retro/argentina/3/6.jpg',
     ],
-    badge: '/badges/argentina.webp',
     season: 'Retro',
   },
   {
@@ -3375,7 +3188,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/argentina/4/4.jpg',
       '/images/retro/argentina/4/5.jpg',
     ],
-    badge: '/badges/argentina.webp',
     season: 'Retro',
   },
 
@@ -3393,7 +3205,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/alemania/1/4.jpg',
       '/images/retro/alemania/1/5.jpg',
     ],
-    badge: '/badges/alemania.webp',
     season: 'Retro',
   },
   {
@@ -3409,7 +3220,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/alemania/2/4.jpg',
       '/images/retro/alemania/2/5.jpg',
     ],
-    badge: '/badges/alemania.webp',
     season: 'Retro',
   },
 
@@ -3427,7 +3237,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/francia/1/4.jpg',
       '/images/retro/francia/1/5.jpg',
     ],
-    badge: '/badges/francia.webp',
     season: 'Retro',
   },
   {
@@ -3442,7 +3251,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/francia/2/3.jpg',
       '/images/retro/francia/2/4.jpg',
     ],
-    badge: '/badges/francia.webp',
     season: 'Retro',
   },
 
@@ -3460,7 +3268,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/holanda/1/4.jpg',
       '/images/retro/holanda/1/5.jpg',
     ],
-    badge: '/badges/holanda.webp',
     season: 'Retro',
   },
 
@@ -3478,7 +3285,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/brasil/1/4.jpg',
       '/images/retro/brasil/1/5.jpg',
     ],
-    badge: '/badges/brasil.webp',
     season: 'Retro',
   },
   {
@@ -3494,7 +3300,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/brasil/2/4.jpg',
       '/images/retro/brasil/2/5.jpg',
     ],
-    badge: '/badges/brasil.webp',
     season: 'Retro',
   },
 
@@ -3511,7 +3316,6 @@ export const jerseys: Jersey[] = [
       '/images/retro/japon/1/3.jpg',
       '/images/retro/japon/1/4.jpg',
     ],
-    badge: '/badges/japon.webp',
     season: 'Retro',
   },
 ];

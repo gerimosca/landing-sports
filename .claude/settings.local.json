@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat)",
+      "Bash(chmod +x /tmp/compare_teams.sh)",
+      "Bash(bash /tmp/compare_teams.sh)",
+      "Bash(bash /tmp/find_missing_images.sh)",
+      "Bash(sed \"s/'//g\")",
+      "Bash(sort -u find /c/Users/geri_/desktop/gerardo/desarrollo/landing-sports/public/images/ligue-1 -type f)",
+      "Bash(sort -u echo \"Missing ligue-1 images:\" comm -23 /tmp/ligue1_ref.txt /tmp/ligue1_actual.txt)",
+      "Bash(sort -u find /c/Users/geri_/desktop/gerardo/desarrollo/landing-sports/public/badges -type f)",
+      "Bash(sort -u echo \"Referenced badges: $\\(wc -l < /tmp/badges_ref.txt\\)\" echo \"Actual badges: $\\(wc -l < /tmp/badges_actual.txt\\)\" echo \"\" echo \"Missing badges:\" comm -23 /tmp/badges_ref.txt /tmp/badges_actual.txt)",
+      "Bash(node /tmp/verify-data.mjs)",
+      "Bash(node /tmp/fix-badges.mjs)",
+      "Bash(node /tmp/fix-badges2.mjs)",
+      "Bash(npm run:*)",
+      "Bash(node /tmp/final-check.mjs)"
+    ]
+  }
+}

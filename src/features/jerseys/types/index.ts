@@ -23,7 +23,7 @@ export interface Jersey {
   originalPrice?: number;
   image: string;
   images?: string[];
-  badge: string;
+  badge?: string;
   season: string;
   isNew?: boolean;
   isBestseller?: boolean;
