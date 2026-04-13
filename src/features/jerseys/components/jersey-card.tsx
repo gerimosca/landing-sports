@@ -133,6 +133,23 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
     return () => window.removeEventListener('keydown', onKey);
   }, [lightboxOpen, closeLightbox, lightboxNext, lightboxPrev]);
 
+  // Lock body scroll & handle Escape while customize modal is open
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+    // handleClose is stable enough for this scope
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   const scrollToSlide = useCallback((index: number) => {
     const container = scrollRef.current;
     if (!container) return;
@@ -310,88 +327,6 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
         )}
       </div>
 
-      {/* Options panel - expands below info */}
-      {isOpen && (
-        <div className="relative border-t border-zinc-800 bg-zinc-950 p-4 space-y-3 animate-in slide-in-from-top-2 fade-in duration-200">
-          <button
-            onClick={handleClose}
-            aria-label={tc('close')}
-            className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full text-zinc-500 hover:text-white hover:bg-zinc-800 transition-colors"
-          >
-            <X className="h-4 w-4" />
-          </button>
-          {/* Size selector - full width grid */}
-          <div>
-            <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-              {tc('size')}
-            </p>
-            <div className="grid grid-cols-4 gap-1.5">
-              {SIZES.map((size) => (
-                <button
-                  key={size}
-                  onClick={() => setSelectedSize(size)}
-                  className={cn(
-                    'py-2 text-xs font-bold rounded border transition-colors text-center',
-                    selectedSize === size
-                      ? 'border-primary bg-primary text-black'
-                      : 'border-zinc-700 text-zinc-300 hover:border-primary'
-                  )}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Dorsal fields */}
-          <div className="space-y-2">
-            <div>
-              <label className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
-                {tc('dorsalName')}
-              </label>
-              <input
-                type="text"
-                value={dorsalName}
-                onChange={(e) => setDorsalName(e.target.value.toUpperCase())}
-                placeholder={tc('dorsalNamePlaceholder')}
-                maxLength={20}
-                className="w-full mt-0.5 px-3 py-2 text-xs bg-zinc-800 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
-                {tc('dorsalNumber')}
-              </label>
-              <input
-                type="text"
-                value={dorsalNumber}
-                onChange={(e) => {
-                  const val = e.target.value.replace(/\D/g, '');
-                  if (val.length <= 2) setDorsalNumber(val);
-                }}
-                placeholder={tc('dorsalNumberPlaceholder')}
-                maxLength={2}
-                className="w-full mt-0.5 px-3 py-2 text-xs bg-zinc-800 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Action */}
-          <button
-            onClick={handleAddToCart}
-            disabled={!selectedSize}
-            className={cn(
-              'w-full py-2.5 text-xs font-bold rounded-full transition-all text-center mt-1',
-              selectedSize
-                ? 'bg-primary text-black hover:brightness-110'
-                : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
-            )}
-          >
-            <ShoppingCart className="h-3.5 w-3.5 inline mr-1.5" />
-            {selectedSize ? t('card.addToCart') : tc('selectSize')}
-          </button>
-        </div>
-      )}
 
       {mounted && lightboxOpen && jersey.images && createPortal(
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
@@ -488,6 +423,127 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
               ))}
             </div>
           )}
+        </div>,
+        document.body
+      )}
+
+      {mounted && isOpen && createPortal(
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={teamName}
+          className="fixed inset-0 z-[90] bg-black/80 backdrop-blur-sm flex items-end md:items-center justify-center animate-in fade-in duration-200"
+          onClick={handleClose}
+        >
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full md:max-w-md bg-zinc-950 border-t md:border border-zinc-800 rounded-t-2xl md:rounded-2xl p-5 pt-6 space-y-4 animate-in slide-in-from-bottom duration-300 md:slide-in-from-bottom-4 md:fade-in max-h-[90vh] overflow-y-auto"
+          >
+            {/* Header */}
+            <div className="relative min-h-14 flex items-center">
+              {jersey.images?.[0] && (
+                <div className="absolute left-0 top-0 w-14 h-14 rounded-lg overflow-hidden bg-zinc-900 border border-zinc-800">
+                  <Image
+                    src={jersey.images[0]}
+                    alt={teamName}
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="flex-1 text-center px-16 min-w-0">
+                <h2 className="text-white font-bold text-base truncate">{teamName}</h2>
+                <p className="text-primary font-black text-lg">€{jersey.price.toFixed(2)}</p>
+              </div>
+              <button
+                type="button"
+                onClick={handleClose}
+                aria-label={tc('close')}
+                className="absolute right-0 top-0 w-9 h-9 flex items-center justify-center rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Size selector */}
+            <div>
+              <p className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                {tc('size')}
+              </p>
+              <div className="grid grid-cols-4 gap-2">
+                {SIZES.map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    onClick={() => setSelectedSize(size)}
+                    className={cn(
+                      'py-3 text-sm font-bold rounded border transition-colors text-center',
+                      selectedSize === size
+                        ? 'border-primary bg-primary text-black'
+                        : 'border-zinc-700 text-zinc-300 hover:border-primary'
+                    )}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Dorsal fields */}
+            <div className="space-y-3">
+              <div>
+                <label htmlFor={`dorsal-name-${jersey.id}`} className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                  {tc('dorsalName')}
+                </label>
+                <input
+                  id={`dorsal-name-${jersey.id}`}
+                  type="text"
+                  value={dorsalName}
+                  onChange={(e) => setDorsalName(e.target.value.toUpperCase())}
+                  placeholder={tc('dorsalNamePlaceholder')}
+                  maxLength={20}
+                  className="w-full mt-1 px-3 py-3 text-base bg-zinc-900 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
+                />
+              </div>
+              <div>
+                <label htmlFor={`dorsal-number-${jersey.id}`} className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                  {tc('dorsalNumber')}
+                </label>
+                <input
+                  id={`dorsal-number-${jersey.id}`}
+                  type="text"
+                  inputMode="numeric"
+                  value={dorsalNumber}
+                  onChange={(e) => {
+                    const val = e.target.value.replace(/\D/g, '');
+                    if (val.length <= 2) setDorsalNumber(val);
+                  }}
+                  placeholder={tc('dorsalNumberPlaceholder')}
+                  maxLength={2}
+                  className="w-full mt-1 px-3 py-3 text-base bg-zinc-900 border border-zinc-700 rounded text-white placeholder:text-zinc-600 focus:border-primary focus:outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Action */}
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              disabled={!selectedSize}
+              className={cn(
+                'w-full py-3.5 text-sm font-bold rounded-full transition-all text-center',
+                selectedSize
+                  ? 'bg-primary text-black hover:brightness-110'
+                  : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
+              )}
+            >
+              <ShoppingCart className="h-4 w-4 inline mr-2" />
+              {selectedSize ? t('card.addToCart') : tc('selectSize')}
+            </button>
+          </div>
         </div>,
         document.body
       )}
