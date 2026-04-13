@@ -11,6 +11,7 @@ export function JerseyGrid() {
   const t = useTranslations('jerseys');
   const [activeLeague, setActiveLeague] = useState<League | null>(leagues[0]?.id ?? null);
   const [activeTeam, setActiveTeam] = useState<string | null>(null);
+  const [openCardId, setOpenCardId] = useState<string | null>(null);
 
   const filteredJerseys = useMemo(() => {
     let result = jerseys;
@@ -37,12 +38,12 @@ export function JerseyGrid() {
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 text-primary text-xl md:text-2xl font-semibold uppercase tracking-widest mb-4">
+          <p className="inline-flex items-center gap-2 text-primary text-xl md:text-2xl font-semibold uppercase tracking-widest mb-4">
             {t('catalog.subtitle')}
-          </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight">
+          </p>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight">
             {t('catalog.title')}
-          </h2>
+          </h1>
         </div>
 
         {/* Filters */}
@@ -61,7 +62,13 @@ export function JerseyGrid() {
         {/* Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredJerseys.map((jersey) => (
-            <JerseyCard key={jersey.id} jersey={jersey} />
+            <JerseyCard
+              key={jersey.id}
+              jersey={jersey}
+              isOpen={openCardId === jersey.id}
+              onOpen={() => setOpenCardId(jersey.id)}
+              onClose={() => setOpenCardId((id) => (id === jersey.id ? null : id))}
+            />
           ))}
         </div>
 

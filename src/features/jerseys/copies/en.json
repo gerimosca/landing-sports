@@ -2,7 +2,7 @@
   "hero": { "badge": "New Season", "title1": "Wear Your", "title2": "Passion", "subtitle": "Original football jerseys from the best leagues in the world.", "cta": "Explore Collection", "stat1": "Jerseys", "stat2": "Leagues", "stat3": "Shipping", "scrollDown": "Scroll to catalog" },
   "filters": { "all": "All Leagues", "allTeams": "All Teams" },
   "catalog": { "subtitle": "LIVE YOUR PASSION", "title": "Find Your Jersey", "showing": "{count, plural, one {# jersey} other {# jerseys}} available", "empty": "No jerseys found for this league", "clearFilters": "Show all jerseys" },
-  "card": { "new": "New", "bestseller": "Bestseller", "addToCart": "Add to Cart" },
+  "card": { "new": "New", "bestseller": "Bestseller", "addToCart": "Add to Cart", "customize": "Customize", "viewImage": "View image {index}" },
 
   "featured": { "bestsellers": "Bestsellers", "newArrivals": "New Arrivals" },
   "promo": { "shipping": { "title": "Free shipping", "description": "On 3 for 2 orders" }, "quality": { "title": "Guaranteed quality", "description": "Satisfied customers" }, "delivery": { "title": "Estimated delivery", "description": "10 to 21 days" }, "returns": { "title": "Easy returns", "description": "14-day return policy" }, "payment": { "title": "Secure payment", "description": "Encrypted transactions" } },

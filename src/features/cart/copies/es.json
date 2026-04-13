@@ -45,6 +45,7 @@
   "phoneInvalid": "Por favor ingresá un número de teléfono válido",
   "checkout": "Ir a Pagar",
   "continueShopping": "Seguir Comprando",
+  "close": "Cerrar",
   "added": "¡Agregado al carrito!",
   "itemCount": "{count, plural, one {# artículo} other {# artículos}}",
   "successTitle": "¡Pedido confirmado!",

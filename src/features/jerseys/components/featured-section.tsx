@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Flame, Sparkles } from 'lucide-react';
 import { JerseyCard } from './jersey-card';
@@ -9,6 +10,13 @@ export function FeaturedSection() {
   const t = useTranslations('jerseys');
   const bestsellers = getBestsellers().slice(0, 4);
   const newArrivals = getNewArrivals().slice(0, 4);
+  const [openCardId, setOpenCardId] = useState<string | null>(null);
+
+  const cardHandlers = (id: string) => ({
+    isOpen: openCardId === id,
+    onOpen: () => setOpenCardId(id),
+    onClose: () => setOpenCardId((cur) => (cur === id ? null : cur)),
+  });
 
   return (
     <section className="py-20 bg-gradient-to-b from-black via-zinc-950 to-black">
@@ -26,7 +34,7 @@ export function FeaturedSection() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {bestsellers.map((jersey) => (
-              <JerseyCard key={jersey.id} jersey={jersey} />
+              <JerseyCard key={jersey.id} jersey={jersey} {...cardHandlers(jersey.id)} />
             ))}
           </div>
         </div>
@@ -44,7 +52,7 @@ export function FeaturedSection() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {newArrivals.map((jersey) => (
-              <JerseyCard key={jersey.id} jersey={jersey} />
+              <JerseyCard key={jersey.id} jersey={jersey} {...cardHandlers(jersey.id)} />
             ))}
           </div>
         </div>

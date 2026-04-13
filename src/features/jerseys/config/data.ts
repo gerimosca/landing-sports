@@ -3349,6 +3349,32 @@ export function getTeamsByLeague(league: League): string[] {
   return [...new Set(teams)];
 }
 
+/**
+ * Display-name translations for teams whose canonical name differs across locales.
+ * Club brand names (Real Madrid, FC Barcelona...) are not translated.
+ * Only national teams need localization.
+ */
+const teamDisplayNames: Record<string, Record<string, string>> = {
+  Argentina: { en: 'Argentina', es: 'Argentina' },
+  Brasil: { en: 'Brazil', es: 'Brasil' },
+  España: { en: 'Spain', es: 'España' },
+  Francia: { en: 'France', es: 'Francia' },
+  Alemania: { en: 'Germany', es: 'Alemania' },
+  Italia: { en: 'Italy', es: 'Italia' },
+  Inglaterra: { en: 'England', es: 'Inglaterra' },
+  Noruega: { en: 'Norway', es: 'Noruega' },
+  Japón: { en: 'Japan', es: 'Japón' },
+  Holanda: { en: 'Netherlands', es: 'Holanda' },
+  Suecia: { en: 'Sweden', es: 'Suecia' },
+  Grecia: { en: 'Greece', es: 'Grecia' },
+  Croacia: { en: 'Croatia', es: 'Croacia' },
+  Marruecos: { en: 'Morocco', es: 'Marruecos' },
+};
+
+export function getTeamDisplayName(team: string, locale: string): string {
+  return teamDisplayNames[team]?.[locale] ?? team;
+}
+
 export function getBestsellers(): Jersey[] {
   return jerseys.filter((j) => j.isBestseller);
 }

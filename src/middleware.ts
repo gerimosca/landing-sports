@@ -6,7 +6,7 @@ import { locales, defaultLocale } from '@/i18n/config';
 const intlMiddleware = createIntlMiddleware({
   locales,
   defaultLocale,
-  localeDetection: true,
+  localeDetection: false,
 });
 
 export async function middleware(request: NextRequest) {

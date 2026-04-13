@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
-import { leagues, getTeamsByLeague } from '../config/data';
+import { leagues, getTeamsByLeague, getTeamDisplayName } from '../config/data';
 import type { League } from '../types';
 
 interface FilterBarProps {
@@ -88,7 +88,7 @@ export function FilterBar({ activeLeague, activeTeam, onLeagueChange, onTeamChan
                     : 'bg-zinc-900/50 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-300 border border-zinc-800/50'
                 )}
               >
-                {team}
+                {getTeamDisplayName(team, locale)}
               </button>
             ))}
           </div>

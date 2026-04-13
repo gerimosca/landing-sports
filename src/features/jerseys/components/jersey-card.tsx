@@ -1,9 +1,11 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { ShoppingCart, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { getTeamDisplayName } from '../config/data';
+import { ShoppingCart, Star, ChevronLeft, ChevronRight, Pencil, X } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/shared/lib/utils';
 import { useCart } from '@/features/cart';
@@ -12,20 +14,34 @@ import type { Jersey } from '../types';
 
 interface JerseyCardProps {
   jersey: Jersey;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
 }
 
-export function JerseyCard({ jersey }: JerseyCardProps) {
+export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps) {
   const t = useTranslations('jerseys');
   const tc = useTranslations('cart');
+  const locale = useLocale();
+  const teamName = getTeamDisplayName(jersey.team, locale);
   const { addItem } = useCart();
 
-  const [showOptions, setShowOptions] = useState(false);
   const [selectedSize, setSelectedSize] = useState<Size | null>(null);
   const [dorsalName, setDorsalName] = useState('');
   const [dorsalNumber, setDorsalNumber] = useState('');
 
+  const resetForm = () => {
+    setSelectedSize(null);
+    setDorsalName('');
+    setDorsalNumber('');
+  };
+
+  useEffect(() => {
+    if (!isOpen) resetForm();
+  }, [isOpen]);
+
   const handleOpenOptions = () => {
-    setShowOptions(true);
+    onOpen();
   };
 
   const handleAddToCart = () => {
@@ -35,25 +51,87 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
       dorsalName: dorsalName.trim() || undefined,
       dorsalNumber: dorsalNumber.trim() || undefined,
     });
-    toast.success(tc('added'), { description: `${jersey.team} - ${selectedSize}` });
-    setShowOptions(false);
-    setSelectedSize(null);
-    setDorsalName('');
-    setDorsalNumber('');
+    toast.success(tc('added'), { description: `${teamName} - ${selectedSize}` });
+    resetForm();
+    onClose();
   };
 
   const handleClose = () => {
-    setShowOptions(false);
-    setSelectedSize(null);
-    setDorsalName('');
-    setDorsalNumber('');
+    resetForm();
+    onClose();
   };
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxSlide, setLightboxSlide] = useState(0);
+  const lightboxScrollRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
   // Placeholder slides: front, back, detail views
   const slideCount = jersey.images?.length || 3;
+
+  const openLightbox = () => {
+    if (!jersey.images) return;
+    setLightboxSlide(activeSlide);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = useCallback(() => setLightboxOpen(false), []);
+
+  const scrollLightboxTo = useCallback((index: number) => {
+    const container = lightboxScrollRef.current;
+    if (!container) return;
+    container.scrollTo({ left: container.offsetWidth * index, behavior: 'smooth' });
+  }, []);
+
+  const lightboxNext = useCallback(() => {
+    scrollLightboxTo((lightboxSlide + 1) % slideCount);
+  }, [lightboxSlide, slideCount, scrollLightboxTo]);
+
+  const lightboxPrev = useCallback(() => {
+    scrollLightboxTo((lightboxSlide - 1 + slideCount) % slideCount);
+  }, [lightboxSlide, slideCount, scrollLightboxTo]);
+
+  const handleLightboxScroll = useCallback(() => {
+    const container = lightboxScrollRef.current;
+    if (!container) return;
+    const slideWidth = container.offsetWidth;
+    const newIndex = Math.round(container.scrollLeft / slideWidth);
+    setLightboxSlide(newIndex);
+  }, []);
+
+  // Initialize scroll position and lock body scroll only when opening
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const container = lightboxScrollRef.current;
+    if (container) {
+      container.scrollLeft = container.offsetWidth * activeSlide;
+      setLightboxSlide(activeSlide);
+    }
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+    // activeSlide intentionally omitted: only re-init on open/close
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lightboxOpen]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowRight') lightboxNext();
+      else if (e.key === 'ArrowLeft') lightboxPrev();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxOpen, closeLightbox, lightboxNext, lightboxPrev]);
 
   const scrollToSlide = useCallback((index: number) => {
     const container = scrollRef.current;
@@ -104,16 +182,19 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
         >
           {jersey.images ? (
             jersey.images.map((src, i) => (
-              <div
+              <button
                 key={i}
-                className="relative w-full h-full flex-shrink-0 snap-center bg-gradient-to-b from-zinc-800 to-zinc-900"
+                type="button"
+                onClick={openLightbox}
+                aria-label={t('card.viewImage', { index: i + 1 })}
+                className="relative w-full h-full flex-shrink-0 snap-center bg-gradient-to-b from-zinc-800 to-zinc-900 cursor-zoom-in"
               >
                 <Image
                   src={src}
-                  alt={`${jersey.team} - ${i + 1}`}
+                  alt={`${teamName} - ${i + 1}`}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition-opacity duration-500 ease-in-out"
+                  className="object-cover transition-opacity duration-500 ease-in-out pointer-events-none"
                   loading={i === 0 ? 'eager' : 'lazy'}
                   onLoad={(e) => {
                     const img = e.currentTarget;
@@ -121,7 +202,7 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
                   }}
                   style={{ opacity: i === 0 ? 1 : 0 }}
                 />
-              </div>
+              </button>
             ))
           ) : (
             placeholderLabels.map((label, i) => (
@@ -146,7 +227,7 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
                   </svg>
                   <div className="absolute flex flex-col items-center gap-1">
                     <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">
-                      {jersey.team}
+                      {teamName}
                     </span>
                     <span className="text-zinc-600 text-[9px] uppercase tracking-wider">
                       {label}
@@ -158,47 +239,51 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
           )}
         </div>
 
-        {/* Navigation arrows - visible on hover */}
+        {/* Navigation arrows */}
         {slideCount > 1 && (
           <>
             <button
               onClick={() => scrollToSlide(Math.max(0, activeSlide - 1))}
               className={cn(
-                'absolute left-1.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity',
+                'absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center transition-colors hover:bg-black/80',
                 activeSlide === 0 && 'hidden'
               )}
               aria-label="Previous image"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={() => scrollToSlide(Math.min(slideCount - 1, activeSlide + 1))}
               className={cn(
-                'absolute right-1.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity',
+                'absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center transition-colors hover:bg-black/80',
                 activeSlide === slideCount - 1 && 'hidden'
               )}
               aria-label="Next image"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </button>
           </>
         )}
 
         {/* Dot indicators */}
         {slideCount > 1 && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
+          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 z-10 flex">
             {Array.from({ length: slideCount }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => scrollToSlide(i)}
-                className={cn(
-                  'w-1.5 h-1.5 rounded-full transition-all',
-                  activeSlide === i
-                    ? 'bg-primary w-3'
-                    : 'bg-white/40 hover:bg-white/60'
-                )}
+                className="group/dot p-2"
                 aria-label={`Image ${i + 1}`}
-              />
+              >
+                <span
+                  className={cn(
+                    'block h-1.5 rounded-full transition-all',
+                    activeSlide === i
+                      ? 'bg-primary w-3'
+                      : 'bg-white/40 w-1.5 group-hover/dot:bg-white/60'
+                  )}
+                />
+              </button>
             ))}
           </div>
         )}
@@ -207,27 +292,34 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
       {/* Info */}
       <div className="p-3 sm:p-4 text-center">
         <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-primary transition-colors truncate">
-          {jersey.team}
+          {teamName}
         </h3>
         <div className="flex items-center justify-center gap-1.5 mt-1">
           <span className="text-xs sm:text-sm font-black text-white">
             €{jersey.price.toFixed(2)}
           </span>
         </div>
-        {!showOptions && (
+        {!isOpen && (
           <button
             onClick={handleOpenOptions}
             className="mt-2 w-full flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 bg-primary text-black font-bold rounded-full text-[11px] sm:text-xs hover:brightness-110 transition-all"
           >
-            <ShoppingCart className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-            {t('card.addToCart')}
+            <Pencil className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            {t('card.customize')}
           </button>
         )}
       </div>
 
       {/* Options panel - expands below info */}
-      {showOptions && (
-        <div className="border-t border-zinc-800 bg-zinc-950 p-4 space-y-3 animate-in slide-in-from-top-2 fade-in duration-200">
+      {isOpen && (
+        <div className="relative border-t border-zinc-800 bg-zinc-950 p-4 space-y-3 animate-in slide-in-from-top-2 fade-in duration-200">
+          <button
+            onClick={handleClose}
+            aria-label={tc('close')}
+            className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full text-zinc-500 hover:text-white hover:bg-zinc-800 transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
           {/* Size selector - full width grid */}
           <div>
             <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
@@ -284,29 +376,120 @@ export function JerseyCard({ jersey }: JerseyCardProps) {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="flex flex-col gap-2 pt-1">
+          {/* Action */}
+          <button
+            onClick={handleAddToCart}
+            disabled={!selectedSize}
+            className={cn(
+              'w-full py-2.5 text-xs font-bold rounded-full transition-all text-center mt-1',
+              selectedSize
+                ? 'bg-primary text-black hover:brightness-110'
+                : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
+            )}
+          >
+            <ShoppingCart className="h-3.5 w-3.5 inline mr-1.5" />
+            {selectedSize ? t('card.addToCart') : tc('selectSize')}
+          </button>
+        </div>
+      )}
+
+      {mounted && lightboxOpen && jersey.images && createPortal(
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={teamName}
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex flex-col animate-in fade-in duration-200"
+          onClick={closeLightbox}
+        >
+          {/* Top bar */}
+          <div className="flex items-center justify-between p-4 text-white">
+            <span className="text-sm font-medium tabular-nums">
+              {lightboxSlide + 1} / {slideCount}
+            </span>
             <button
-              onClick={handleAddToCart}
-              disabled={!selectedSize}
-              className={cn(
-                'w-full py-2.5 text-xs font-bold rounded-full transition-all text-center',
-                selectedSize
-                  ? 'bg-primary text-black hover:brightness-110'
-                  : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
-              )}
+              type="button"
+              onClick={closeLightbox}
+              aria-label={tc('close')}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
             >
-              <ShoppingCart className="h-3.5 w-3.5 inline mr-1.5" />
-              {selectedSize ? t('card.addToCart') : tc('selectSize')}
-            </button>
-            <button
-              onClick={handleClose}
-              className="w-full py-2 text-xs font-bold rounded-full border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors text-center"
-            >
-              {tc('continueShopping')}
+              <X className="h-5 w-5" />
             </button>
           </div>
-        </div>
+
+          {/* Swipeable image track */}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+          <div
+            className="relative flex-1"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              ref={lightboxScrollRef}
+              onScroll={handleLightboxScroll}
+              className="absolute inset-0 flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+            >
+              {jersey.images.map((src, i) => (
+                <div
+                  key={i}
+                  className="relative w-full h-full flex-shrink-0 snap-center flex items-center justify-center"
+                >
+                  <Image
+                    src={src}
+                    alt={`${teamName} - ${i + 1}`}
+                    fill
+                    sizes="100vw"
+                    className="object-contain"
+                    priority={i === lightboxSlide}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {slideCount > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    lightboxPrev();
+                  }}
+                  aria-label="Previous image"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors backdrop-blur-sm"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    lightboxNext();
+                  }}
+                  aria-label="Next image"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors backdrop-blur-sm"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </>
+            )}
+          </div>
+
+          {/* Dot indicators */}
+          {slideCount > 1 && (
+            <div className="flex items-center justify-center gap-2 p-4">
+              {jersey.images.map((_, i) => (
+                <span
+                  key={i}
+                  className={cn(
+                    'h-1.5 rounded-full transition-all',
+                    lightboxSlide === i ? 'bg-white w-6' : 'bg-white/40 w-1.5'
+                  )}
+                />
+              ))}
+            </div>
+          )}
+        </div>,
+        document.body
       )}
     </article>
   );

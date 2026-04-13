@@ -27,7 +27,7 @@ export const brand = {
   // ═══════════════════════════════════════════════════════════════════
 
   /** Production website URL (used for canonical URLs, sitemap, schemas) */
-  website: 'https://example.com',
+  website: 'https://somospasion.com',
 
   /** Support email address */
   support: 'soporte@somospasion.com',
