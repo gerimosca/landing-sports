@@ -2,74 +2,81 @@
   "privacy": {
     "meta": {
       "title": "Política de Privacidad",
-      "description": "Cómo recopilamos, usamos y protegemos tu información personal"
+      "description": "Cómo recopilamos, usamos y protegemos tu información personal en SOMOS PASIÓN"
     },
     "title": "Política de Privacidad",
-    "lastUpdated": "Última actualización",
-    "warning": {
-      "title": "Plantilla de Desarrollo - No Legal",
-      "message": "Esta es una plantilla solo para desarrollo. Personalízala con los detalles reales de tu negocio y revísala con un profesional legal antes del lanzamiento."
-    },
     "sections": {
       "intro": {
         "title": "Introducción",
-        "content": "En {companyName}, respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Esta política de privacidad explica cómo recopilamos, usamos y protegemos tu información."
+        "p1": "En SOMOS PASIÓN respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Esta política explica qué información recopilamos cuando visitas nuestra tienda o realizas un pedido, para qué la utilizamos y qué derechos tienes sobre ella.",
+        "p2": "Al navegar por el sitio o realizar una compra, aceptas las prácticas descritas en esta política."
       },
       "dataCollection": {
         "title": "Información que Recopilamos",
-        "intro": "Recopilamos los siguientes tipos de información personal:",
+        "intro": "Recopilamos únicamente la información necesaria para gestionar tu pedido y ofrecerte una buena experiencia de compra:",
         "items": {
-          "email": "Dirección de correo electrónico y nombre para crear cuenta y autenticación",
-          "payment": "Información de pago procesada de forma segura a través de Stripe (no almacenamos detalles de tarjetas de crédito)",
-          "usage": "Datos de uso y analíticas para mejorar nuestro servicio",
-          "cookies": "Cookies y tecnologías similares para funcionalidad y analíticas"
+          "identity": "Datos de contacto: nombre, apellidos, correo electrónico y teléfono.",
+          "shipping": "Dirección de envío y facturación: calle, ciudad, código postal y país.",
+          "payment": "Datos de pago: procesados directamente por Stripe de forma segura. Nosotros no almacenamos ni tenemos acceso a los números completos de tu tarjeta.",
+          "order": "Historial de pedidos: productos comprados, importe, estado del envío y comunicaciones relacionadas.",
+          "customization": "Datos de personalización: nombre y número del dorsal que elijas para tu camiseta.",
+          "technical": "Datos técnicos: dirección IP, tipo de navegador, dispositivo e información de uso recopilada mediante cookies."
         }
       },
       "dataUsage": {
         "title": "Cómo Usamos tu Información",
-        "intro": "Usamos tus datos personales para:",
+        "intro": "Utilizamos tus datos exclusivamente para los siguientes fines:",
         "items": {
-          "service": "Proporcionar y mantener nuestros servicios",
-          "communication": "Enviarte actualizaciones del servicio, alertas de seguridad y mensajes de soporte",
-          "improvements": "Analizar el uso para mejorar nuestros productos y servicios",
-          "legal": "Cumplir con obligaciones legales y hacer cumplir nuestros términos"
+          "order": "Procesar y enviar tu pedido, incluyendo la personalización del producto.",
+          "support": "Atender tus consultas, devoluciones y reclamaciones.",
+          "improve": "Analizar el uso del sitio para mejorar el catálogo y la experiencia de compra.",
+          "marketing": "Enviarte comunicaciones comerciales, únicamente si has dado tu consentimiento expreso."
+        }
+      },
+      "legalBasis": {
+        "title": "Base Legal del Tratamiento",
+        "intro": "Tratamos tus datos al amparo de las siguientes bases legales previstas en el RGPD:",
+        "items": {
+          "contract": "Ejecución del contrato: para procesar el pedido, el pago y el envío.",
+          "consent": "Consentimiento: para el envío de comunicaciones comerciales y cookies no esenciales.",
+          "interest": "Interés legítimo: para prevenir fraudes y mejorar la seguridad del sitio."
         }
       },
       "dataSharing": {
-        "title": "Compartir Datos y Terceros",
-        "intro": "Solo compartimos tus datos con proveedores de servicios confiables:",
-        "stripe": "Procesamiento de pagos (cumple con PCI-DSS)",
-        "supabase": "Servicios de base de datos y autenticación (certificado SOC 2)"
+        "title": "Compartir Datos con Terceros",
+        "intro": "No vendemos tus datos. Solo los compartimos con los proveedores estrictamente necesarios para prestarte el servicio:",
+        "items": {
+          "payment": "Proveedores de pago: Stripe procesa los pagos cumpliendo con el estándar PCI-DSS.",
+          "shipping": "Empresas de mensajería y logística: reciben tus datos de envío únicamente para entregarte el pedido.",
+          "hosting": "Proveedores tecnológicos: alojamiento web, base de datos y envío de correos transaccionales.",
+          "legal": "Autoridades competentes: cuando exista una obligación legal de facilitarlos."
+        }
+      },
+      "retention": {
+        "title": "Conservación de los Datos",
+        "content": "Conservamos tus datos durante el tiempo estrictamente necesario para cumplir las finalidades descritas. Los datos asociados a pedidos se conservarán durante los plazos exigidos por la normativa fiscal y mercantil (hasta 6 años). Los datos tratados en base a tu consentimiento se conservarán hasta que lo retires."
       },
       "yourRights": {
         "title": "Tus Derechos (RGPD)",
-        "intro": "Bajo el RGPD, tienes los siguientes derechos:",
+        "intro": "Como usuario tienes los siguientes derechos sobre tus datos personales:",
         "rights": {
-          "access": "Derecho a acceder a tus datos personales",
-          "rectification": "Derecho a corregir datos inexactos",
-          "erasure": "Derecho a solicitar la eliminación de tus datos",
-          "portability": "Derecho a recibir tus datos en formato portable",
-          "objection": "Derecho a oponerte al procesamiento de tus datos",
-          "withdrawal": "Derecho a retirar el consentimiento en cualquier momento"
+          "access": "Acceder a los datos personales que tenemos sobre ti.",
+          "rectification": "Corregir datos inexactos o incompletos.",
+          "erasure": "Solicitar la eliminación de tus datos cuando ya no sean necesarios.",
+          "portability": "Recibir tus datos en un formato estructurado y portable.",
+          "objection": "Oponerte al tratamiento de tus datos en determinadas circunstancias.",
+          "withdrawal": "Retirar tu consentimiento en cualquier momento, sin efectos retroactivos.",
+          "complaint": "Presentar una reclamación ante la autoridad de control competente (en España, la AEPD: www.aepd.es)."
         },
-        "contact": "Para ejercer estos derechos, contáctanos en:"
-      },
-      "dataSecurity": {
-        "title": "Seguridad de Datos",
-        "content": "Implementamos medidas de seguridad estándar de la industria para proteger tus datos, incluyendo cifrado, servidores seguros y auditorías de seguridad regulares. Sin embargo, ningún método de transmisión por internet es 100% seguro."
+        "contact": "Para ejercer cualquiera de estos derechos puedes escribirnos a:"
       },
       "cookies": {
-        "title": "Cookies y Seguimiento",
-        "content": "Usamos cookies esenciales para autenticación y cookies opcionales de analíticas. Puedes gestionar tus preferencias de cookies a través de nuestro banner de consentimiento."
-      },
-      "changes": {
-        "title": "Cambios a esta Política",
-        "content": "Podemos actualizar esta política de privacidad ocasionalmente. Te notificaremos de cualquier cambio publicando la nueva política en esta página y actualizando la fecha de 'Última actualización'."
+        "title": "Cookies",
+        "content": "Utilizamos cookies propias y de terceros para el funcionamiento del sitio, el análisis de uso y, en su caso, fines publicitarios. Puedes consultar el detalle en nuestra Política de Cookies y gestionar tus preferencias desde el banner de consentimiento."
       },
       "contact": {
         "title": "Contáctanos",
-        "content": "Si tienes preguntas sobre esta política de privacidad o nuestras prácticas de datos, contáctanos:",
-        "updatePrompt": "⚠️ Recuerda actualizar esta información de contacto con tus datos legales reales antes de lanzar a producción."
+        "content": "Si tienes cualquier duda sobre esta política o quieres ejercer tus derechos, puedes escribirnos a:"
       }
     }
   },
@@ -140,27 +147,14 @@
         "title": "Acuerdo con los Términos",
         "content": "Al acceder o usar {companyName}, aceptas estar sujeto a estos Términos de Servicio. Si no estás de acuerdo con alguna parte de los términos, no puedes acceder al servicio."
       },
-      "accounts": {
-        "title": "Cuentas",
-        "content": "Cuando creas una cuenta con nosotros, debes proporcionar información precisa, completa y actualizada. Eres responsable de proteger tu contraseña y de todas las actividades bajo tu cuenta."
-      },
       "service": {
         "title": "Uso del Servicio",
         "intro": "Aceptas no:",
         "items": {
-          "illegal": "Usar el servicio con fines ilegales o en violación de cualquier ley",
           "harm": "Intentar interferir o comprometer la integridad o seguridad del sistema",
           "abuse": "Abusar, acosar, amenazar o intimidar a otros usuarios",
           "spam": "Enviar material publicitario o promocional no solicitado o no autorizado"
         }
-      },
-      "payments": {
-        "title": "Pagos y Facturación",
-        "content": "Algunas partes del servicio se facturan por suscripción. Se te facturará por adelantado de forma recurrente. Los pagos no son reembolsables excepto según lo requiera la ley."
-      },
-      "termination": {
-        "title": "Terminación",
-        "content": "Podemos terminar o suspender tu cuenta inmediatamente, sin aviso previo, por cualquier motivo, incluyendo el incumplimiento de estos Términos."
       },
       "liability": {
         "title": "Limitación de Responsabilidad",
@@ -193,11 +187,11 @@
       },
       "cancellation": {
         "title": "Cancelación de Pedidos",
-        "content": "Una vez confirmado el pedido, no es posible realizar su cancelación. Todos los pedidos confirmados entran directamente en proceso de preparación y envío, por lo que no podemos garantizar su cancelación una vez completada la compra."
+        "content": "Una vez confirmado el pedido, no será posible realizar su cancelación. Todos los pedidos confirmados entran directamente en proceso de preparación y envío, por lo que no podemos garantizar la cancelación una vez completada la compra."
       },
       "refund": {
         "title": "Métodos y Plazos de Reembolso",
-        "content": "SOMOS PASIÓN hará todo lo posible por reembolsar al cliente dentro de un plazo máximo de 30 (treinta) días desde la fecha de llegada de la devolución. En el caso de pedidos cancelados (pedidos pagados que aún no han sido enviados), el plazo máximo de reembolso es de 14 (catorce) días."
+        "content": "SOMOS PASIÓN hará todo lo posible por reembolsar al cliente dentro de un plazo máximo de 14 (catorce) días desde la fecha de llegada de la devolución. En el caso de pedidos cancelados (pedidos pagados que aún no han sido enviados), el plazo máximo de reembolso es de 14 (catorce) días."
       },
       "shippingCosts": {
         "title": "Reembolso de Gastos de Envío",

@@ -1,26 +1,3 @@
-// ⚠️ LEGAL WARNING
-// ==================================================
-// This is a TEMPLATE terms of service for DEVELOPMENT PURPOSES ONLY.
-// It is NOT legally compliant and should NOT be used in production.
-//
-// Before launching to production, you MUST:
-// 1. Customize with your actual business details (company name, address, etc.)
-// 2. Review with a legal professional familiar with your jurisdiction
-// 3. Ensure compliance with local consumer protection laws
-// 4. Update regularly as laws and your service offerings change
-//
-// Resources to generate proper legal pages:
-// - https://termly.io/ (free terms of service generator)
-// - https://iubenda.com/ (SaaS-focused legal pages)
-// - Consult with a lawyer specializing in SaaS/digital services
-//
-// Failure to have proper terms can result in:
-// - Unenforceable contracts
-// - Liability for disputes
-// - Loss of legal protections
-// - Regulatory penalties
-// ==================================================
-
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { brand } from '@/shared/config/brand';
@@ -46,83 +23,66 @@ export default async function TermsPage({
   const t = await getTranslations({ locale, namespace: 'legal.terms' });
 
   return (
-    <div className="container max-w-4xl py-12">
-      {/* Legal Review Warning Banner */}
-      <div className="mb-8 rounded-lg border-2 border-blue-500 bg-blue-50 p-6 dark:bg-blue-950/20">
-        <h3 className="mb-2 text-lg font-bold text-blue-800 dark:text-blue-200">
-          📋 {t('warning.title')}
-        </h3>
-        <p className="text-sm text-blue-700 dark:text-blue-300">
-          {t('warning.message')}
-        </p>
-      </div>
+    <div className="container max-w-4xl py-16">
+      <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+        {t('title')}
+      </h1>
 
-      {/* Terms of Service Content */}
-      <article className="prose prose-gray dark:prose-invert max-w-none">
-        <h1>{t('title')}</h1>
-        <p className="text-muted-foreground">
-          {t('lastUpdated')}: {new Date().toLocaleDateString(locale)}
-        </p>
-
+      <div className="space-y-10 text-zinc-300">
         <section>
-          <h2>{t('sections.intro.title')}</h2>
-          <p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            {t('sections.intro.title')}
+          </h2>
+          <p className="text-sm leading-relaxed">
             {t('sections.intro.content', { companyName: brand.name })}
           </p>
         </section>
 
         <section>
-          <h2>{t('sections.accounts.title')}</h2>
-          <p>{t('sections.accounts.content')}</p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            {t('sections.service.title')}
+          </h2>
+          <div className="space-y-3 text-sm leading-relaxed">
+            <p>{t('sections.service.intro')}</p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>{t('sections.service.items.harm')}</li>
+              <li>{t('sections.service.items.abuse')}</li>
+              <li>{t('sections.service.items.spam')}</li>
+            </ul>
+          </div>
         </section>
 
         <section>
-          <h2>{t('sections.service.title')}</h2>
-          <p>{t('sections.service.intro')}</p>
-          <ul>
-            <li>{t('sections.service.items.illegal')}</li>
-            <li>{t('sections.service.items.harm')}</li>
-            <li>{t('sections.service.items.abuse')}</li>
-            <li>{t('sections.service.items.spam')}</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>{t('sections.payments.title')}</h2>
-          <p>{t('sections.payments.content')}</p>
-        </section>
-
-        <section>
-          <h2>{t('sections.termination.title')}</h2>
-          <p>{t('sections.termination.content')}</p>
-        </section>
-
-        <section>
-          <h2>{t('sections.liability.title')}</h2>
-          <p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            {t('sections.liability.title')}
+          </h2>
+          <p className="text-sm leading-relaxed">
             {t('sections.liability.content', { companyName: brand.name })}
           </p>
         </section>
 
         <section>
-          <h2>{t('sections.changes.title')}</h2>
-          <p>{t('sections.changes.content')}</p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            {t('sections.changes.title')}
+          </h2>
+          <p className="text-sm leading-relaxed">{t('sections.changes.content')}</p>
         </section>
 
         <section>
-          <h2>{t('sections.contact.title')}</h2>
-          <p>
-            {t('sections.contact.content')}
-            <br />
-            <strong>{brand.name}</strong>
-            <br />
-            Email: <a href={`mailto:${brand.support}`}>{brand.support}</a>
-          </p>
-          <p className="text-sm text-muted-foreground">
-            {t('sections.contact.updatePrompt')}
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            {t('sections.contact.title')}
+          </h2>
+          <p className="text-sm leading-relaxed">
+            {t('sections.contact.content')}{' '}
+            <a
+              href={`mailto:${brand.support}`}
+              className="text-primary hover:underline"
+            >
+              {brand.support}
+            </a>
           </p>
         </section>
-      </article>
+      </div>
     </div>
   );
 }

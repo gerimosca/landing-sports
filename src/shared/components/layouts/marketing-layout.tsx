@@ -100,7 +100,6 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
                   {locale === 'es' ? 'Enlaces' : 'Links'}
                 </h3>
                 <ul className="space-y-2">
-                  {/* TODO: Descomentar cuando Privacidad y Términos estén listos
                   <li>
                     <Link href={`/${locale}/privacy`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
                       {locale === 'es' ? 'Privacidad' : 'Privacy'}
@@ -111,7 +110,6 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
                       {locale === 'es' ? 'Términos' : 'Terms'}
                     </Link>
                   </li>
-                  */}
                   <li>
                     <Link href={`/${locale}/returns`} className="text-sm text-zinc-500 hover:text-primary transition-colors">
                       {locale === 'es' ? 'Política de Devolución' : 'Return Policy'}

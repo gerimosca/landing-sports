@@ -442,19 +442,19 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
             className="relative w-full md:max-w-md bg-zinc-950 border-t md:border border-zinc-800 rounded-t-2xl md:rounded-2xl p-5 pt-6 space-y-4 animate-in slide-in-from-bottom duration-300 md:slide-in-from-bottom-4 md:fade-in max-h-[90vh] overflow-y-auto"
           >
             {/* Header */}
-            <div className="relative min-h-14 flex items-center">
+            <div className="relative min-h-20 flex items-center">
               {jersey.images?.[0] && (
-                <div className="absolute left-0 top-0 w-14 h-14 rounded-lg overflow-hidden bg-zinc-900 border border-zinc-800">
+                <div className="absolute left-0 top-0 w-20 h-20 rounded-lg overflow-hidden bg-zinc-900 border border-zinc-800">
                   <Image
                     src={jersey.images[0]}
                     alt={teamName}
                     fill
-                    sizes="56px"
+                    sizes="80px"
                     className="object-cover"
                   />
                 </div>
               )}
-              <div className="flex-1 text-center px-16 min-w-0">
+              <div className="flex-1 text-center px-24 min-w-0">
                 <h2 className="text-white font-bold text-base truncate">{teamName}</h2>
                 <p className="text-primary font-black text-lg">€{jersey.price.toFixed(2)}</p>
               </div>
