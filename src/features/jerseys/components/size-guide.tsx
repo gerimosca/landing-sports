@@ -15,13 +15,13 @@ import {
 import { cn } from '@/shared/lib/utils';
 
 const SIZE_DATA = [
-  { size: 'S', length: 70, chest: 100, weight: '55 - 60 kg', height: '165 -' },
-  { size: 'M', length: 73, chest: 104, weight: '60 - 70 kg', height: '170 -' },
-  { size: 'L', length: 75, chest: 108, weight: '70 - 80 kg', height: '175 -' },
-  { size: 'XL', length: 77, chest: 112, weight: '80 - 90 kg', height: '175 -' },
-  { size: '2XL', length: 79, chest: 116, weight: '90 - 95 kg', height: '175 -' },
-  { size: '3XL', length: 81, chest: 120, weight: '95 - 105 kg', height: '175 -' },
-  { size: '4XL', length: 83, chest: 124, weight: '105 - 115 kg', height: '175 -' },
+  { size: 'S', chest: '88-96', height: '160-170', weight: '45-60' },
+  { size: 'M', chest: '96-104', height: '165-175', weight: '60-70' },
+  { size: 'L', chest: '104-112', height: '170-180', weight: '70-80' },
+  { size: 'XL', chest: '112-124', height: '180-190', weight: '80-90' },
+  { size: 'XXL', chest: '124-136', height: '185-200', weight: '90-100' },
+  { size: '3XL', chest: '136-148', height: '200-210', weight: '105-115' },
+  { size: '4XL', chest: '148-160', height: '215-230', weight: '120-135' },
 ] as const;
 
 export function SizeGuide() {
@@ -87,20 +87,17 @@ export function SizeGuide() {
           <table className="w-full table-fixed border-collapse">
             <thead>
               <tr className="border-b border-zinc-800">
-                <th className="text-left py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[14%]">
+                <th className="text-left py-2 px-1 sm:px-2 text-[10px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[16%]">
                   {tc('sizeGuideCol_size')}
                 </th>
-                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[16%]">
-                  {tc('sizeGuideCol_length')}
-                </th>
-                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[16%]">
+                <th className="text-center py-2 px-1 sm:px-2 text-[10px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[28%]">
                   {tc('sizeGuideCol_chest')}
                 </th>
-                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[30%]">
-                  {tc('sizeGuideCol_weight')}
-                </th>
-                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[24%]">
+                <th className="text-center py-2 px-1 sm:px-2 text-[10px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[28%]">
                   {tc('sizeGuideCol_height')}
+                </th>
+                <th className="text-center py-2 px-1 sm:px-2 text-[10px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[28%]">
+                  {tc('sizeGuideCol_weight')}
                 </th>
               </tr>
             </thead>
@@ -113,17 +110,14 @@ export function SizeGuide() {
                   <td className="py-3 px-1 sm:px-2 font-bold text-primary text-xs sm:text-sm">
                     {row.size}
                   </td>
-                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums">
-                    {row.length}
-                  </td>
-                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums">
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums whitespace-nowrap">
                     {row.chest}
                   </td>
-                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[10px] sm:text-sm tabular-nums whitespace-nowrap">
-                    {row.weight}
-                  </td>
-                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[10px] sm:text-sm tabular-nums whitespace-nowrap">
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums whitespace-nowrap">
                     {row.height}
+                  </td>
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums whitespace-nowrap">
+                    {row.weight}
                   </td>
                 </tr>
               ))}

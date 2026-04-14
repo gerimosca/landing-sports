@@ -83,7 +83,7 @@
   "cookies": {
     "meta": {
       "title": "Cookie Policy",
-      "description": "Learn about how we use cookies and tracking technologies"
+      "description": "How SOMOS PASIÓN uses cookies on its online football jersey store"
     },
     "title": "Cookie Policy",
     "lastUpdated": "Last updated",
@@ -93,41 +93,41 @@
     },
     "sections": {
       "intro": {
-        "title": "What Are Cookies",
-        "content": "{companyName} uses cookies and similar tracking technologies to improve your experience, analyze usage, and for marketing purposes. This policy explains what cookies are, how we use them, and how you can control them."
+        "title": "What Are Cookies?",
+        "content": "Cookies are small text files that websites save on your device (computer, phone, or tablet) when you visit them. At {companyName} we use first-party and third-party cookies to make our online store work correctly, remember the products you add to your cart, analyze how the site is used and, with your consent, show you advertising related to our jerseys. This policy explains which cookies we use, what they do, and how you can manage them at any time."
       },
       "necessary": {
-        "title": "Necessary Cookies",
-        "description": "These cookies are essential for the website to function properly. They cannot be disabled.",
+        "title": "Technical or Necessary Cookies",
+        "description": "These cookies are essential for the store to function and for you to complete your purchase. They cannot be disabled — without them, you wouldn't be able to add products to the cart or check out. They do not require your consent.",
         "items": {
-          "session": "Session cookies for authentication and account access",
-          "auth": "Authentication tokens to keep you logged in securely",
-          "preferences": "User preferences and settings (language, theme, etc.)"
+          "session": "Shopping cart: remember the jerseys and customizations (name, number, size) you add while browsing.",
+          "auth": "Security and payment: Stripe cookies that process payments securely and prevent fraud during checkout.",
+          "preferences": "Preferences: remember your language (English/Spanish), your cookie banner choices, and your display settings."
         }
       },
       "analytics": {
         "title": "Analytics Cookies (Optional)",
-        "description": "These cookies help us understand how visitors interact with our website. We use this data to improve our service.",
+        "description": "They help us understand how visitors use the store: which jerseys get the most views, where customers drop off during checkout, and which devices are being used. We use this information to improve our catalog and shopping experience. They are only activated if you accept them in the consent banner.",
         "items": {
-          "usage": "Track which pages you visit and how you navigate the site",
-          "performance": "Monitor site performance and identify technical issues"
+          "usage": "Google Analytics 4: measures visits, time on page, most-viewed products, and conversion rate in an anonymous and aggregated way.",
+          "performance": "Performance monitoring: detects technical errors and load times to keep the store fast and stable."
         }
       },
       "marketing": {
-        "title": "Marketing Cookies (Optional)",
-        "description": "These cookies are used to show you relevant ads and measure campaign effectiveness. You can opt out at any time.",
+        "title": "Marketing and Advertising Cookies (Optional)",
+        "description": "These cookies let us show you ads for our jerseys on social media and other websites, and measure how our campaigns are performing. They are only activated if you accept the marketing category in the consent banner. You can withdraw your consent at any time.",
         "items": {
-          "googleAds": "Google Ads: Track ad conversions and campaign performance",
-          "metaPixel": "Meta Pixel: Measure Facebook/Instagram ad effectiveness"
+          "googleAds": "Google Ads: measures conversions (purchases) from our Google campaigns and helps us optimize ad spend.",
+          "metaPixel": "Meta Pixel (Facebook and Instagram): tracks visits and purchases to show you relevant jerseys on Facebook and Instagram and build lookalike audiences from our customers."
         }
       },
       "manage": {
-        "title": "How to Manage Cookies",
-        "content": "You can control cookie preferences through our cookie consent banner. You can also block cookies through your browser settings, but this may affect site functionality."
+        "title": "How to Manage Your Cookies",
+        "content": "You can accept, reject, or customize cookies from the consent banner that appears on your first visit, or at any time from the \"Cookie preferences\" link in the footer. You can also block or delete cookies through your browser settings (Chrome, Safari, Firefox, Edge), but please note that disabling technical cookies may prevent the cart and checkout from working properly."
       },
       "contact": {
         "title": "Contact Us",
-        "content": "If you have questions about our use of cookies, please contact us:"
+        "content": "If you have questions about our cookie policy or want to exercise your data rights, please write to us at:"
       }
     }
   },

@@ -83,7 +83,7 @@
   "cookies": {
     "meta": {
       "title": "Política de Cookies",
-      "description": "Cómo usamos cookies y tecnologías de seguimiento"
+      "description": "Cómo usa SOMOS PASIÓN las cookies en su tienda online de camisetas de fútbol"
     },
     "title": "Política de Cookies",
     "lastUpdated": "Última actualización",
@@ -93,41 +93,41 @@
     },
     "sections": {
       "intro": {
-        "title": "Qué Son las Cookies",
-        "content": "{companyName} utiliza cookies y tecnologías de seguimiento similares para mejorar tu experiencia, analizar el uso y con fines de marketing. Esta política explica qué son las cookies, cómo las usamos y cómo puedes controlarlas."
+        "title": "¿Qué Son las Cookies?",
+        "content": "Las cookies son pequeños archivos de texto que los sitios web guardan en tu dispositivo (ordenador, móvil o tablet) cuando los visitas. En {companyName} utilizamos cookies propias y de terceros para que nuestra tienda online funcione correctamente, recordar los productos que añades al carrito, analizar cómo se usa el sitio y, si nos das tu consentimiento, mostrarte publicidad relacionada con nuestras camisetas. Esta política explica qué cookies usamos, para qué sirven y cómo puedes gestionarlas en cualquier momento."
       },
       "necessary": {
-        "title": "Cookies Necesarias",
-        "description": "Estas cookies son esenciales para el correcto funcionamiento del sitio web. No se pueden desactivar.",
+        "title": "Cookies Técnicas o Necesarias",
+        "description": "Son imprescindibles para que la tienda funcione y puedas completar tu compra. No se pueden desactivar porque, sin ellas, no podrías añadir productos al carrito ni finalizar el pedido. No requieren tu consentimiento.",
         "items": {
-          "session": "Cookies de sesión para autenticación y acceso a la cuenta",
-          "auth": "Tokens de autenticación para mantener tu sesión segura",
-          "preferences": "Preferencias y configuración del usuario (idioma, tema, etc.)"
+          "session": "Carrito de compra: recuerdan las camisetas y personalizaciones (dorsal, talla) que añades mientras navegas.",
+          "auth": "Seguridad y pago: cookies de Stripe para procesar el pago de forma segura y prevenir fraudes durante el checkout.",
+          "preferences": "Preferencias: recuerdan tu idioma (español/inglés), la aceptación del banner de cookies y tu configuración de visualización."
         }
       },
       "analytics": {
         "title": "Cookies de Análisis (Opcionales)",
-        "description": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web. Usamos estos datos para mejorar nuestro servicio.",
+        "description": "Nos ayudan a entender cómo los visitantes usan la tienda: qué camisetas se ven más, en qué paso del checkout se abandona el carrito o qué dispositivos se utilizan. Con esta información mejoramos el catálogo y la experiencia de compra. Solo se activan si aceptas el banner de consentimiento.",
         "items": {
-          "usage": "Rastrear qué páginas visitas y cómo navegas por el sitio",
-          "performance": "Monitorear el rendimiento del sitio e identificar problemas técnicos"
+          "usage": "Google Analytics 4: mide las visitas, el tiempo en página, los productos más vistos y la tasa de conversión de forma anónima y agregada.",
+          "performance": "Monitorización de rendimiento: identifica errores técnicos y tiempos de carga para mantener la tienda rápida y estable."
         }
       },
       "marketing": {
-        "title": "Cookies de Marketing (Opcionales)",
-        "description": "Estas cookies se utilizan para mostrarte anuncios relevantes y medir la efectividad de las campañas. Puedes optar por no participar en cualquier momento.",
+        "title": "Cookies de Marketing y Publicidad (Opcionales)",
+        "description": "Permiten mostrarte anuncios de nuestras camisetas en redes sociales y otras webs, y medir si las campañas están funcionando. Solo se activan si aceptas la categoría de marketing en el banner de consentimiento. Puedes retirar tu consentimiento en cualquier momento.",
         "items": {
-          "googleAds": "Google Ads: Rastrear conversiones de anuncios y rendimiento de campañas",
-          "metaPixel": "Meta Pixel: Medir la efectividad de anuncios en Facebook/Instagram"
+          "googleAds": "Google Ads: mide las conversiones (compras) procedentes de nuestras campañas en Google y nos ayuda a optimizar la inversión publicitaria.",
+          "metaPixel": "Meta Pixel (Facebook e Instagram): registra las visitas y compras para mostrarte camisetas relevantes en Facebook e Instagram y crear audiencias similares a nuestros clientes."
         }
       },
       "manage": {
-        "title": "Cómo Gestionar las Cookies",
-        "content": "Puedes controlar las preferencias de cookies a través de nuestro banner de consentimiento. También puedes bloquear cookies mediante la configuración de tu navegador, pero esto puede afectar la funcionalidad del sitio."
+        "title": "Cómo Gestionar tus Cookies",
+        "content": "Puedes aceptar, rechazar o personalizar las cookies desde el banner de consentimiento que aparece al entrar por primera vez, o en cualquier momento desde el enlace \"Preferencias de cookies\" del pie de página. También puedes bloquear o eliminar las cookies desde la configuración de tu navegador (Chrome, Safari, Firefox, Edge), aunque ten en cuenta que si desactivas las cookies técnicas podría no funcionar el carrito ni el proceso de pago."
       },
       "contact": {
         "title": "Contáctanos",
-        "content": "Si tienes preguntas sobre nuestro uso de cookies, contáctanos:"
+        "content": "Si tienes dudas sobre nuestra política de cookies o quieres ejercer tus derechos sobre tus datos personales, puedes escribirnos a:"
       }
     }
   },
