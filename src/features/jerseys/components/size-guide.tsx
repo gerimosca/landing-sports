@@ -83,73 +83,54 @@ export function SizeGuide() {
           </DialogClose>
         </div>
 
-        <div className="px-5 py-4">
-          {/* Desktop / tablet: full table */}
-          <div className="hidden sm:block overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-zinc-800">
-                  <th className="text-left py-2 px-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                    {tc('sizeGuideCol_size')}
-                  </th>
-                  <th className="text-left py-2 px-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                    {tc('sizeGuideCol_length')}
-                  </th>
-                  <th className="text-left py-2 px-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                    {tc('sizeGuideCol_chest')}
-                  </th>
-                  <th className="text-left py-2 px-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                    {tc('sizeGuideCol_weight')}
-                  </th>
-                  <th className="text-left py-2 px-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                    {tc('sizeGuideCol_height')}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {SIZE_DATA.map((row) => (
-                  <tr
-                    key={row.size}
-                    className="border-b border-zinc-900 hover:bg-zinc-900/50 transition-colors"
-                  >
-                    <td className="py-3 px-2 font-bold text-primary">{row.size}</td>
-                    <td className="py-3 px-2 text-zinc-200">{row.length}</td>
-                    <td className="py-3 px-2 text-zinc-200">{row.chest}</td>
-                    <td className="py-3 px-2 text-zinc-200">{row.weight}</td>
-                    <td className="py-3 px-2 text-zinc-200">{row.height}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile: stacked cards (no horizontal scroll) */}
-          <div className="sm:hidden space-y-2">
-            {SIZE_DATA.map((row) => (
-              <div
-                key={row.size}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-3"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-flex items-center justify-center min-w-[40px] h-7 px-2 rounded bg-primary text-black font-bold text-sm">
+        <div className="px-3 sm:px-5 py-4">
+          <table className="w-full table-fixed border-collapse">
+            <thead>
+              <tr className="border-b border-zinc-800">
+                <th className="text-left py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[14%]">
+                  {tc('sizeGuideCol_size')}
+                </th>
+                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[16%]">
+                  {tc('sizeGuideCol_length')}
+                </th>
+                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[16%]">
+                  {tc('sizeGuideCol_chest')}
+                </th>
+                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[30%]">
+                  {tc('sizeGuideCol_weight')}
+                </th>
+                <th className="text-center py-2 px-1 sm:px-2 text-[9px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-wider w-[24%]">
+                  {tc('sizeGuideCol_height')}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {SIZE_DATA.map((row) => (
+                <tr
+                  key={row.size}
+                  className="border-b border-zinc-900 hover:bg-zinc-900/50 transition-colors"
+                >
+                  <td className="py-3 px-1 sm:px-2 font-bold text-primary text-xs sm:text-sm">
                     {row.size}
-                  </span>
-                </div>
-                <dl className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
-                  <dt className="text-zinc-500">{tc('sizeGuideCol_length')}</dt>
-                  <dd className="text-zinc-200 text-right font-medium">{row.length}</dd>
-                  <dt className="text-zinc-500">{tc('sizeGuideCol_chest')}</dt>
-                  <dd className="text-zinc-200 text-right font-medium">{row.chest}</dd>
-                  <dt className="text-zinc-500">{tc('sizeGuideCol_weight')}</dt>
-                  <dd className="text-zinc-200 text-right font-medium">{row.weight}</dd>
-                  <dt className="text-zinc-500">{tc('sizeGuideCol_height')}</dt>
-                  <dd className="text-zinc-200 text-right font-medium">{row.height}</dd>
-                </dl>
-              </div>
-            ))}
-          </div>
+                  </td>
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums">
+                    {row.length}
+                  </td>
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[11px] sm:text-sm tabular-nums">
+                    {row.chest}
+                  </td>
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[10px] sm:text-sm tabular-nums whitespace-nowrap">
+                    {row.weight}
+                  </td>
+                  <td className="py-3 px-1 sm:px-2 text-center text-zinc-200 text-[10px] sm:text-sm tabular-nums whitespace-nowrap">
+                    {row.height}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-          <p className="mt-4 text-[11px] text-zinc-500 italic">
+          <p className="mt-4 text-[10px] sm:text-[11px] text-zinc-500 italic">
             * {tc('sizeGuideNote')}
           </p>
         </div>
