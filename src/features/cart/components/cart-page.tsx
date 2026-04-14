@@ -545,12 +545,6 @@ export function CartPage() {
                 {t('checkout')}
               </button>
 
-              <Link
-                href={`/${locale}`}
-                className="block text-center mt-4 text-sm text-zinc-500 hover:text-primary transition-colors"
-              >
-                {t('continueShopping')}
-              </Link>
             </div>
           </div>
         </div>

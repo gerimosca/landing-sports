@@ -18,7 +18,7 @@ export const jerseys: Jersey[] = [
     id: 'real-madrid-1',
     team: 'Real Madrid',
     league: 'la-liga',
-    price: 35.99,
+    price: 32.99,
     originalPrice: 109.99,
     image: '/images/la-liga/real-madrid/1/1.jpg',
     images: [
@@ -35,7 +35,7 @@ export const jerseys: Jersey[] = [
     id: 'real-madrid-2',
     team: 'Real Madrid',
     league: 'la-liga',
-    price: 35.99,
+    price: 32.99,
     image: '/images/la-liga/real-madrid/2/1.jpg',
     images: [
       '/images/la-liga/real-madrid/2/1.jpg',
@@ -50,7 +50,7 @@ export const jerseys: Jersey[] = [
     id: 'real-madrid-3',
     team: 'Real Madrid',
     league: 'la-liga',
-    price: 35.99,
+    price: 32.99,
     image: '/images/la-liga/real-madrid/3/1.jpg',
     images: [
       '/images/la-liga/real-madrid/3/1.jpg',
@@ -69,7 +69,7 @@ export const jerseys: Jersey[] = [
     id: 'barcelona-1',
     team: 'FC Barcelona',
     league: 'la-liga',
-    price: 35.99,
+    price: 32.99,
     originalPrice: 109.99,
     image: '/images/la-liga/barcelona/1/1.jpg',
     images: [
@@ -86,7 +86,7 @@ export const jerseys: Jersey[] = [
     id: 'barcelona-2',
     team: 'FC Barcelona',
     league: 'la-liga',
-    price: 35.99,
+    price: 32.99,
     image: '/images/la-liga/barcelona/2/1.jpg',
     images: [
       '/images/la-liga/barcelona/2/1.jpg',
@@ -102,7 +102,7 @@ export const jerseys: Jersey[] = [
     id: 'barcelona-3',
     team: 'FC Barcelona',
     league: 'la-liga',
-    price: 35.99,
+    price: 32.99,
     image: '/images/la-liga/barcelona/3/1.jpg',
     images: [
       '/images/la-liga/barcelona/3/1.jpg',
@@ -121,7 +121,7 @@ export const jerseys: Jersey[] = [
     id: 'atletico-madrid-1',
     team: 'Atlético de Madrid',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/atletico-madrid/1/1.jpg',
     images: [
       '/images/la-liga/atletico-madrid/1/1.jpg',
@@ -136,7 +136,7 @@ export const jerseys: Jersey[] = [
     id: 'atletico-madrid-2',
     team: 'Atlético de Madrid',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/atletico-madrid/2/1.jpg',
     images: [
       '/images/la-liga/atletico-madrid/2/1.jpg',
@@ -154,7 +154,7 @@ export const jerseys: Jersey[] = [
     id: 'real-sociedad-1',
     team: 'Real Sociedad',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/real-sociedad/1/1.jpg',
     images: [
       '/images/la-liga/real-sociedad/1/1.jpg',
@@ -171,7 +171,7 @@ export const jerseys: Jersey[] = [
     id: 'real-sociedad-2',
     team: 'Real Sociedad',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/real-sociedad/2/1.jpg',
     images: [
       '/images/la-liga/real-sociedad/2/1.jpg',
@@ -189,7 +189,7 @@ export const jerseys: Jersey[] = [
     id: 'manchester-city-1',
     team: 'Manchester City',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/manchester-city/1/1.jpg',
     images: [
       '/images/premier-league/manchester-city/1/1.jpg',
@@ -206,7 +206,7 @@ export const jerseys: Jersey[] = [
     id: 'manchester-city-2',
     team: 'Manchester City',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/manchester-city/2/1.jpg',
     images: [
       '/images/premier-league/manchester-city/2/1.jpg',
@@ -221,7 +221,7 @@ export const jerseys: Jersey[] = [
     id: 'manchester-city-3',
     team: 'Manchester City',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/manchester-city/3/1.jpg',
     images: [
       '/images/premier-league/manchester-city/3/1.jpg',
@@ -237,7 +237,7 @@ export const jerseys: Jersey[] = [
     id: 'manchester-city-4',
     team: 'Manchester City',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/manchester-city/4/1.jpg',
     images: [
       '/images/premier-league/manchester-city/4/1.jpg',
@@ -256,7 +256,7 @@ export const jerseys: Jersey[] = [
     id: 'arsenal-1',
     team: 'Arsenal FC',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/arsenal/1/1.jpg',
     images: [
       '/images/premier-league/arsenal/1/1.jpg',
@@ -272,7 +272,7 @@ export const jerseys: Jersey[] = [
     id: 'arsenal-2',
     team: 'Arsenal FC',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/arsenal/2/1.jpg',
     images: [
       '/images/premier-league/arsenal/2/1.jpg',
@@ -289,7 +289,7 @@ export const jerseys: Jersey[] = [
     id: 'chelsea-1',
     team: 'Chelsea FC',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/chelsea/1/1.jpg',
     images: [
       '/images/premier-league/chelsea/1/1.jpg',
@@ -305,7 +305,7 @@ export const jerseys: Jersey[] = [
     id: 'chelsea-2',
     team: 'Chelsea FC',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/chelsea/2/1.jpg',
     images: [
       '/images/premier-league/chelsea/2/1.jpg',
@@ -322,7 +322,7 @@ export const jerseys: Jersey[] = [
     id: 'inter-milan-1',
     team: 'Inter Milan',
     league: 'serie-a',
-    price: 35.99,
+    price: 31.99,
     image: '/images/serie-a/inter-milan/1/1.jpg',
     images: [
       '/images/serie-a/inter-milan/1/1.jpg',
@@ -338,7 +338,7 @@ export const jerseys: Jersey[] = [
     id: 'inter-milan-2',
     team: 'Inter Milan',
     league: 'serie-a',
-    price: 35.99,
+    price: 31.99,
     image: '/images/serie-a/inter-milan/2/1.jpg',
     images: [
       '/images/serie-a/inter-milan/2/1.jpg',
@@ -356,7 +356,7 @@ export const jerseys: Jersey[] = [
     id: 'ac-milan-1',
     team: 'AC Milan',
     league: 'serie-a',
-    price: 35.99,
+    price: 31.99,
     image: '/images/serie-a/ac-milan/1/1.jpg',
     images: [
       '/images/serie-a/ac-milan/1/1.jpg',
@@ -373,7 +373,7 @@ export const jerseys: Jersey[] = [
     id: 'ac-milan-2',
     team: 'AC Milan',
     league: 'serie-a',
-    price: 35.99,
+    price: 31.99,
     image: '/images/serie-a/ac-milan/2/1.jpg',
     images: [
       '/images/serie-a/ac-milan/2/1.jpg',
@@ -391,7 +391,7 @@ export const jerseys: Jersey[] = [
     id: 'juventus-1',
     team: 'Juventus FC',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     originalPrice: 99.99,
     image: '/images/serie-a/juventus/1/1.jpg',
     images: [
@@ -410,7 +410,7 @@ export const jerseys: Jersey[] = [
     id: 'napoli-1',
     team: 'SSC Napoli',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/napoli/1/1.jpg',
     images: [
       '/images/serie-a/napoli/1/1.jpg',
@@ -425,7 +425,7 @@ export const jerseys: Jersey[] = [
     id: 'napoli-2',
     team: 'SSC Napoli',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/napoli/2/1.jpg',
     images: [
       '/images/serie-a/napoli/2/1.jpg',
@@ -442,7 +442,7 @@ export const jerseys: Jersey[] = [
     id: 'bayern-munich-1',
     team: 'Bayern München',
     league: 'bundesliga',
-    price: 35.99,
+    price: 31.99,
     image: '/images/bundesliga/bayern-munich/1/1.jpg',
     images: [
       '/images/bundesliga/bayern-munich/1/1.jpg',
@@ -459,7 +459,7 @@ export const jerseys: Jersey[] = [
     id: 'bayern-munich-2',
     team: 'Bayern München',
     league: 'bundesliga',
-    price: 35.99,
+    price: 31.99,
     image: '/images/bundesliga/bayern-munich/2/1.jpg',
     images: [
       '/images/bundesliga/bayern-munich/2/1.jpg',
@@ -474,7 +474,7 @@ export const jerseys: Jersey[] = [
     id: 'bayern-munich-3',
     team: 'Bayern München',
     league: 'bundesliga',
-    price: 35.99,
+    price: 31.99,
     image: '/images/bundesliga/bayern-munich/3/1.jpg',
     images: [
       '/images/bundesliga/bayern-munich/3/1.jpg',
@@ -491,7 +491,7 @@ export const jerseys: Jersey[] = [
     id: 'dortmund-1',
     team: 'Borussia Dortmund',
     league: 'bundesliga',
-    price: 35.99,
+    price: 31.99,
     image: '/images/bundesliga/dortmund/1/1.jpg',
     images: [
       '/images/bundesliga/dortmund/1/1.jpg',
@@ -507,7 +507,7 @@ export const jerseys: Jersey[] = [
     id: 'dortmund-2',
     team: 'Borussia Dortmund',
     league: 'bundesliga',
-    price: 35.99,
+    price: 31.99,
     image: '/images/bundesliga/dortmund/2/1.jpg',
     images: [
       '/images/bundesliga/dortmund/2/1.jpg',
@@ -524,7 +524,7 @@ export const jerseys: Jersey[] = [
     id: 'leverkusen-1',
     team: 'Bayer Leverkusen',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/leverkusen/1/1.jpg',
     images: [
       '/images/bundesliga/leverkusen/1/1.jpg',
@@ -541,7 +541,7 @@ export const jerseys: Jersey[] = [
     id: 'leverkusen-2',
     team: 'Bayer Leverkusen',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/leverkusen/2/1.jpg',
     images: [
       '/images/bundesliga/leverkusen/2/1.jpg',
@@ -559,7 +559,7 @@ export const jerseys: Jersey[] = [
     id: 'psg-1',
     team: 'Paris Saint-Germain',
     league: 'ligue-1',
-    price: 35.99,
+    price: 31.99,
     image: '/images/ligue-1/psg/1/1.jpg',
     images: [
       '/images/ligue-1/psg/1/1.jpg',
@@ -576,7 +576,7 @@ export const jerseys: Jersey[] = [
     id: 'psg-2',
     team: 'Paris Saint-Germain',
     league: 'ligue-1',
-    price: 35.99,
+    price: 31.99,
     image: '/images/ligue-1/psg/2/1.jpg',
     images: [
       '/images/ligue-1/psg/2/1.jpg',
@@ -592,7 +592,7 @@ export const jerseys: Jersey[] = [
     id: 'psg-3',
     team: 'Paris Saint-Germain',
     league: 'ligue-1',
-    price: 35.99,
+    price: 31.99,
     image: '/images/ligue-1/psg/3/1.jpg',
     images: [
       '/images/ligue-1/psg/3/1.jpg',
@@ -609,7 +609,7 @@ export const jerseys: Jersey[] = [
     id: 'psg-4',
     team: 'Paris Saint-Germain',
     league: 'ligue-1',
-    price: 35.99,
+    price: 31.99,
     image: '/images/ligue-1/psg/4/1.jpg',
     images: [
       '/images/ligue-1/psg/4/1.jpg',
@@ -627,7 +627,7 @@ export const jerseys: Jersey[] = [
     id: 'marseille-1',
     team: 'Olympique de Marseille',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/marseille/1/1.jpg',
     images: [
       '/images/ligue-1/marseille/1/1.jpg',
@@ -643,7 +643,7 @@ export const jerseys: Jersey[] = [
     id: 'marseille-2',
     team: 'Olympique de Marseille',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/marseille/2/1.jpg',
     images: [
       '/images/ligue-1/marseille/2/1.jpg',
@@ -661,7 +661,7 @@ export const jerseys: Jersey[] = [
     id: 'flamengo-1',
     team: 'Flamengo',
     league: 'brasileirao',
-    price: 35.99,
+    price: 31.99,
     image: '/images/brasileirao/flamengo/1/1.jpg',
     images: [
       '/images/brasileirao/flamengo/1/1.jpg',
@@ -677,7 +677,7 @@ export const jerseys: Jersey[] = [
     id: 'flamengo-2',
     team: 'Flamengo',
     league: 'brasileirao',
-    price: 35.99,
+    price: 31.99,
     image: '/images/brasileirao/flamengo/2/1.jpg',
     images: [
       '/images/brasileirao/flamengo/2/1.jpg',
@@ -694,7 +694,7 @@ export const jerseys: Jersey[] = [
     id: 'palmeiras-1',
     team: 'Palmeiras',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/palmeiras/1/1.jpg',
     images: [
       '/images/brasileirao/palmeiras/1/1.jpg',
@@ -709,7 +709,7 @@ export const jerseys: Jersey[] = [
     id: 'palmeiras-2',
     team: 'Palmeiras',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/palmeiras/2/1.jpg',
     images: [
       '/images/brasileirao/palmeiras/2/1.jpg',
@@ -726,7 +726,7 @@ export const jerseys: Jersey[] = [
     id: 'santos-1',
     team: 'Santos',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/santos/1/1.jpg',
     images: [
       '/images/brasileirao/santos/1/1.jpg',
@@ -741,7 +741,7 @@ export const jerseys: Jersey[] = [
     id: 'santos-2',
     team: 'Santos',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/santos/2/1.jpg',
     images: [
       '/images/brasileirao/santos/2/1.jpg',
@@ -757,7 +757,7 @@ export const jerseys: Jersey[] = [
     id: 'santos-3',
     team: 'Santos',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/santos/3/1.jpg',
     images: [
       '/images/brasileirao/santos/3/1.jpg',
@@ -776,7 +776,7 @@ export const jerseys: Jersey[] = [
     id: 'boca-juniors-1',
     team: 'Boca Juniors',
     league: 'resto-de-ligas',
-    price: 35.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/boca-juniors/1/1.jpg',
     images: [
       '/images/resto-de-ligas/boca-juniors/1/1.jpg',
@@ -793,7 +793,7 @@ export const jerseys: Jersey[] = [
     id: 'boca-juniors-2',
     team: 'Boca Juniors',
     league: 'resto-de-ligas',
-    price: 35.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/boca-juniors/2/1.jpg',
     images: [
       '/images/resto-de-ligas/boca-juniors/2/1.jpg',
@@ -809,7 +809,7 @@ export const jerseys: Jersey[] = [
     id: 'boca-juniors-3',
     team: 'Boca Juniors',
     league: 'resto-de-ligas',
-    price: 35.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/boca-juniors/3/1.jpg',
     images: [
       '/images/resto-de-ligas/boca-juniors/3/1.jpg',
@@ -826,7 +826,7 @@ export const jerseys: Jersey[] = [
     id: 'river-plate-1',
     team: 'River Plate',
     league: 'resto-de-ligas',
-    price: 35.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/river-plate/1/1.jpg',
     images: [
       '/images/resto-de-ligas/river-plate/1/1.jpg',
@@ -843,7 +843,7 @@ export const jerseys: Jersey[] = [
     id: 'river-plate-2',
     team: 'River Plate',
     league: 'resto-de-ligas',
-    price: 35.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/river-plate/2/1.jpg',
     images: [
       '/images/resto-de-ligas/river-plate/2/1.jpg',
@@ -860,7 +860,7 @@ export const jerseys: Jersey[] = [
     id: 'independiente-1',
     team: 'Independiente',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/independiente/1/1.jpg',
     images: [
       '/images/resto-de-ligas/independiente/1/1.jpg',
@@ -878,7 +878,7 @@ export const jerseys: Jersey[] = [
     id: 'ajax-1',
     team: 'Ajax',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/ajax/1/1.jpg',
     images: [
       '/images/resto-de-ligas/ajax/1/1.jpg',
@@ -895,7 +895,7 @@ export const jerseys: Jersey[] = [
     id: 'benfica-1',
     team: 'Benfica',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/benfica/1/1.jpg',
     images: [
       '/images/resto-de-ligas/benfica/1/1.jpg',
@@ -913,7 +913,7 @@ export const jerseys: Jersey[] = [
     id: 'galatasaray-1',
     team: 'Galatasaray',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/galatasaray/1/1.jpg',
     images: [
       '/images/resto-de-ligas/galatasaray/1/1.jpg',
@@ -930,7 +930,7 @@ export const jerseys: Jersey[] = [
     id: 'inter-miami-1',
     team: 'Inter Miami',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/inter-miami/1/1.jpg',
     images: [
       '/images/resto-de-ligas/inter-miami/1/1.jpg',
@@ -945,7 +945,7 @@ export const jerseys: Jersey[] = [
     id: 'inter-miami-2',
     team: 'Inter Miami',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/inter-miami/2/1.jpg',
     images: [
       '/images/resto-de-ligas/inter-miami/2/1.jpg',
@@ -962,7 +962,7 @@ export const jerseys: Jersey[] = [
     id: 'la-galaxy-1',
     team: 'LA Galaxy',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/la-galaxy/1/1.jpg',
     images: [
       '/images/resto-de-ligas/la-galaxy/1/1.jpg',
@@ -977,7 +977,7 @@ export const jerseys: Jersey[] = [
     id: 'la-galaxy-2',
     team: 'LA Galaxy',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/la-galaxy/2/1.jpg',
     images: [
       '/images/resto-de-ligas/la-galaxy/2/1.jpg',
@@ -994,7 +994,7 @@ export const jerseys: Jersey[] = [
     id: 'america-cali-1',
     team: 'América de Cali',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/america-cali/1/1.jpg',
     images: [
       '/images/resto-de-ligas/america-cali/1/1.jpg',
@@ -1011,7 +1011,7 @@ export const jerseys: Jersey[] = [
     id: 'colo-colo-1',
     team: 'Colo Colo',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/colo-colo/1/1.jpg',
     images: [
       '/images/resto-de-ligas/colo-colo/1/1.jpg',
@@ -1028,7 +1028,7 @@ export const jerseys: Jersey[] = [
     id: 'nacional-1',
     team: 'Nacional',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/nacional/1/1.jpg',
     images: [
       '/images/resto-de-ligas/nacional/1/1.jpg',
@@ -1045,7 +1045,7 @@ export const jerseys: Jersey[] = [
     id: 'universidad-chile-1',
     team: 'Universidad de Chile',
     league: 'resto-de-ligas',
-    price: 32.99,
+    price: 31.99,
     image: '/images/resto-de-ligas/universidad-chile/1/1.jpg',
     images: [
       '/images/resto-de-ligas/universidad-chile/1/1.jpg',
@@ -1062,7 +1062,7 @@ export const jerseys: Jersey[] = [
     id: 'argentina-1',
     team: 'Argentina',
     league: 'selecciones',
-    price: 35.99,
+    price: 33.99,
     image: '/images/selecciones/argentina/1/1.jpg',
     images: [
       '/images/selecciones/argentina/1/1.jpg',
@@ -1082,7 +1082,7 @@ export const jerseys: Jersey[] = [
     id: 'brasil-1',
     team: 'Brasil',
     league: 'selecciones',
-    price: 35.99,
+    price: 33.99,
     image: '/images/selecciones/brasil/1/1.jpg',
     images: [
       '/images/selecciones/brasil/1/1.jpg',
@@ -1101,7 +1101,7 @@ export const jerseys: Jersey[] = [
     id: 'espana-1',
     team: 'España',
     league: 'selecciones',
-    price: 35.99,
+    price: 33.99,
     image: '/images/selecciones/espana/1/1.jpg',
     images: [
       '/images/selecciones/espana/1/1.jpg',
@@ -1118,7 +1118,7 @@ export const jerseys: Jersey[] = [
     id: 'francia-1',
     team: 'Francia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/francia/1/1.jpg',
     images: [
       '/images/selecciones/francia/1/1.jpg',
@@ -1136,7 +1136,7 @@ export const jerseys: Jersey[] = [
     id: 'alemania-1',
     team: 'Alemania',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/alemania/1/1.jpg',
     images: [
       '/images/selecciones/alemania/1/1.jpg',
@@ -1156,7 +1156,7 @@ export const jerseys: Jersey[] = [
     id: 'italia-1',
     team: 'Italia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/italia/1/1.jpg',
     images: [
       '/images/selecciones/italia/1/1.jpg',
@@ -1174,7 +1174,7 @@ export const jerseys: Jersey[] = [
     id: 'inglaterra-1',
     team: 'Inglaterra',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/inglaterra/1/1.jpg',
     images: [
       '/images/selecciones/inglaterra/1/1.jpg',
@@ -1192,7 +1192,7 @@ export const jerseys: Jersey[] = [
     id: 'valencia-1',
     team: 'Valencia',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/valencia/1/1.jpg',
     images: [
       '/images/la-liga/valencia/1/1.jpg',
@@ -1208,7 +1208,7 @@ export const jerseys: Jersey[] = [
     id: 'valencia-2',
     team: 'Valencia',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/valencia/2/1.jpg',
     images: [
       '/images/la-liga/valencia/2/1.jpg',
@@ -1226,7 +1226,7 @@ export const jerseys: Jersey[] = [
     id: 'oviedo-1',
     team: 'Oviedo',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/oviedo/1/1.jpg',
     images: [
       '/images/la-liga/oviedo/1/1.jpg',
@@ -1242,7 +1242,7 @@ export const jerseys: Jersey[] = [
     id: 'oviedo-2',
     team: 'Oviedo',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/oviedo/2/1.jpg',
     images: [
       '/images/la-liga/oviedo/2/1.jpg',
@@ -1260,7 +1260,7 @@ export const jerseys: Jersey[] = [
     id: 'real-betis-1',
     team: 'Real Betis',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/real-betis/1/1.jpg',
     images: [
       '/images/la-liga/real-betis/1/1.jpg',
@@ -1276,7 +1276,7 @@ export const jerseys: Jersey[] = [
     id: 'real-betis-2',
     team: 'Real Betis',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/real-betis/2/1.jpg',
     images: [
       '/images/la-liga/real-betis/2/1.jpg',
@@ -1294,7 +1294,7 @@ export const jerseys: Jersey[] = [
     id: 'tenerife-1',
     team: 'Tenerife',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/tenerife/1/1.jpg',
     images: [
       '/images/la-liga/tenerife/1/1.jpg',
@@ -1309,7 +1309,7 @@ export const jerseys: Jersey[] = [
     id: 'tenerife-2',
     team: 'Tenerife',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/tenerife/2/1.jpg',
     images: [
       '/images/la-liga/tenerife/2/1.jpg',
@@ -1327,7 +1327,7 @@ export const jerseys: Jersey[] = [
     id: 'sevilla-1',
     team: 'Sevilla',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/sevilla/1/1.jpg',
     images: [
       '/images/la-liga/sevilla/1/1.jpg',
@@ -1344,7 +1344,7 @@ export const jerseys: Jersey[] = [
     id: 'sevilla-2',
     team: 'Sevilla',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/sevilla/2/1.jpg',
     images: [
       '/images/la-liga/sevilla/2/1.jpg',
@@ -1362,7 +1362,7 @@ export const jerseys: Jersey[] = [
     id: 'rcd-mallorca-1',
     team: 'RCD Mallorca',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/rcd-mallorca/1/1.jpg',
     images: [
       '/images/la-liga/rcd-mallorca/1/1.jpg',
@@ -1378,7 +1378,7 @@ export const jerseys: Jersey[] = [
     id: 'rcd-mallorca-2',
     team: 'RCD Mallorca',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/rcd-mallorca/2/1.jpg',
     images: [
       '/images/la-liga/rcd-mallorca/2/1.jpg',
@@ -1396,7 +1396,7 @@ export const jerseys: Jersey[] = [
     id: 'malaga-1',
     team: 'Málaga',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/malaga/1/1.jpg',
     images: [
       '/images/la-liga/malaga/1/1.jpg',
@@ -1412,7 +1412,7 @@ export const jerseys: Jersey[] = [
     id: 'malaga-2',
     team: 'Málaga',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/malaga/2/1.jpg',
     images: [
       '/images/la-liga/malaga/2/1.jpg',
@@ -1430,7 +1430,7 @@ export const jerseys: Jersey[] = [
     id: 'girona-1',
     team: 'Girona',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/girona/1/1.jpg',
     images: [
       '/images/la-liga/girona/1/1.jpg',
@@ -1447,7 +1447,7 @@ export const jerseys: Jersey[] = [
     id: 'girona-2',
     team: 'Girona',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/girona/2/1.jpg',
     images: [
       '/images/la-liga/girona/2/1.jpg',
@@ -1465,7 +1465,7 @@ export const jerseys: Jersey[] = [
     id: 'deportivo-la-coruna-1',
     team: 'Deportivo la Coruña',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/deportivo-la-coruna/1/1.jpg',
     images: [
       '/images/la-liga/deportivo-la-coruna/1/1.jpg',
@@ -1481,7 +1481,7 @@ export const jerseys: Jersey[] = [
     id: 'deportivo-la-coruna-2',
     team: 'Deportivo la Coruña',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/deportivo-la-coruna/2/1.jpg',
     images: [
       '/images/la-liga/deportivo-la-coruna/2/1.jpg',
@@ -1499,7 +1499,7 @@ export const jerseys: Jersey[] = [
     id: 'cordoba-1',
     team: 'Córdoba',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/cordoba/1/1.jpg',
     images: [
       '/images/la-liga/cordoba/1/1.jpg',
@@ -1514,7 +1514,7 @@ export const jerseys: Jersey[] = [
     id: 'cordoba-2',
     team: 'Córdoba',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/cordoba/2/1.jpg',
     images: [
       '/images/la-liga/cordoba/2/1.jpg',
@@ -1531,7 +1531,7 @@ export const jerseys: Jersey[] = [
     id: 'celta-1',
     team: 'Celta',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/celta/1/1.jpg',
     images: [
       '/images/la-liga/celta/1/1.jpg',
@@ -1547,7 +1547,7 @@ export const jerseys: Jersey[] = [
     id: 'celta-2',
     team: 'Celta',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/celta/2/1.jpg',
     images: [
       '/images/la-liga/celta/2/1.jpg',
@@ -1565,7 +1565,7 @@ export const jerseys: Jersey[] = [
     id: 'cadiz-1',
     team: 'Cádiz',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/cadiz/1/1.jpg',
     images: [
       '/images/la-liga/cadiz/1/1.jpg',
@@ -1581,7 +1581,7 @@ export const jerseys: Jersey[] = [
     id: 'cadiz-2',
     team: 'Cádiz',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/cadiz/2/1.jpg',
     images: [
       '/images/la-liga/cadiz/2/1.jpg',
@@ -1599,7 +1599,7 @@ export const jerseys: Jersey[] = [
     id: 'athletic-bilbao-1',
     team: 'Athletic Bilbao',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/athletic-bilbao/1/1.jpg',
     images: [
       '/images/la-liga/athletic-bilbao/1/1.jpg',
@@ -1615,7 +1615,7 @@ export const jerseys: Jersey[] = [
     id: 'athletic-bilbao-2',
     team: 'Athletic Bilbao',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/athletic-bilbao/2/1.jpg',
     images: [
       '/images/la-liga/athletic-bilbao/2/1.jpg',
@@ -1633,7 +1633,7 @@ export const jerseys: Jersey[] = [
     id: 'zaragoza-1',
     team: 'Zaragoza',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/zaragoza/1/1.jpg',
     images: [
       '/images/la-liga/zaragoza/1/1.jpg',
@@ -1651,7 +1651,7 @@ export const jerseys: Jersey[] = [
     id: 'racing-de-santander-1',
     team: 'Racing de Santander',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/racing-de-santander/1/1.jpg',
     images: [
       '/images/la-liga/racing-de-santander/1/1.jpg',
@@ -1666,7 +1666,7 @@ export const jerseys: Jersey[] = [
     id: 'racing-de-santander-2',
     team: 'Racing de Santander',
     league: 'la-liga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/la-liga/racing-de-santander/2/1.jpg',
     images: [
       '/images/la-liga/racing-de-santander/2/1.jpg',
@@ -1684,7 +1684,7 @@ export const jerseys: Jersey[] = [
     id: 'manchester-united-1',
     team: 'Manchester United',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/manchester-united/1/1.jpg',
     images: [
       '/images/premier-league/manchester-united/1/1.jpg',
@@ -1700,7 +1700,7 @@ export const jerseys: Jersey[] = [
     id: 'manchester-united-2',
     team: 'Manchester United',
     league: 'premier-league',
-    price: 35.99,
+    price: 31.99,
     image: '/images/premier-league/manchester-united/2/1.jpg',
     images: [
       '/images/premier-league/manchester-united/2/1.jpg',
@@ -1717,7 +1717,7 @@ export const jerseys: Jersey[] = [
     id: 'tottenham-1',
     team: 'Tottenham',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/tottenham/1/1.jpg',
     images: [
       '/images/premier-league/tottenham/1/1.jpg',
@@ -1733,7 +1733,7 @@ export const jerseys: Jersey[] = [
     id: 'tottenham-2',
     team: 'Tottenham',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/tottenham/2/1.jpg',
     images: [
       '/images/premier-league/tottenham/2/1.jpg',
@@ -1751,7 +1751,7 @@ export const jerseys: Jersey[] = [
     id: 'newcastle-1',
     team: 'Newcastle',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/newcastle/1/1.jpg',
     images: [
       '/images/premier-league/newcastle/1/1.jpg',
@@ -1767,7 +1767,7 @@ export const jerseys: Jersey[] = [
     id: 'newcastle-2',
     team: 'Newcastle',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/newcastle/2/1.jpg',
     images: [
       '/images/premier-league/newcastle/2/1.jpg',
@@ -1785,7 +1785,7 @@ export const jerseys: Jersey[] = [
     id: 'leeds-united-1',
     team: 'Leeds United',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/leeds-united/1/1.jpg',
     images: [
       '/images/premier-league/leeds-united/1/1.jpg',
@@ -1801,7 +1801,7 @@ export const jerseys: Jersey[] = [
     id: 'leeds-united-2',
     team: 'Leeds United',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/leeds-united/2/1.jpg',
     images: [
       '/images/premier-league/leeds-united/2/1.jpg',
@@ -1819,7 +1819,7 @@ export const jerseys: Jersey[] = [
     id: 'everton-1',
     team: 'Everton',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/everton/1/1.jpg',
     images: [
       '/images/premier-league/everton/1/1.jpg',
@@ -1835,7 +1835,7 @@ export const jerseys: Jersey[] = [
     id: 'everton-2',
     team: 'Everton',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/everton/2/1.jpg',
     images: [
       '/images/premier-league/everton/2/1.jpg',
@@ -1853,7 +1853,7 @@ export const jerseys: Jersey[] = [
     id: 'brighton-1',
     team: 'Brighton',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/brighton/1/1.jpg',
     images: [
       '/images/premier-league/brighton/1/1.jpg',
@@ -1869,7 +1869,7 @@ export const jerseys: Jersey[] = [
     id: 'brighton-2',
     team: 'Brighton',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/brighton/2/1.jpg',
     images: [
       '/images/premier-league/brighton/2/1.jpg',
@@ -1887,7 +1887,7 @@ export const jerseys: Jersey[] = [
     id: 'aston-villa-1',
     team: 'Aston Villa',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/aston-villa/1/1.jpg',
     images: [
       '/images/premier-league/aston-villa/1/1.jpg',
@@ -1902,7 +1902,7 @@ export const jerseys: Jersey[] = [
     id: 'aston-villa-2',
     team: 'Aston Villa',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/aston-villa/2/1.jpg',
     images: [
       '/images/premier-league/aston-villa/2/1.jpg',
@@ -1917,7 +1917,7 @@ export const jerseys: Jersey[] = [
     id: 'aston-villa-3',
     team: 'Aston Villa',
     league: 'premier-league',
-    price: 32.99,
+    price: 31.99,
     image: '/images/premier-league/aston-villa/3/1.jpg',
     images: [
       '/images/premier-league/aston-villa/3/1.jpg',
@@ -1936,7 +1936,7 @@ export const jerseys: Jersey[] = [
     id: 'schalke-04-1',
     team: 'Schalke 04',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/schalke-04/1/1.jpg',
     images: [
       '/images/bundesliga/schalke-04/1/1.jpg',
@@ -1953,7 +1953,7 @@ export const jerseys: Jersey[] = [
     id: 'rb-leipzig-1',
     team: 'RB Leipzig',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/rb-leipzig/1/1.jpg',
     images: [
       '/images/bundesliga/rb-leipzig/1/1.jpg',
@@ -1968,7 +1968,7 @@ export const jerseys: Jersey[] = [
     id: 'rb-leipzig-2',
     team: 'RB Leipzig',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/rb-leipzig/2/1.jpg',
     images: [
       '/images/bundesliga/rb-leipzig/2/1.jpg',
@@ -1986,7 +1986,7 @@ export const jerseys: Jersey[] = [
     id: 'wolfsburg-1',
     team: 'Wolfsburg',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/wolfsburg/1/1.jpg',
     images: [
       '/images/bundesliga/wolfsburg/1/1.jpg',
@@ -2002,7 +2002,7 @@ export const jerseys: Jersey[] = [
     id: 'wolfsburg-2',
     team: 'Wolfsburg',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/wolfsburg/2/1.jpg',
     images: [
       '/images/bundesliga/wolfsburg/2/1.jpg',
@@ -2020,7 +2020,7 @@ export const jerseys: Jersey[] = [
     id: 'eintracht-frankfurt-1',
     team: 'Eintracht Frankfurt',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/eintracht-frankfurt/1/1.jpg',
     images: [
       '/images/bundesliga/eintracht-frankfurt/1/1.jpg',
@@ -2037,7 +2037,7 @@ export const jerseys: Jersey[] = [
     id: 'borussia-monchengladbach-1',
     team: 'Borussia Mönchengladbach',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/borussia-monchengladbach/1/1.jpg',
     images: [
       '/images/bundesliga/borussia-monchengladbach/1/1.jpg',
@@ -2052,7 +2052,7 @@ export const jerseys: Jersey[] = [
     id: 'borussia-monchengladbach-2',
     team: 'Borussia Mönchengladbach',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/borussia-monchengladbach/2/1.jpg',
     images: [
       '/images/bundesliga/borussia-monchengladbach/2/1.jpg',
@@ -2069,7 +2069,7 @@ export const jerseys: Jersey[] = [
     id: 'stuttgart-1',
     team: 'Stuttgart',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/stuttgart/1/1.jpg',
     images: [
       '/images/bundesliga/stuttgart/1/1.jpg',
@@ -2084,7 +2084,7 @@ export const jerseys: Jersey[] = [
     id: 'stuttgart-2',
     team: 'Stuttgart',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/stuttgart/2/1.jpg',
     images: [
       '/images/bundesliga/stuttgart/2/1.jpg',
@@ -2101,7 +2101,7 @@ export const jerseys: Jersey[] = [
     id: 'fc-union-berlin-1',
     team: 'FC Union Berlin',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/fc-union-berlin/1/1.jpg',
     images: [
       '/images/bundesliga/fc-union-berlin/1/1.jpg',
@@ -2116,7 +2116,7 @@ export const jerseys: Jersey[] = [
     id: 'fc-union-berlin-2',
     team: 'FC Union Berlin',
     league: 'bundesliga',
-    price: 32.99,
+    price: 31.99,
     image: '/images/bundesliga/fc-union-berlin/2/1.jpg',
     images: [
       '/images/bundesliga/fc-union-berlin/2/1.jpg',
@@ -2133,7 +2133,7 @@ export const jerseys: Jersey[] = [
     id: 'olympique-lyon-1',
     team: 'Olympique Lyon',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/olympique-lyon/1/1.jpg',
     images: [
       '/images/ligue-1/olympique-lyon/1/1.jpg',
@@ -2149,7 +2149,7 @@ export const jerseys: Jersey[] = [
     id: 'olympique-lyon-2',
     team: 'Olympique Lyon',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/olympique-lyon/2/1.jpg',
     images: [
       '/images/ligue-1/olympique-lyon/2/1.jpg',
@@ -2165,7 +2165,7 @@ export const jerseys: Jersey[] = [
     id: 'olympique-lyon-3',
     team: 'Olympique Lyon',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/olympique-lyon/3/1.jpg',
     images: [
       '/images/ligue-1/olympique-lyon/3/1.jpg',
@@ -2184,7 +2184,7 @@ export const jerseys: Jersey[] = [
     id: 'lille-1',
     team: 'Lille',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/lille/1/1.jpg',
     images: [
       '/images/ligue-1/lille/1/1.jpg',
@@ -2200,7 +2200,7 @@ export const jerseys: Jersey[] = [
     id: 'lille-2',
     team: 'Lille',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/lille/2/1.jpg',
     images: [
       '/images/ligue-1/lille/2/1.jpg',
@@ -2218,7 +2218,7 @@ export const jerseys: Jersey[] = [
     id: 'stade-rennais-1',
     team: 'Stade Rennais',
     league: 'ligue-1',
-    price: 32.99,
+    price: 31.99,
     image: '/images/ligue-1/stade-rennais/1/1.jpg',
     images: [
       '/images/ligue-1/stade-rennais/1/1.jpg',
@@ -2236,7 +2236,7 @@ export const jerseys: Jersey[] = [
     id: 'roma-1',
     team: 'Roma',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/roma/1/1.jpg',
     images: [
       '/images/serie-a/roma/1/1.jpg',
@@ -2252,7 +2252,7 @@ export const jerseys: Jersey[] = [
     id: 'roma-2',
     team: 'Roma',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/roma/2/1.jpg',
     images: [
       '/images/serie-a/roma/2/1.jpg',
@@ -2270,7 +2270,7 @@ export const jerseys: Jersey[] = [
     id: 'fiorentina-1',
     team: 'Fiorentina',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/fiorentina/1/1.jpg',
     images: [
       '/images/serie-a/fiorentina/1/1.jpg',
@@ -2290,7 +2290,7 @@ export const jerseys: Jersey[] = [
     id: 'atalanta-1',
     team: 'Atalanta',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/atalanta/1/1.jpg',
     images: [
       '/images/serie-a/atalanta/1/1.jpg',
@@ -2306,7 +2306,7 @@ export const jerseys: Jersey[] = [
     id: 'atalanta-2',
     team: 'Atalanta',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/atalanta/2/1.jpg',
     images: [
       '/images/serie-a/atalanta/2/1.jpg',
@@ -2324,7 +2324,7 @@ export const jerseys: Jersey[] = [
     id: 'lazio-1',
     team: 'Lazio',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/lazio/1/1.jpg',
     images: [
       '/images/serie-a/lazio/1/1.jpg',
@@ -2342,7 +2342,7 @@ export const jerseys: Jersey[] = [
     id: 'parma-1',
     team: 'Parma',
     league: 'serie-a',
-    price: 32.99,
+    price: 31.99,
     image: '/images/serie-a/parma/1/1.jpg',
     images: [
       '/images/serie-a/parma/1/1.jpg',
@@ -2359,7 +2359,7 @@ export const jerseys: Jersey[] = [
     id: 'corinthians-1',
     team: 'Corinthians',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/corinthians/1/1.jpg',
     images: [
       '/images/brasileirao/corinthians/1/1.jpg',
@@ -2374,7 +2374,7 @@ export const jerseys: Jersey[] = [
     id: 'corinthians-2',
     team: 'Corinthians',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/corinthians/2/1.jpg',
     images: [
       '/images/brasileirao/corinthians/2/1.jpg',
@@ -2389,7 +2389,7 @@ export const jerseys: Jersey[] = [
     id: 'corinthians-3',
     team: 'Corinthians',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/corinthians/3/1.jpg',
     images: [
       '/images/brasileirao/corinthians/3/1.jpg',
@@ -2407,7 +2407,7 @@ export const jerseys: Jersey[] = [
     id: 'internacional-1',
     team: 'Internacional',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/internacional/1/1.jpg',
     images: [
       '/images/brasileirao/internacional/1/1.jpg',
@@ -2422,7 +2422,7 @@ export const jerseys: Jersey[] = [
     id: 'internacional-2',
     team: 'Internacional',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/internacional/2/1.jpg',
     images: [
       '/images/brasileirao/internacional/2/1.jpg',
@@ -2440,7 +2440,7 @@ export const jerseys: Jersey[] = [
     id: 'fluminense-1',
     team: 'Fluminense',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/fluminense/1/1.jpg',
     images: [
       '/images/brasileirao/fluminense/1/1.jpg',
@@ -2456,7 +2456,7 @@ export const jerseys: Jersey[] = [
     id: 'fluminense-2',
     team: 'Fluminense',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/fluminense/2/1.jpg',
     images: [
       '/images/brasileirao/fluminense/2/1.jpg',
@@ -2474,7 +2474,7 @@ export const jerseys: Jersey[] = [
     id: 'cruzeiro-1',
     team: 'Cruzeiro',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/cruzeiro/1/1.jpg',
     images: [
       '/images/brasileirao/cruzeiro/1/1.jpg',
@@ -2489,7 +2489,7 @@ export const jerseys: Jersey[] = [
     id: 'cruzeiro-2',
     team: 'Cruzeiro',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/cruzeiro/2/1.jpg',
     images: [
       '/images/brasileirao/cruzeiro/2/1.jpg',
@@ -2506,7 +2506,7 @@ export const jerseys: Jersey[] = [
     id: 'vasco-da-gama-1',
     team: 'Vasco Da Gama',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/vasco-da-gama/1/1.jpg',
     images: [
       '/images/brasileirao/vasco-da-gama/1/1.jpg',
@@ -2522,7 +2522,7 @@ export const jerseys: Jersey[] = [
     id: 'vasco-da-gama-2',
     team: 'Vasco Da Gama',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/vasco-da-gama/2/1.jpg',
     images: [
       '/images/brasileirao/vasco-da-gama/2/1.jpg',
@@ -2540,7 +2540,7 @@ export const jerseys: Jersey[] = [
     id: 'sao-paulo-1',
     team: 'São Paulo',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/sao-paulo/1/1.jpg',
     images: [
       '/images/brasileirao/sao-paulo/1/1.jpg',
@@ -2555,7 +2555,7 @@ export const jerseys: Jersey[] = [
     id: 'sao-paulo-2',
     team: 'São Paulo',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/sao-paulo/2/1.jpg',
     images: [
       '/images/brasileirao/sao-paulo/2/1.jpg',
@@ -2572,7 +2572,7 @@ export const jerseys: Jersey[] = [
     id: 'atletico-mineiro-1',
     team: 'Atlético Mineiro',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/atletico-mineiro/1/1.jpg',
     images: [
       '/images/brasileirao/atletico-mineiro/1/1.jpg',
@@ -2588,7 +2588,7 @@ export const jerseys: Jersey[] = [
     id: 'atletico-mineiro-2',
     team: 'Atlético Mineiro',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/atletico-mineiro/2/1.jpg',
     images: [
       '/images/brasileirao/atletico-mineiro/2/1.jpg',
@@ -2604,7 +2604,7 @@ export const jerseys: Jersey[] = [
     id: 'atletico-mineiro-3',
     team: 'Atlético Mineiro',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/atletico-mineiro/3/1.jpg',
     images: [
       '/images/brasileirao/atletico-mineiro/3/1.jpg',
@@ -2623,7 +2623,7 @@ export const jerseys: Jersey[] = [
     id: 'botafogo-1',
     team: 'Botafogo',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/botafogo/1/1.jpg',
     images: [
       '/images/brasileirao/botafogo/1/1.jpg',
@@ -2639,7 +2639,7 @@ export const jerseys: Jersey[] = [
     id: 'botafogo-2',
     team: 'Botafogo',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/botafogo/2/1.jpg',
     images: [
       '/images/brasileirao/botafogo/2/1.jpg',
@@ -2654,7 +2654,7 @@ export const jerseys: Jersey[] = [
     id: 'botafogo-3',
     team: 'Botafogo',
     league: 'brasileirao',
-    price: 32.99,
+    price: 31.99,
     image: '/images/brasileirao/botafogo/3/1.jpg',
     images: [
       '/images/brasileirao/botafogo/3/1.jpg',
@@ -2673,7 +2673,7 @@ export const jerseys: Jersey[] = [
     id: 'noruega-1',
     team: 'Noruega',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/noruega/1/1.jpg',
     images: [
       '/images/selecciones/noruega/1/1.jpg',
@@ -2691,7 +2691,7 @@ export const jerseys: Jersey[] = [
     id: 'bolivia-1',
     team: 'Bolivia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/bolivia/1/1.jpg',
     images: [
       '/images/selecciones/bolivia/1/1.jpg',
@@ -2708,7 +2708,7 @@ export const jerseys: Jersey[] = [
     id: 'mexico-1',
     team: 'México',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/mexico/1/1.jpg',
     images: [
       '/images/selecciones/mexico/1/1.jpg',
@@ -2726,7 +2726,7 @@ export const jerseys: Jersey[] = [
     id: 'japon-1',
     team: 'Japón',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/japon/1/1.jpg',
     images: [
       '/images/selecciones/japon/1/1.jpg',
@@ -2744,7 +2744,7 @@ export const jerseys: Jersey[] = [
     id: 'colombia-1',
     team: 'Colombia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/colombia/1/1.jpg',
     images: [
       '/images/selecciones/colombia/1/1.jpg',
@@ -2762,7 +2762,7 @@ export const jerseys: Jersey[] = [
     id: 'holanda-1',
     team: 'Holanda',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/holanda/1/1.jpg',
     images: [
       '/images/selecciones/holanda/1/1.jpg',
@@ -2779,7 +2779,7 @@ export const jerseys: Jersey[] = [
     id: 'jamaica-1',
     team: 'Jamaica',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/jamaica/1/1.jpg',
     images: [
       '/images/selecciones/jamaica/1/1.jpg',
@@ -2796,7 +2796,7 @@ export const jerseys: Jersey[] = [
     id: 'eeuu-1',
     team: 'EEUU',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/eeuu/1/1.jpg',
     images: [
       '/images/selecciones/eeuu/1/1.jpg',
@@ -2813,7 +2813,7 @@ export const jerseys: Jersey[] = [
     id: 'portugal-1',
     team: 'Portugal',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/portugal/1/1.jpg',
     images: [
       '/images/selecciones/portugal/1/1.jpg',
@@ -2831,7 +2831,7 @@ export const jerseys: Jersey[] = [
     id: 'peru-1',
     team: 'Perú',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/peru/1/1.jpg',
     images: [
       '/images/selecciones/peru/1/1.jpg',
@@ -2848,7 +2848,7 @@ export const jerseys: Jersey[] = [
     id: 'suecia-1',
     team: 'Suecia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/suecia/1/1.jpg',
     images: [
       '/images/selecciones/suecia/1/1.jpg',
@@ -2865,7 +2865,7 @@ export const jerseys: Jersey[] = [
     id: 'grecia-1',
     team: 'Grecia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/grecia/1/1.jpg',
     images: [
       '/images/selecciones/grecia/1/1.jpg',
@@ -2884,7 +2884,7 @@ export const jerseys: Jersey[] = [
     id: 'venezuela-1',
     team: 'Venezuela',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/venezuela/1/1.jpg',
     images: [
       '/images/selecciones/venezuela/1/1.jpg',
@@ -2902,7 +2902,7 @@ export const jerseys: Jersey[] = [
     id: 'croacia-1',
     team: 'Croacia',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/croacia/1/1.jpg',
     images: [
       '/images/selecciones/croacia/1/1.jpg',
@@ -2919,7 +2919,7 @@ export const jerseys: Jersey[] = [
     id: 'marruecos-1',
     team: 'Marruecos',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/marruecos/1/1.jpg',
     images: [
       '/images/selecciones/marruecos/1/1.jpg',
@@ -2937,7 +2937,7 @@ export const jerseys: Jersey[] = [
     id: 'uruguay-1',
     team: 'Uruguay',
     league: 'selecciones',
-    price: 32.99,
+    price: 31.99,
     image: '/images/selecciones/uruguay/1/1.jpg',
     images: [
       '/images/selecciones/uruguay/1/1.jpg',
@@ -2954,7 +2954,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-real-madrid-1',
     team: 'Real Madrid',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/real-madrid/1/1.jpg',
     images: [
       '/images/retro/real-madrid/1/1.jpg',
@@ -2969,7 +2969,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-real-madrid-2',
     team: 'Real Madrid',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/real-madrid/2/1.jpg',
     images: [
       '/images/retro/real-madrid/2/1.jpg',
@@ -2986,7 +2986,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-barcelona-1',
     team: 'FC Barcelona',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/barcelona/1/1.jpg',
     images: [
       '/images/retro/barcelona/1/1.jpg',
@@ -3001,7 +3001,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-barcelona-2',
     team: 'FC Barcelona',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/barcelona/2/1.jpg',
     images: [
       '/images/retro/barcelona/2/1.jpg',
@@ -3017,7 +3017,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-arsenal-1',
     team: 'Arsenal FC',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/arsenal/1/1.jpg',
     images: [
       '/images/retro/arsenal/1/1.jpg',
@@ -3032,7 +3032,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-arsenal-2',
     team: 'Arsenal FC',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/arsenal/2/1.jpg',
     images: [
       '/images/retro/arsenal/2/1.jpg',
@@ -3047,7 +3047,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-arsenal-3',
     team: 'Arsenal FC',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/arsenal/3/1.jpg',
     images: [
       '/images/retro/arsenal/3/1.jpg',
@@ -3064,7 +3064,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-ajax-1',
     team: 'Ajax',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/ajax/1/1.jpg',
     images: [
       '/images/retro/ajax/1/1.jpg',
@@ -3082,7 +3082,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-inter-milan-1',
     team: 'Inter Milan',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/inter-milan/1/1.jpg',
     images: [
       '/images/retro/inter-milan/1/1.jpg',
@@ -3099,7 +3099,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-milan-1',
     team: 'AC Milan',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/milan/1/1.jpg',
     images: [
       '/images/retro/milan/1/1.jpg',
@@ -3116,7 +3116,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-parma-1',
     team: 'Parma',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/parma/1/1.jpg',
     images: [
       '/images/retro/parma/1/1.jpg',
@@ -3133,7 +3133,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-argentina-1',
     team: 'Argentina',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/argentina/1/1.jpg',
     images: [
       '/images/retro/argentina/1/1.jpg',
@@ -3148,7 +3148,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-argentina-2',
     team: 'Argentina',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/argentina/2/1.jpg',
     images: [
       '/images/retro/argentina/2/1.jpg',
@@ -3163,7 +3163,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-argentina-3',
     team: 'Argentina',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/argentina/3/1.jpg',
     images: [
       '/images/retro/argentina/3/1.jpg',
@@ -3179,7 +3179,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-argentina-4',
     team: 'Argentina',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/argentina/4/1.jpg',
     images: [
       '/images/retro/argentina/4/1.jpg',
@@ -3196,7 +3196,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-alemania-1',
     team: 'Alemania',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/alemania/1/1.jpg',
     images: [
       '/images/retro/alemania/1/1.jpg',
@@ -3211,7 +3211,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-alemania-2',
     team: 'Alemania',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/alemania/2/1.jpg',
     images: [
       '/images/retro/alemania/2/1.jpg',
@@ -3228,7 +3228,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-francia-1',
     team: 'Francia',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/francia/1/1.jpg',
     images: [
       '/images/retro/francia/1/1.jpg',
@@ -3243,7 +3243,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-francia-2',
     team: 'Francia',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/francia/2/1.jpg',
     images: [
       '/images/retro/francia/2/1.jpg',
@@ -3259,7 +3259,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-holanda-1',
     team: 'Holanda',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/holanda/1/1.jpg',
     images: [
       '/images/retro/holanda/1/1.jpg',
@@ -3276,7 +3276,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-brasil-1',
     team: 'Brasil',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/brasil/1/1.jpg',
     images: [
       '/images/retro/brasil/1/1.jpg',
@@ -3291,7 +3291,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-brasil-2',
     team: 'Brasil',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/brasil/2/1.jpg',
     images: [
       '/images/retro/brasil/2/1.jpg',
@@ -3308,7 +3308,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-japon-1',
     team: 'Japón',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/japon/1/1.jpg',
     images: [
       '/images/retro/japon/1/1.jpg',
@@ -3324,7 +3324,7 @@ export const jerseys: Jersey[] = [
     id: 'retro-napoli-1',
     team: 'Napoli',
     league: 'retro',
-    price: 38.99,
+    price: 36.99,
     image: '/images/retro/napoli/1/1.jpg',
     images: [
       '/images/retro/napoli/1/1.jpg',
