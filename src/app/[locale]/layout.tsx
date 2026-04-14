@@ -96,9 +96,10 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
               </CartProvider>
 
               <Toaster
-                position="bottom-right"
+                position="top-center"
+                duration={3000}
                 toastOptions={{
-                  duration: 4000,
+                  duration: 3000,
                   classNames: {
                     toast: 'bg-background text-foreground border-border',
                     title: 'font-medium',
