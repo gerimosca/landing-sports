@@ -52,7 +52,7 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
       dorsalName: dorsalName.trim() || undefined,
       dorsalNumber: dorsalNumber.trim() || undefined,
     });
-    toast.success(tc('added'), { description: `${teamName} - ${selectedSize}` });
+    toast.success(tc('added'), { description: `${teamName} - ${selectedSize}`, duration: 3000 });
     resetForm();
     onClose();
   };
