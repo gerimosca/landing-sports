@@ -354,7 +354,7 @@ export function CartPage() {
                     aria-invalid={errors.email}
                     aria-describedby="email-help email-error"
                     className={cn(
-                      'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                      'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                       errors.email ? 'border-red-500' : 'border-zinc-700'
                     )}
                   />
@@ -383,7 +383,7 @@ export function CartPage() {
                       aria-required="true"
                       aria-invalid={errors.firstName}
                       className={cn(
-                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.firstName ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
@@ -404,7 +404,7 @@ export function CartPage() {
                       aria-required="true"
                       aria-invalid={errors.lastName}
                       className={cn(
-                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.lastName ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
@@ -428,7 +428,7 @@ export function CartPage() {
                     aria-required="true"
                     aria-invalid={errors.address}
                     className={cn(
-                      'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                      'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                       errors.address ? 'border-red-500' : 'border-zinc-700'
                     )}
                   />
@@ -442,7 +442,7 @@ export function CartPage() {
                     onChange={(e) => updateField('address2', e.target.value)}
                     placeholder={t('address2Placeholder')}
                     aria-label={t('address2Label')}
-                    className="w-full mt-2 px-3 py-2 text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full mt-2 px-3 py-2 text-base sm:text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
 
@@ -461,7 +461,7 @@ export function CartPage() {
                       aria-required="true"
                       aria-invalid={errors.city}
                       className={cn(
-                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.city ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
@@ -482,7 +482,7 @@ export function CartPage() {
                       aria-required="true"
                       aria-invalid={errors.postalCode}
                       className={cn(
-                        'w-full px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.postalCode ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
@@ -504,7 +504,7 @@ export function CartPage() {
                       value={form.phonePrefix}
                       onChange={(e) => updateField('phonePrefix', e.target.value)}
                       aria-label={t('phonePrefix')}
-                      className="w-[110px] flex-shrink-0 px-2 py-2 text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
+                      className="w-[110px] flex-shrink-0 px-2 py-2 text-base sm:text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
                     >
                       {PHONE_PREFIXES.map(({ code, country }) => (
                         <option key={code} value={code}>
@@ -522,7 +522,7 @@ export function CartPage() {
                       aria-invalid={errors.phone}
                       aria-describedby="phone-help phone-error"
                       className={cn(
-                        'flex-1 px-3 py-2 text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                        'flex-1 px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.phone ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
