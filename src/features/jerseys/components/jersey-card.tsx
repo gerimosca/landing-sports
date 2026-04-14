@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { cn } from '@/shared/lib/utils';
 import { useCart } from '@/features/cart';
 import { SIZES, type Size } from '@/features/cart/types';
+import { SizeGuide } from './size-guide';
 import type { Jersey } from '../types';
 
 interface JerseyCardProps {
@@ -470,9 +471,12 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
 
             {/* Size selector */}
             <div>
-              <p className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                {tc('size')}
-              </p>
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                  {tc('size')}
+                </p>
+                <SizeGuide />
+              </div>
               <div className="grid grid-cols-4 gap-2">
                 {SIZES.map((size) => (
                   <button
