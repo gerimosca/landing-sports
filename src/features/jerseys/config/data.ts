@@ -1045,7 +1045,7 @@ export const jerseys: Jersey[] = [
     id: 'universidad-chile-1',
     team: 'Universidad de Chile',
     league: 'resto-de-ligas',
-    price: 1,
+    price: 31.99,
     image: '/images/resto-de-ligas/universidad-chile/1/1.jpg',
     images: [
       '/images/resto-de-ligas/universidad-chile/1/1.jpg',
