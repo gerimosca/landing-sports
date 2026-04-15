@@ -15,7 +15,10 @@
       "Bash(node /tmp/fix-badges2.mjs)",
       "Bash(npm run:*)",
       "Bash(node /tmp/final-check.mjs)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
