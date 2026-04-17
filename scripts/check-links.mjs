@@ -162,7 +162,8 @@ async function checkLinks() {
       '--recurse',
       '--skip', '"^(?!http://localhost:3000).*$"', // Only check internal links
       '--skip', '"/assessment"', // Skip assessment links (data from external DB)
-      '--timeout', '10000',
+      '--timeout', '30000',
+      '--concurrency', '5',
     ];
 
     try {
