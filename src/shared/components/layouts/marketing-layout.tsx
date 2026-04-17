@@ -25,15 +25,15 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
     <>
       <SkipLink />
       <div className="flex min-h-screen flex-col bg-black">
-        {/* Top promo bar */}
-        <div className="bg-primary text-black text-center py-2 text-xs sm:text-sm font-semibold tracking-wide">
+        {/* Top promo bar - fixed on scroll */}
+        <div className="sticky top-0 z-[60] bg-primary text-black text-center py-1.5 sm:py-2 text-[10px] sm:text-sm font-semibold tracking-wide leading-tight">
           {locale === 'es'
-            ? '3x2 EN TODAS LAS CAMISETAS - LA DE MENOR PRECIO TE LA REGALAMOS + ENVÍO GRATUITO INCLUIDO'
-            : '3 FOR 2 ON ALL JERSEYS - THE LOWEST PRICED ONE IS FREE + FREE SHIPPING INCLUDED'}
+            ? '3x2 EN TODAS LAS CAMISETAS - TE REGALAMOS LA DE MENOR PRECIO + ENVÍO GRATIS'
+            : '3 FOR 2 ON ALL JERSEYS - THE CHEAPEST ONE IS FREE + FREE SHIPPING'}
         </div>
 
         {/* Header */}
-        <header className="sticky top-0 z-50 w-full border-b border-zinc-800/50 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80">
+        <header className="z-50 w-full border-b border-zinc-800/50 bg-black/95">
           <div className="container mx-auto flex h-16 items-center justify-between px-4">
             {/* Logo */}
             <Link

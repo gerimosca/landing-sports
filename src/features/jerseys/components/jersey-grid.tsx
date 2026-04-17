@@ -44,6 +44,12 @@ export function JerseyGrid() {
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight">
             {t('catalog.title')}
           </h1>
+          {/* Promo banner */}
+          <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-6 py-2">
+            <span className="text-primary font-bold text-lg md:text-xl">
+              🔥 {t('catalog.promoBanner')}
+            </span>
+          </div>
         </div>
 
         {/* Filters */}

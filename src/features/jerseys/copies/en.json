@@ -1,7 +1,7 @@
 {
   "hero": { "badge": "New Season", "title1": "Wear Your", "title2": "Passion", "subtitle": "Original football jerseys from the best leagues in the world.", "cta": "Explore Collection", "stat1": "Jerseys", "stat2": "Leagues", "stat3": "Shipping", "scrollDown": "Scroll to catalog" },
   "filters": { "all": "All Leagues", "allTeams": "All Teams" },
-  "catalog": { "subtitle": "LIVE YOUR PASSION", "title": "Find Your Jersey", "showing": "{count, plural, one {# jersey} other {# jerseys}} available", "empty": "No jerseys found for this league", "clearFilters": "Show all jerseys" },
+  "catalog": { "subtitle": "LIVE YOUR PASSION", "title": "Find Your Jersey", "promoBanner": "3 for 2 on all jerseys + Free shipping", "showing": "{count, plural, one {# jersey} other {# jerseys}} available", "empty": "No jerseys found for this league", "clearFilters": "Show all jerseys" },
   "card": { "new": "New", "bestseller": "Bestseller", "addToCart": "Add to Cart", "customize": "Customize", "viewImage": "View image {index}" },
 
   "featured": { "bestsellers": "Bestsellers", "newArrivals": "New Arrivals" },
