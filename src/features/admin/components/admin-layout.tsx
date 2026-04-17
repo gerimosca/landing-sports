@@ -11,6 +11,7 @@ import {
   Shield,
   MessageSquare,
   HandshakeIcon,
+  ShoppingBag,
 } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
 import { Button } from '@/shared/components/ui/button';
@@ -23,6 +24,7 @@ interface AdminLayoutProps {
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { name: 'Orders', href: '/admin/orders', icon: ShoppingBag },
   { name: 'Users', href: '/admin/users', icon: Users },
   { name: 'Info-Bar', href: '/admin/info-bar', icon: Info },
   { name: 'Support', href: '/admin/support', icon: MessageSquare },

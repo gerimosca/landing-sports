@@ -10,6 +10,7 @@ import {
 import type { CancellationDetails } from '@/features/billing';
 import { trackServerPurchase } from '@/features/attribution';
 import type { AttributionData } from '@/features/attribution';
+import { createOrder, createOrderItems } from '@/features/orders';
 import { sendEmail, OrderConfirmationEmail } from '@/shared/email';
 import { createElement } from 'react';
 import type Stripe from 'stripe';
@@ -184,6 +185,42 @@ export async function POST(req: Request) {
                     session.metadata?.['07_shipping_postal_code'] || '',
                 }
               : null;
+
+            // Save order to Supabase
+            try {
+              const orderResult = await createOrder({
+                order_number: orderNumber,
+                stripe_session_id: session.id,
+                customer_email: customerEmail,
+                shipping_name: shipping?.name || null,
+                shipping_phone: shipping?.phone || null,
+                shipping_address: shipping?.address || null,
+                shipping_address2: shipping?.address2 || null,
+                shipping_city: shipping?.city || null,
+                shipping_postal_code: shipping?.postalCode || null,
+                subtotal: Math.round(subtotal * 100),
+                discount: Math.round(discount * 100),
+                shipping_cost: Math.round(shippingCost * 100),
+                total: Math.round(total * 100),
+              });
+
+              if (orderResult.orderId) {
+                await createOrderItems(
+                  productItems.map((item) => ({
+                    order_id: orderResult.orderId!,
+                    name: item.name,
+                    quantity: item.quantity,
+                    unit_price: Math.round((item.amount / item.quantity) * 100),
+                    total_price: Math.round(item.amount * 100),
+                    is_customization: item.name.toLowerCase().includes('dorsal') ||
+                      item.name.toLowerCase().includes('custom'),
+                  }))
+                );
+                console.log(`Order ${orderNumber} saved to Supabase`);
+              }
+            } catch (orderError) {
+              console.error('Failed to save order to Supabase:', orderError);
+            }
 
             // Detect locale from success_url
             const locale =
