@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import { Instagram } from 'lucide-react';
 
 import { CartIcon } from '@/features/cart';
 import { SkipLink } from '@/shared/components/ui/skip-link';
@@ -124,6 +125,16 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
                   {locale === 'es' ? 'Contacto' : 'Contact'}
                 </h3>
                 <p className="text-sm text-zinc-500">{brand.support}</p>
+                <a
+                  href="https://instagram.com/somospasion.deportes/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-primary transition-colors"
+                  aria-label="Instagram @somospasion.deportes"
+                >
+                  <Instagram className="h-4 w-4" aria-hidden="true" />
+                  Somos Pasion
+                </a>
               </div>
             </div>
 

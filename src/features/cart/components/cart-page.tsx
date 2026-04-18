@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone } from 'lucide-react';
+import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone, Truck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
@@ -520,7 +520,7 @@ export function CartPage() {
                       placeholder={t('phonePlaceholder')}
                       aria-required="true"
                       aria-invalid={errors.phone}
-                      aria-describedby="phone-help phone-error"
+                      aria-describedby="phone-error"
                       className={cn(
                         'flex-1 px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.phone ? 'border-red-500' : 'border-zinc-700'
@@ -532,18 +532,33 @@ export function CartPage() {
                       {t('phoneInvalid')}
                     </p>
                   )}
-                  <p id="phone-help" className="text-[11px] text-primary/80 mt-1">
-                    {t('phoneHelp')}
-                  </p>
                 </div>
               </div>
 
-              <button
-                onClick={handleCheckout}
-                className="w-full py-3.5 bg-primary text-black font-bold rounded-full hover:brightness-110 transition-all text-sm"
-              >
-                {t('checkout')}
-              </button>
+              <div className="space-y-3">
+                <div
+                  className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/60 border border-zinc-700"
+                  role="note"
+                  aria-label={t('deliveryEstimate')}
+                >
+                  <Truck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <div className="flex flex-col gap-0.5 min-w-0">
+                    <p className="text-sm font-semibold text-white leading-tight">
+                      {t('deliveryEstimate')}
+                    </p>
+                    <p className="text-xs text-zinc-400 leading-snug">
+                      {t('deliveryTracking')}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleCheckout}
+                  className="w-full py-3.5 bg-primary text-black font-bold rounded-full hover:brightness-110 transition-all text-sm"
+                >
+                  {t('checkout')}
+                </button>
+              </div>
 
             </div>
           </div>

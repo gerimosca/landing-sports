@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { getTeamDisplayName } from '../config/data';
-import { ShoppingCart, Star, ChevronLeft, ChevronRight, Pencil, X } from 'lucide-react';
+import { ShoppingCart, Star, ChevronLeft, ChevronRight, Pencil, X, Truck } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/shared/lib/utils';
 import { useCart } from '@/features/cart';
@@ -547,6 +547,11 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
               <ShoppingCart className="h-4 w-4 inline mr-2" />
               {selectedSize ? t('card.addToCart') : tc('selectSize')}
             </button>
+
+            <p className="flex items-center justify-center gap-1.5 text-[11px] text-zinc-400 -mt-1">
+              <Truck className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+              {tc('deliveryEstimateShort')}
+            </p>
           </div>
         </div>,
         document.body
