@@ -28,6 +28,8 @@ export async function GET(request: NextRequest) {
       })) || [],
       amount_total: (session.amount_total || 0) / 100,
       amount_subtotal: (session.amount_subtotal || 0) / 100,
+      currency: session.currency?.toUpperCase() || 'EUR',
+      event_id: session.metadata?.event_id || null,
       discount: (session.total_details?.amount_discount || 0) / 100,
       shipping_cost: (session.line_items?.data.find(
         (item) => item.description === 'Shipping / Envío'

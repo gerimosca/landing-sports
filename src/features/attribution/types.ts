@@ -38,7 +38,8 @@ export type TrackingEventType =
   | 'signup' // User registered
   | 'login' // User logged in
   | 'page_view' // Page viewed
-  | 'view_pricing' // Viewed pricing page
+  | 'view_pricing' // Viewed pricing/product page
+  | 'add_to_cart' // Added item to cart
   | 'initiate_checkout' // Started checkout
   | 'purchase'; // Completed purchase
 

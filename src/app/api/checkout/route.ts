@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/shared/payments/stripe/server';
+import type { AttributionData } from '@/features/attribution';
 
 interface CheckoutItem {
   name: string;
@@ -27,11 +28,14 @@ function generateOrderNumber(): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const { items, locale, email, shipping } = (await request.json()) as {
+    const { items, locale, email, shipping, eventId, attribution, marketingConsent } = (await request.json()) as {
       items: CheckoutItem[];
       locale: string;
       email?: string;
       shipping?: ShippingInfo;
+      eventId?: string;
+      attribution?: AttributionData;
+      marketingConsent?: boolean;
     };
 
     if (!items || items.length === 0) {
@@ -111,6 +115,15 @@ export async function POST(request: NextRequest) {
       metadata['05_shipping_address2'] = shipping.address2 || '';
       metadata['06_shipping_city'] = shipping.city;
       metadata['07_shipping_postal_code'] = shipping.postalCode;
+    }
+
+    // Attribution + dedup tracking for Meta CAPI in webhook.
+    // Stripe metadata values must be strings <= 500 chars; attribution_data
+    // is small (UTM/click IDs), well within the limit.
+    if (eventId) metadata.event_id = eventId;
+    if (attribution) metadata.attribution_data = JSON.stringify(attribution);
+    if (typeof marketingConsent === 'boolean') {
+      metadata.marketing_consent = marketingConsent ? 'true' : 'false';
     }
 
     const session = await stripe.checkout.sessions.create({

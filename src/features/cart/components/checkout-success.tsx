@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { CheckCircle2, Package, Mail, ArrowLeft, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
+import { trackPurchase } from '@/features/attribution';
 
 interface OrderItem {
   name: string;
@@ -20,6 +21,8 @@ interface OrderData {
   line_items: OrderItem[];
   amount_total: number;
   amount_subtotal: number;
+  currency?: string;
+  event_id?: string | null;
   discount: number;
   shipping_cost: number;
   shipping: {
@@ -61,6 +64,15 @@ export function CheckoutSuccess() {
         if (data.status === 'paid' && !cleared) {
           cleared = true;
           clearCart();
+          // Fire client-side Purchase Pixel event with the same eventId stored
+          // in Stripe metadata so it dedupes with the server-side CAPI event.
+          void trackPurchase(
+            data.amount_total,
+            data.currency || 'EUR',
+            data.customer_email,
+            undefined,
+            data.event_id || undefined
+          );
         }
       })
       .catch(() => setError(true))

@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { cn } from '@/shared/lib/utils';
 import { useCart } from '@/features/cart';
 import { SIZES, type Size } from '@/features/cart/types';
+import { trackAddToCart, trackEvent } from '@/features/attribution';
 import { SizeGuide } from './size-guide';
 import type { Jersey } from '../types';
 
@@ -43,6 +44,7 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
 
   const handleOpenOptions = () => {
     onOpen();
+    void trackEvent('view_pricing', { value: jersey.price, currency: 'EUR' });
   };
 
   const handleAddToCart = () => {
@@ -52,6 +54,7 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
       dorsalName: dorsalName.trim() || undefined,
       dorsalNumber: dorsalNumber.trim() || undefined,
     });
+    void trackAddToCart(jersey.price, 'EUR');
     toast.success(tc('added'), { description: `${teamName} - ${selectedSize}`, duration: 3000 });
     resetForm();
     onClose();

@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { useCart } from '../cart-context';
 import { cartItemKey, dorsalExtraCost } from '../types';
 import { cn } from '@/shared/lib/utils';
+import { trackInitiateCheckout } from '@/features/attribution';
+import { useConsent } from '@/features/consent/hooks/use-consent';
 
 const PHONE_PREFIXES = [
   { code: '+1', country: 'US/CA' },
@@ -56,10 +58,72 @@ interface ShippingForm {
 
 type ShippingErrors = Partial<Record<keyof ShippingForm, boolean>>;
 
+const NAME_RE = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜüÇç\s'-]+$/;
+const ADDRESS_RE = /^[A-Za-z0-9\s]+$/;
+const POSTAL_RE = /^[A-Za-z0-9\s-]{3,12}$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[\d\s()-]{6,20}$/;
+
+const REQUIRED_FIELDS: Array<keyof ShippingForm> = [
+  'email', 'firstName', 'lastName', 'address', 'city', 'postalCode', 'phone',
+];
+
+const FIELD_VALIDATORS: Record<keyof ShippingForm, (v: string) => boolean> = {
+  email: (v) => EMAIL_RE.test(v),
+  firstName: (v) => NAME_RE.test(v),
+  lastName: (v) => NAME_RE.test(v),
+  address: (v) => ADDRESS_RE.test(v) && /\s/.test(v),
+  address2: () => true,
+  city: (v) => NAME_RE.test(v),
+  postalCode: (v) => POSTAL_RE.test(v),
+  phone: (v) => PHONE_RE.test(v),
+  phonePrefix: () => true,
+};
+
+const FIELD_RULES: Record<keyof ShippingForm, { maxLength: number; sanitize: (v: string) => string }> = {
+  email: {
+    maxLength: 100,
+    sanitize: (v) => v.toLowerCase().replace(/\s/g, ''),
+  },
+  firstName: {
+    maxLength: 50,
+    sanitize: (v) => v.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñÜüÇç\s'-]/g, ''),
+  },
+  lastName: {
+    maxLength: 50,
+    sanitize: (v) => v.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñÜüÇç\s'-]/g, ''),
+  },
+  address: {
+    maxLength: 35,
+    sanitize: (v) => v.replace(/[^A-Za-z0-9\s]/g, ''),
+  },
+  address2: {
+    maxLength: 40,
+    sanitize: (v) => v.replace(/[^A-Za-z0-9.,#\-/\s]/g, ''),
+  },
+  city: {
+    maxLength: 60,
+    sanitize: (v) => v.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñÜüÇç\s'-]/g, ''),
+  },
+  postalCode: {
+    maxLength: 12,
+    sanitize: (v) => v.replace(/[^A-Za-z0-9\s-]/g, '').toUpperCase(),
+  },
+  phone: {
+    maxLength: 20,
+    sanitize: (v) => v.replace(/[^\d\s()\-]/g, ''),
+  },
+  phonePrefix: {
+    maxLength: 5,
+    sanitize: (v) => v,
+  },
+};
+
 export function CartPage() {
   const t = useTranslations('cart');
   const locale = useLocale();
   const { items, updateQuantity, removeItem, totalItems, jerseysSubtotal, dorsalTotal, discount, shippingCost, finalPrice } = useCart();
+  const { consent } = useConsent();
   const [form, setForm] = useState<ShippingForm>({
     email: '',
     firstName: '',
@@ -81,40 +145,36 @@ export function CartPage() {
     });
 
   const updateField = (field: keyof ShippingForm, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
+    const rule = FIELD_RULES[field];
+    const sanitized = rule.sanitize(value).slice(0, rule.maxLength);
+    setForm((prev) => ({ ...prev, [field]: sanitized }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: false }));
+  };
+
+  const validateField = (field: keyof ShippingForm) => {
+    const value = (form[field] ?? '').trim();
+    const isRequired = REQUIRED_FIELDS.includes(field);
+    const isInvalid = (isRequired && !value) || (value !== '' && !FIELD_VALIDATORS[field](value));
+    setErrors((prev) => ({ ...prev, [field]: isInvalid }));
   };
 
   const validateForm = (): boolean => {
     const newErrors: ShippingErrors = {};
-    const trimmed = {
-      email: form.email.trim(),
-      firstName: form.firstName.trim(),
-      lastName: form.lastName.trim(),
-      address: form.address.trim(),
-      city: form.city.trim(),
-      postalCode: form.postalCode.trim(),
-      phone: form.phone.trim(),
-    };
-
-    if (!trimmed.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed.email)) {
-      newErrors.email = true;
+    for (const field of REQUIRED_FIELDS) {
+      const value = (form[field] ?? '').trim();
+      if (!value || !FIELD_VALIDATORS[field](value)) newErrors[field] = true;
     }
-    if (!trimmed.firstName) newErrors.firstName = true;
-    if (!trimmed.lastName) newErrors.lastName = true;
-    if (!trimmed.address) newErrors.address = true;
-    if (!trimmed.city) newErrors.city = true;
-    if (!trimmed.postalCode) newErrors.postalCode = true;
-    if (!trimmed.phone || !/^[\d\s()-]{6,20}$/.test(trimmed.phone)) {
-      newErrors.phone = true;
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleCheckout = async () => {
     if (!validateForm()) return;
+
+    // Fire client-side InitiateCheckout and capture attribution + eventId.
+    // The same eventId is sent to Stripe metadata so the server-side Purchase
+    // event from the webhook can dedupe with the client-side Pixel event.
+    const { eventId, attribution } = await trackInitiateCheckout(finalPrice, 'EUR');
 
     try {
       const res = await fetch('/api/checkout', {
@@ -152,6 +212,9 @@ export function CartPage() {
             postalCode: form.postalCode.trim(),
             phone: `${form.phonePrefix} ${form.phone.trim()}`,
           },
+          eventId,
+          attribution,
+          marketingConsent: consent.marketing,
         }),
       });
       const { url } = await res.json();
@@ -349,10 +412,14 @@ export function CartPage() {
                     type="email"
                     value={form.email}
                     onChange={(e) => updateField('email', e.target.value)}
+                    onBlur={() => validateField('email')}
                     placeholder={t('emailPlaceholder')}
                     aria-required="true"
                     aria-invalid={errors.email}
                     aria-describedby="email-help email-error"
+                    maxLength={100}
+                    autoComplete="email"
+                    inputMode="email"
                     className={cn(
                       'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                       errors.email ? 'border-red-500' : 'border-zinc-700'
@@ -379,16 +446,19 @@ export function CartPage() {
                       type="text"
                       value={form.firstName}
                       onChange={(e) => updateField('firstName', e.target.value)}
+                      onBlur={() => validateField('firstName')}
                       placeholder={t('firstNamePlaceholder')}
                       aria-required="true"
                       aria-invalid={errors.firstName}
+                      maxLength={50}
+                      autoComplete="given-name"
                       className={cn(
                         'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.firstName ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
                     {errors.firstName && (
-                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('nameInvalid')}</p>
                     )}
                   </div>
                   <div>
@@ -400,16 +470,19 @@ export function CartPage() {
                       type="text"
                       value={form.lastName}
                       onChange={(e) => updateField('lastName', e.target.value)}
+                      onBlur={() => validateField('lastName')}
                       placeholder={t('lastNamePlaceholder')}
                       aria-required="true"
                       aria-invalid={errors.lastName}
+                      maxLength={50}
+                      autoComplete="family-name"
                       className={cn(
                         'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.lastName ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
                     {errors.lastName && (
-                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('nameInvalid')}</p>
                     )}
                   </div>
                 </div>
@@ -424,16 +497,19 @@ export function CartPage() {
                     type="text"
                     value={form.address}
                     onChange={(e) => updateField('address', e.target.value)}
+                    onBlur={() => validateField('address')}
                     placeholder={t('addressPlaceholder')}
                     aria-required="true"
                     aria-invalid={errors.address}
+                    maxLength={35}
+                    autoComplete="address-line1"
                     className={cn(
                       'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                       errors.address ? 'border-red-500' : 'border-zinc-700'
                     )}
                   />
                   {errors.address && (
-                    <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                    <p role="alert" className="text-xs text-red-500 mt-1">{t('addressInvalid')}</p>
                   )}
                   <input
                     id="checkout-address2"
@@ -442,6 +518,8 @@ export function CartPage() {
                     onChange={(e) => updateField('address2', e.target.value)}
                     placeholder={t('address2Placeholder')}
                     aria-label={t('address2Label')}
+                    maxLength={40}
+                    autoComplete="address-line2"
                     className="w-full mt-2 px-3 py-2 text-base sm:text-sm bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
@@ -457,16 +535,19 @@ export function CartPage() {
                       type="text"
                       value={form.city}
                       onChange={(e) => updateField('city', e.target.value)}
+                      onBlur={() => validateField('city')}
                       placeholder={t('cityPlaceholder')}
                       aria-required="true"
                       aria-invalid={errors.city}
+                      maxLength={60}
+                      autoComplete="address-level2"
                       className={cn(
                         'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.city ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
                     {errors.city && (
-                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('cityInvalid')}</p>
                     )}
                   </div>
                   <div>
@@ -478,16 +559,19 @@ export function CartPage() {
                       type="text"
                       value={form.postalCode}
                       onChange={(e) => updateField('postalCode', e.target.value)}
+                      onBlur={() => validateField('postalCode')}
                       placeholder={t('postalCodePlaceholder')}
                       aria-required="true"
                       aria-invalid={errors.postalCode}
+                      maxLength={12}
+                      autoComplete="postal-code"
                       className={cn(
                         'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.postalCode ? 'border-red-500' : 'border-zinc-700'
                       )}
                     />
                     {errors.postalCode && (
-                      <p role="alert" className="text-xs text-red-500 mt-1">{t('fieldRequired')}</p>
+                      <p role="alert" className="text-xs text-red-500 mt-1">{t('postalCodeInvalid')}</p>
                     )}
                   </div>
                 </div>
@@ -517,10 +601,14 @@ export function CartPage() {
                       type="tel"
                       value={form.phone}
                       onChange={(e) => updateField('phone', e.target.value)}
+                      onBlur={() => validateField('phone')}
                       placeholder={t('phonePlaceholder')}
                       aria-required="true"
                       aria-invalid={errors.phone}
                       aria-describedby="phone-error"
+                      maxLength={20}
+                      autoComplete="tel-national"
+                      inputMode="tel"
                       className={cn(
                         'flex-1 px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
                         errors.phone ? 'border-red-500' : 'border-zinc-700'

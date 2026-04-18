@@ -38,6 +38,7 @@ export {
   trackPurchase,
   trackPageView,
   trackViewPricing,
+  trackAddToCart,
   trackInitiateCheckout,
 } from './client';
 

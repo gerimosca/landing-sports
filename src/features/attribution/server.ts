@@ -25,6 +25,7 @@ function getMetaServerEventName(event: TrackingEventType): string {
     login: 'Lead',
     page_view: 'PageView',
     view_pricing: 'ViewContent',
+    add_to_cart: 'AddToCart',
     initiate_checkout: 'InitiateCheckout',
     purchase: 'Purchase',
   };

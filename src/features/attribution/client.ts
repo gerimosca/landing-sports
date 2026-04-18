@@ -41,6 +41,7 @@ function getGoogleEventName(event: TrackingEventType): string {
     login: 'login',
     page_view: 'page_view',
     view_pricing: 'view_item',
+    add_to_cart: 'add_to_cart',
     initiate_checkout: 'begin_checkout',
     purchase: 'purchase',
   };
@@ -56,6 +57,7 @@ function getMetaEventName(event: TrackingEventType): string {
     login: 'Lead',
     page_view: 'PageView',
     view_pricing: 'ViewContent',
+    add_to_cart: 'AddToCart',
     initiate_checkout: 'InitiateCheckout',
     purchase: 'Purchase',
   };
@@ -193,19 +195,33 @@ export async function trackSignup(
 
 /**
  * Track purchase event
+ *
+ * @param eventId - Pass the eventId from server (Stripe metadata) for cross-platform deduplication
  */
 export async function trackPurchase(
   value: number,
   currency: string = 'USD',
   email?: string,
-  userId?: string
+  userId?: string,
+  eventId?: string
 ): Promise<{ eventId: string; attribution: AttributionData }> {
   return trackEvent('purchase', {
     value,
     currency,
     email,
     user_id: userId,
+    event_id: eventId,
   });
+}
+
+/**
+ * Track add-to-cart event
+ */
+export async function trackAddToCart(
+  value: number,
+  currency: string = 'USD'
+): Promise<{ eventId: string; attribution: AttributionData }> {
+  return trackEvent('add_to_cart', { value, currency });
 }
 
 /**

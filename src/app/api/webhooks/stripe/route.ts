@@ -125,6 +125,7 @@ export async function POST(req: Request) {
             const eventId = session.metadata?.event_id || crypto.randomUUID();
             const value = session.amount_total ? session.amount_total / 100 : 0;
             const currency = session.currency?.toUpperCase() || 'USD';
+            const hasMarketingConsent = session.metadata?.marketing_consent === 'true';
 
             await trackServerPurchase(
               eventId,
@@ -132,7 +133,8 @@ export async function POST(req: Request) {
               value,
               currency,
               session.customer_email || undefined,
-              userId
+              userId,
+              hasMarketingConsent
             ).catch((err) => {
               console.error('Failed to track server purchase:', err);
             });
@@ -145,6 +147,34 @@ export async function POST(req: Request) {
           session.customer_details?.email || session.customer_email;
 
         if (orderNumber && customerEmail && session.mode === 'payment') {
+          // Server-side Purchase event for Meta CAPI (store orders).
+          // Uses eventId from client metadata for browser/server deduplication.
+          const eventId = session.metadata?.event_id || crypto.randomUUID();
+          const value = session.amount_total ? session.amount_total / 100 : 0;
+          const currency = session.currency?.toUpperCase() || 'EUR';
+          const hasMarketingConsent = session.metadata?.marketing_consent === 'true';
+
+          let storeAttribution: AttributionData = {};
+          if (session.metadata?.attribution_data) {
+            try {
+              storeAttribution = JSON.parse(session.metadata.attribution_data);
+            } catch {
+              console.warn('Failed to parse attribution data from store order metadata');
+            }
+          }
+
+          await trackServerPurchase(
+            eventId,
+            storeAttribution,
+            value,
+            currency,
+            customerEmail,
+            undefined,
+            hasMarketingConsent
+          ).catch((err) => {
+            console.error('Failed to track store purchase:', err);
+          });
+
           try {
             // Retrieve line items from Stripe
             const fullSession = await stripe.checkout.sessions.retrieve(
