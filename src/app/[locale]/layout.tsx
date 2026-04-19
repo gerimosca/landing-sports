@@ -41,6 +41,10 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   return (
     <html lang={locale} data-theme={brand.theme.variant} suppressHydrationWarning>
       <head>
+        <meta
+          name="facebook-domain-verification"
+          content="kgdk0yl9xucuijh4suaon0e80fnzw4"
+        />
         {/* Google Ads / Google Tag with Consent Mode */}
         {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
           <>
