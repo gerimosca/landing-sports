@@ -16,6 +16,7 @@ interface ShippingInfo {
   address2?: string;
   city: string;
   postalCode: string;
+  country?: string;
   phone: string;
 }
 
@@ -115,6 +116,7 @@ export async function POST(request: NextRequest) {
       metadata['05_shipping_address2'] = shipping.address2 || '';
       metadata['06_shipping_city'] = shipping.city;
       metadata['07_shipping_postal_code'] = shipping.postalCode;
+      metadata['08_shipping_country'] = shipping.country || '';
     }
 
     // Attribution + dedup tracking for Meta CAPI in webhook.

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone, Truck } from 'lucide-react';
+import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone, Truck, Globe } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
@@ -52,6 +52,7 @@ interface ShippingForm {
   address2: string;
   city: string;
   postalCode: string;
+  country: string;
   phonePrefix: string;
   phone: string;
 }
@@ -65,7 +66,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[\d\s()-]{6,20}$/;
 
 const REQUIRED_FIELDS: Array<keyof ShippingForm> = [
-  'email', 'firstName', 'lastName', 'address', 'city', 'postalCode', 'phone',
+  'email', 'firstName', 'lastName', 'address', 'city', 'postalCode', 'country', 'phone',
 ];
 
 const FIELD_VALIDATORS: Record<keyof ShippingForm, (v: string) => boolean> = {
@@ -76,6 +77,7 @@ const FIELD_VALIDATORS: Record<keyof ShippingForm, (v: string) => boolean> = {
   address2: () => true,
   city: (v) => NAME_RE.test(v),
   postalCode: (v) => POSTAL_RE.test(v),
+  country: (v) => NAME_RE.test(v),
   phone: (v) => PHONE_RE.test(v),
   phonePrefix: () => true,
 };
@@ -109,6 +111,10 @@ const FIELD_RULES: Record<keyof ShippingForm, { maxLength: number; sanitize: (v:
     maxLength: 12,
     sanitize: (v) => v.replace(/[^A-Za-z0-9\s-]/g, '').toUpperCase(),
   },
+  country: {
+    maxLength: 60,
+    sanitize: (v) => v.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñÜüÇç\s'-]/g, ''),
+  },
   phone: {
     maxLength: 20,
     sanitize: (v) => v.replace(/[^\d\s()\-]/g, ''),
@@ -132,6 +138,7 @@ export function CartPage() {
     address2: '',
     city: '',
     postalCode: '',
+    country: '',
     phonePrefix: '+34',
     phone: '',
   });
@@ -210,6 +217,7 @@ export function CartPage() {
             address2: form.address2.trim(),
             city: form.city.trim(),
             postalCode: form.postalCode.trim(),
+            country: form.country.trim(),
             phone: `${form.phonePrefix} ${form.phone.trim()}`,
           },
           eventId,
@@ -574,6 +582,33 @@ export function CartPage() {
                       <p role="alert" className="text-xs text-red-500 mt-1">{t('postalCodeInvalid')}</p>
                     )}
                   </div>
+                </div>
+
+                {/* Country */}
+                <div>
+                  <label htmlFor="checkout-country" className="block text-xs font-semibold text-zinc-300 mb-1">
+                    <Globe className="inline h-3.5 w-3.5 mr-1 text-primary" />
+                    {t('countryLabel')} <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="checkout-country"
+                    type="text"
+                    value={form.country}
+                    onChange={(e) => updateField('country', e.target.value)}
+                    onBlur={() => validateField('country')}
+                    placeholder={t('countryPlaceholder')}
+                    aria-required="true"
+                    aria-invalid={errors.country}
+                    maxLength={60}
+                    autoComplete="country-name"
+                    className={cn(
+                      'w-full px-3 py-2 text-base sm:text-sm bg-zinc-800 border rounded-lg text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary transition-colors',
+                      errors.country ? 'border-red-500' : 'border-zinc-700'
+                    )}
+                  />
+                  {errors.country && (
+                    <p role="alert" className="text-xs text-red-500 mt-1">{t('countryInvalid')}</p>
+                  )}
                 </div>
 
                 {/* Phone with prefix */}
