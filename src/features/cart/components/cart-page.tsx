@@ -194,8 +194,8 @@ export function CartPage() {
             if (dorsalName || dorsalNumber) {
               parts.push(`#${dorsalNumber || ''} ${dorsalName || ''}`.trim());
             }
-            const lineItems: Array<{ name: string; price: number; quantity: number; isCustomization?: boolean }> = [
-              { name: parts.join(' '), price: jersey.price, quantity },
+            const lineItems: Array<{ name: string; price: number; quantity: number; image?: string; isCustomization?: boolean }> = [
+              { name: parts.join(' '), price: jersey.price, quantity, image: jersey.image },
             ];
             const dorsal = dorsalExtraCost(item);
             if (dorsal > 0) {

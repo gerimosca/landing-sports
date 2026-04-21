@@ -6,6 +6,7 @@ interface CheckoutItem {
   name: string;
   price: number;
   quantity: number;
+  image?: string;
   isCustomization?: boolean;
 }
 
@@ -68,18 +69,27 @@ export async function POST(request: NextRequest) {
     // Shipping: free if 3+ jerseys, otherwise €7
     const shippingCost = totalCount >= 3 ? 0 : 7;
 
-    // Build line items: each unit as a separate line (so Stripe shows correct breakdown)
+    // Build line items: each unit as a separate line (so Stripe shows correct breakdown).
+    // Stripe requires public absolute URLs for images — relative /public paths won't
+    // resolve from Stripe's servers, so we prepend the request origin (or APP_URL).
+    const publicBase = (process.env.NEXT_PUBLIC_APP_URL || origin || '').replace(/\/$/, '');
     const lineItems: Array<{
-      price_data: { currency: string; product_data: { name: string }; unit_amount: number };
+      price_data: { currency: string; product_data: { name: string; images?: string[] }; unit_amount: number };
       quantity: number;
-    }> = items.map((item) => ({
-      price_data: {
-        currency: 'eur',
-        product_data: { name: item.name },
-        unit_amount: Math.round(item.price * 100),
-      },
-      quantity: item.quantity,
-    }));
+    }> = items.map((item) => {
+      const images =
+        item.image && publicBase.startsWith('https://')
+          ? [`${publicBase}${item.image.startsWith('/') ? '' : '/'}${item.image}`]
+          : undefined;
+      return {
+        price_data: {
+          currency: 'eur',
+          product_data: { name: item.name, ...(images ? { images } : {}) },
+          unit_amount: Math.round(item.price * 100),
+        },
+        quantity: item.quantity,
+      };
+    });
 
     // Add shipping cost if applicable
     if (shippingCost > 0) {

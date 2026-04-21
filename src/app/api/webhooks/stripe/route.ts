@@ -176,20 +176,29 @@ export async function POST(req: Request) {
           });
 
           try {
-            // Retrieve line items from Stripe
+            // Retrieve line items from Stripe (expand price.product to read images
+            // we sent in product_data.images during checkout creation)
             const fullSession = await stripe.checkout.sessions.retrieve(
               session.id,
-              { expand: ['line_items'] }
+              { expand: ['line_items.data.price.product'] }
             );
 
             const lineItems = fullSession.line_items?.data || [];
             const productItems = lineItems
               .filter((item) => item.description !== 'Shipping / Envío')
-              .map((item) => ({
-                name: item.description || '',
-                quantity: item.quantity || 1,
-                amount: (item.amount_subtotal || 0) / 100,
-              }));
+              .map((item) => {
+                const product = item.price?.product;
+                const image =
+                  product && typeof product !== 'string' && !product.deleted
+                    ? product.images?.[0]
+                    : undefined;
+                return {
+                  name: item.description || '',
+                  quantity: item.quantity || 1,
+                  amount: (item.amount_subtotal || 0) / 100,
+                  image,
+                };
+              });
 
             const shippingLineItem = lineItems.find(
               (item) => item.description === 'Shipping / Envío'

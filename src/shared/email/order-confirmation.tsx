@@ -9,12 +9,14 @@ import {
   Preview,
   Row,
   Column,
+  Img,
 } from '@react-email/components';
 
 interface OrderItem {
   name: string;
   quantity: number;
   amount: number;
+  image?: string;
 }
 
 interface ShippingInfo {
@@ -104,6 +106,17 @@ export function OrderConfirmationEmail({
             <Text style={sectionTitle}>{t(lang, 'orderSummary')}</Text>
             {items.map((item, i) => (
               <Row key={i} style={itemRow}>
+                <Column style={itemImageCol}>
+                  {item.image ? (
+                    <Img
+                      src={item.image}
+                      alt={item.name}
+                      width="56"
+                      height="56"
+                      style={itemImage}
+                    />
+                  ) : null}
+                </Column>
                 <Column style={itemNameCol}>
                   <Text style={itemName}>
                     {item.name} × {item.quantity}
@@ -289,15 +302,31 @@ const sectionTitle = {
 
 const itemRow = {
   width: '100%',
-  marginBottom: '8px',
+  marginBottom: '12px',
+};
+
+const itemImageCol = {
+  width: '72px',
+  verticalAlign: 'middle' as const,
+  paddingRight: '12px',
+};
+
+const itemImage = {
+  width: '56px',
+  height: '56px',
+  objectFit: 'cover' as const,
+  borderRadius: '6px',
+  border: '1px solid #27272a',
+  display: 'block',
 };
 
 const itemNameCol = {
-  width: '70%',
+  verticalAlign: 'middle' as const,
 };
 
 const itemPriceCol = {
-  width: '30%',
+  width: '25%',
+  verticalAlign: 'middle' as const,
   textAlign: 'right' as const,
 };
 
