@@ -108,9 +108,21 @@ async function checkLinks() {
       throw new Error('Build failed');
     }
 
-    // Kill any existing process on port 3000
+    // Kill any existing process on port 3000 (cross-platform)
     try {
-      execSync('lsof -ti :3000 | xargs kill -9 2>/dev/null || true', { stdio: 'pipe' });
+      if (process.platform === 'win32') {
+        const out = execSync('netstat -ano -p tcp', { stdio: ['pipe', 'pipe', 'pipe'], encoding: 'utf8' });
+        const pids = new Set();
+        for (const line of out.split('\n')) {
+          const match = line.match(/LISTENING\s+(\d+)\s*$/);
+          if (match && /[:.]3000\s/.test(line)) pids.add(match[1]);
+        }
+        for (const pid of pids) {
+          try { execSync(`taskkill /F /PID ${pid}`, { stdio: 'pipe' }); } catch { /* already gone */ }
+        }
+      } else {
+        execSync('lsof -ti :3000 | xargs kill -9 2>/dev/null || true', { stdio: 'pipe' });
+      }
     } catch {
       // Ignore errors - port might already be free
     }
