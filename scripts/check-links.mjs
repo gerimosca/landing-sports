@@ -216,9 +216,17 @@ async function checkLinks() {
     log.error(`Check failed: ${error.message}`);
     process.exitCode = 1;
   } finally {
-    // Cleanup: kill the server
+    // Cleanup: kill the server (cross-platform, incluye hijos)
     if (serverProcess) {
-      serverProcess.kill('SIGTERM');
+      if (process.platform === 'win32') {
+        try {
+          execSync(`taskkill /PID ${serverProcess.pid} /T /F`, { stdio: 'pipe' });
+        } catch {
+          // Process tree may already be gone
+        }
+      } else {
+        serverProcess.kill('SIGTERM');
+      }
       log.info('Server stopped');
     }
   }
