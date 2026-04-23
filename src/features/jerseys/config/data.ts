@@ -1057,6 +1057,23 @@ export const jerseys: Jersey[] = [
     season: '2024/25',
   },
 
+  // Resto de Ligas - Junior de Barranquilla
+  {
+    id: 'junior-barranquilla-1',
+    team: 'Junior de Barranquilla',
+    league: 'resto-de-ligas',
+    price: 29.99,
+    image: '/images/resto-de-ligas/junior-barranquilla/1/1.jpg',
+    images: [
+      '/images/resto-de-ligas/junior-barranquilla/1/1.jpg',
+      '/images/resto-de-ligas/junior-barranquilla/1/2.jpg',
+      '/images/resto-de-ligas/junior-barranquilla/1/3.jpg',
+      '/images/resto-de-ligas/junior-barranquilla/1/4.jpg',
+      '/images/resto-de-ligas/junior-barranquilla/1/5.jpg',
+    ],
+    season: '2024/25',
+  },
+
   // Selecciones - Argentina
   {
     id: 'argentina-1',
