@@ -21,7 +21,14 @@
       "Bash(git push:*)",
       "Bash(npx tsc *)",
       "Bash(npx supabase *)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/es)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/es)",
+      "Bash(echo \"server started as pid $!\" sleep 6 curl -s -o /tmp/en.html -w \"status=%{http_code} size=%{size_download}\\\\n\" http://localhost:3000/en curl -s -o /tmp/en2.html -w \"status=%{http_code} size=%{size_download}\\\\n\" http://localhost:3000/en curl -s -o /tmp/es.html -w \"status=%{http_code} size=%{size_download}\\\\n\" http://localhost:3000/es echo \"---SERVER LOG---\" cat /tmp/srv.log)",
+      "Bash(netstat -ano)",
+      "Bash(powershell *)",
+      "Bash(netstat -ano -p tcp)",
+      "Bash(ps -W)",
+      "Bash(curl -s -o /tmp/en_test.html -w \"status=%{http_code}\\\\n\" http://localhost:3000/en)",
+      "Read(//tmp/**)"
     ]
   }
 }
