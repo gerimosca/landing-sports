@@ -32,6 +32,9 @@ export const brand = {
   /** Support email address */
   support: 'soporte@somospasion.com',
 
+  /** WhatsApp number for order notifications (E.164 format with + and country code) */
+  whatsapp: '+34675953010',
+
   // ═══════════════════════════════════════════════════════════════════
   // ASSETS (place files in /public/)
   // ═══════════════════════════════════════════════════════════════════

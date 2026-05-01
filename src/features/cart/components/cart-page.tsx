@@ -9,7 +9,7 @@ import { useCart } from '../cart-context';
 import { cartItemKey, dorsalExtraCost } from '../types';
 import { cn } from '@/shared/lib/utils';
 import { trackInitiateCheckout } from '@/features/attribution';
-import { useConsent } from '@/features/consent/hooks/use-consent';
+import { brand } from '@/shared/config/brand';
 
 const PHONE_PREFIXES = [
   { code: '+1', country: 'US/CA' },
@@ -129,7 +129,6 @@ export function CartPage() {
   const t = useTranslations('cart');
   const locale = useLocale();
   const { items, updateQuantity, removeItem, totalItems, jerseysSubtotal, dorsalTotal, discount, shippingCost, finalPrice } = useCart();
-  const { consent } = useConsent();
   const [form, setForm] = useState<ShippingForm>({
     email: '',
     firstName: '',
@@ -175,61 +174,69 @@ export function CartPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const buildWhatsAppMessage = (): string => {
+    const lines: string[] = [];
+    lines.push(t('whatsappHeader'));
+    lines.push('');
+    lines.push(t('whatsappItemsTitle'));
+
+    items.forEach((item, idx) => {
+      const { jersey, quantity, size, dorsalName, dorsalNumber } = item;
+      const dorsalUnit = dorsalExtraCost(item);
+      const lineTotal = (jersey.price + dorsalUnit) * quantity;
+      lines.push(`${idx + 1}. ${jersey.team}`);
+      lines.push(`   • ${t('size')}: ${size}`);
+      if (dorsalName || dorsalNumber) {
+        const dorsalText = `${dorsalNumber ? `#${dorsalNumber}` : ''} ${dorsalName || ''}`.trim();
+        const dorsalSuffix = dorsalUnit > 0 ? ` (+€${dorsalUnit.toFixed(2)})` : '';
+        lines.push(`   • ${t('dorsal')}: ${dorsalText}${dorsalSuffix}`);
+      }
+      lines.push(`   • ${t('whatsappQuantityLabel')}: ${quantity}`);
+      lines.push(`   • ${t('whatsappPriceLabel')}: €${lineTotal.toFixed(2)}`);
+      lines.push('');
+    });
+
+    lines.push(t('whatsappSummaryTitle'));
+    lines.push(`• ${t('jerseysSubtotal')}: €${jerseysSubtotal.toFixed(2)}`);
+    if (dorsalTotal > 0) {
+      lines.push(`• ${t('dorsalExtra')}: €${dorsalTotal.toFixed(2)}`);
+    }
+    if (discount > 0) {
+      lines.push(`• ${t('promoDiscount')}: -€${discount.toFixed(2)}`);
+    }
+    const shippingValue = shippingCost === 0 ? t('shippingFree') : `€${shippingCost.toFixed(2)}`;
+    lines.push(`• ${t('shipping')}: ${shippingValue}`);
+    lines.push(`• ${t('total')}: €${finalPrice.toFixed(2)}`);
+    lines.push('');
+
+    lines.push(t('whatsappCustomerTitle'));
+    lines.push(`• ${t('whatsappCustomerName')}: ${form.firstName.trim()} ${form.lastName.trim()}`);
+    lines.push(`• ${t('whatsappCustomerEmail')}: ${form.email.trim()}`);
+    lines.push(`• ${t('whatsappCustomerPhone')}: ${form.phonePrefix} ${form.phone.trim()}`);
+    const addressParts = [form.address.trim()];
+    if (form.address2.trim()) addressParts.push(form.address2.trim());
+    addressParts.push(`${form.postalCode.trim()} ${form.city.trim()}`);
+    addressParts.push(form.country.trim());
+    lines.push(`• ${t('whatsappCustomerAddress')}: ${addressParts.join(', ')}`);
+    lines.push('');
+
+    lines.push(t('whatsappRefsTitle'));
+    items.forEach((item, idx) => {
+      lines.push(`${idx + 1}. ${brand.website}${item.jersey.image}`);
+    });
+
+    return lines.join('\n');
+  };
+
   const handleCheckout = async () => {
     if (!validateForm()) return;
 
-    // Fire client-side InitiateCheckout and capture attribution + eventId.
-    // The same eventId is sent to Stripe metadata so the server-side Purchase
-    // event from the webhook can dedupe with the client-side Pixel event.
-    const { eventId, attribution } = await trackInitiateCheckout(finalPrice, 'EUR');
+    await trackInitiateCheckout(finalPrice, 'EUR');
 
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          items: items.flatMap((item) => {
-            const { jersey, quantity, size, dorsalName, dorsalNumber } = item;
-            const parts = [`${jersey.team}`, `(${size})`];
-            if (dorsalName || dorsalNumber) {
-              parts.push(`#${dorsalNumber || ''} ${dorsalName || ''}`.trim());
-            }
-            const lineItems: Array<{ name: string; price: number; quantity: number; image?: string; isCustomization?: boolean }> = [
-              { name: parts.join(' '), price: jersey.price, quantity, image: jersey.image },
-            ];
-            const dorsal = dorsalExtraCost(item);
-            if (dorsal > 0) {
-              lineItems.push({
-                name: `${t('dorsalExtra')} - ${jersey.team} (${size})`,
-                price: dorsal,
-                quantity,
-                isCustomization: true,
-              });
-            }
-            return lineItems;
-          }),
-          locale,
-          email: form.email.trim(),
-          shipping: {
-            firstName: form.firstName.trim(),
-            lastName: form.lastName.trim(),
-            address: form.address.trim(),
-            address2: form.address2.trim(),
-            city: form.city.trim(),
-            postalCode: form.postalCode.trim(),
-            country: form.country.trim(),
-            phone: `${form.phonePrefix} ${form.phone.trim()}`,
-          },
-          eventId,
-          attribution,
-          marketingConsent: consent.marketing,
-        }),
-      });
-      const { url } = await res.json();
-      if (url) window.location.href = url;
-    } catch {
-      // Stripe redirect handles errors
-    }
+    const message = buildWhatsAppMessage();
+    const phone = brand.whatsapp.replace(/\D/g, '');
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   if (items.length === 0) {
