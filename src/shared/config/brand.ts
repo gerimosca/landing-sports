@@ -184,7 +184,7 @@ export const brand = {
      * Paths to disallow in robots.txt
      * Protected routes are automatically excluded
      */
-    disallowPaths: ['/app/', '/auth/', '/api/', '/checkout/'],
+    disallowPaths: ['/app/', '/auth/', '/api/'],
 
     /**
      * Additional paths to allow (overrides disallow)

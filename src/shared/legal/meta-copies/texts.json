@@ -26,7 +26,7 @@
       "dataCollection": {
         "title": "Ex: 'Information We Collect', 'Data Collection', 'What We Collect'",
         "intro": "Ex: 'We collect the following types of personal information:'",
-        "items": "List of data types collected. Be specific about what and why. Ex: 'Email address and name for account creation', 'Payment information via Stripe', 'Usage data and analytics'"
+        "items": "List of data types collected. Be specific about what and why. Ex: 'Email address and name for account creation', 'Shipping address for order delivery', 'Usage data and analytics'"
       },
       "dataUsage": {
         "title": "Ex: 'How We Use Your Information', 'Data Usage', 'Purpose of Processing'",
@@ -36,7 +36,7 @@
       "dataSharing": {
         "title": "Ex: 'Data Sharing and Third Parties', 'Who We Share With', 'Third-Party Services'",
         "intro": "Ex: 'We share your data only with trusted service providers:'",
-        "items": "List third parties and their compliance. Ex: 'Stripe (PCI-DSS compliant) for payments', 'Supabase (SOC 2 certified) for database'"
+        "items": "List third parties and their compliance. Ex: 'WhatsApp (Meta) for order coordination', 'Supabase (SOC 2 certified) for database'"
       },
       "yourRights": {
         "title": "Ex: 'Your Rights (GDPR)', 'Your Data Rights', 'Privacy Rights'",

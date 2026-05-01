@@ -1,5 +1,4 @@
 import { getUser } from '@/shared/auth';
-import { hasActiveSubscription } from '@/features/billing/billing.query';
 import { getCrispSettings } from '../crisp.query';
 import { CrispChat } from './crisp-chat';
 
@@ -38,11 +37,6 @@ export async function CrispProvider({ locale }: CrispProviderProps) {
         return isAuthenticated;
       case 'unauthenticated':
         return !isAuthenticated;
-      case 'subscribers_only':
-        if (!isAuthenticated || !user) {
-          return false;
-        }
-        return await hasActiveSubscription(user.id);
       default:
         return false;
     }

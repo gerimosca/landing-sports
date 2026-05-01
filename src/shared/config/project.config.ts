@@ -63,7 +63,6 @@ export const projectConfig: ProjectConfig = {
 
     core_features: [
       'Authentication & Authorization',
-      'Stripe Billing Integration',
       'Admin Dashboard',
       'Multi-language Support',
       'AI-Powered Features'

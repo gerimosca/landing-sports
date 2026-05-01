@@ -17,7 +17,7 @@
         "items": {
           "identity": "Datos de contacto: nombre, apellidos, correo electrónico y teléfono.",
           "shipping": "Dirección de envío y facturación: calle, ciudad, código postal y país.",
-          "payment": "Datos de pago: procesados directamente por Stripe de forma segura. Nosotros no almacenamos ni tenemos acceso a los números completos de tu tarjeta.",
+          "payment": "Datos de pago: este sitio no procesa pagos online. Los pedidos se confirman y se coordina el pago a través de WhatsApp. No recopilamos ni almacenamos datos de tarjetas en esta web.",
           "order": "Historial de pedidos: productos comprados, importe, estado del envío y comunicaciones relacionadas.",
           "customization": "Datos de personalización: nombre y número del dorsal que elijas para tu camiseta.",
           "technical": "Datos técnicos: dirección IP, tipo de navegador, dispositivo e información de uso recopilada mediante cookies."
@@ -46,7 +46,7 @@
         "title": "Compartir Datos con Terceros",
         "intro": "No vendemos tus datos. Solo los compartimos con los proveedores estrictamente necesarios para prestarte el servicio:",
         "items": {
-          "payment": "Proveedores de pago: Stripe procesa los pagos cumpliendo con el estándar PCI-DSS.",
+          "payment": "Mensajería: los pedidos se gestionan por WhatsApp (Meta Platforms Ireland Ltd.) según su política de privacidad.",
           "shipping": "Empresas de mensajería y logística: reciben tus datos de envío únicamente para entregarte el pedido.",
           "hosting": "Proveedores tecnológicos: alojamiento web, base de datos y envío de correos transaccionales.",
           "legal": "Autoridades competentes: cuando exista una obligación legal de facilitarlos."
@@ -101,7 +101,7 @@
         "description": "Son imprescindibles para que la tienda funcione y puedas completar tu compra. No se pueden desactivar porque, sin ellas, no podrías añadir productos al carrito ni finalizar el pedido. No requieren tu consentimiento.",
         "items": {
           "session": "Carrito de compra: recuerdan las camisetas y personalizaciones (dorsal, talla) que añades mientras navegas.",
-          "auth": "Seguridad y pago: cookies de Stripe para procesar el pago de forma segura y prevenir fraudes durante el checkout.",
+          "auth": "Seguridad: cookies necesarias para mantener el sitio seguro y prevenir abusos durante la navegación.",
           "preferences": "Preferencias: recuerdan tu idioma (español/inglés), la aceptación del banner de cookies y tu configuración de visualización."
         }
       },

@@ -245,7 +245,6 @@ export async function trackServerConversion(
 
 /**
  * Track server-side purchase conversion
- * Call this from Stripe webhook after successful payment
  *
  * @param hasMarketingConsent - Whether user consented to marketing tracking
  */

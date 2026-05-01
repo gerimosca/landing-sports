@@ -1,11 +1,6 @@
 // Auth utilities and exports
 export { getUser, requireUser } from './session';
 export {
-  hasActiveSubscription,
-  requireSubscription,
-  requireUserWithSubscription,
-} from './subscription';
-export {
   hasRole,
   isAdmin,
   isSuperAdmin,

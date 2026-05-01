@@ -196,7 +196,7 @@ export async function trackSignup(
 /**
  * Track purchase event
  *
- * @param eventId - Pass the eventId from server (Stripe metadata) for cross-platform deduplication
+ * @param eventId - Pass an eventId from server for cross-platform deduplication
  */
 export async function trackPurchase(
   value: number,

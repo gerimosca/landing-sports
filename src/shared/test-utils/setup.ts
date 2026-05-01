@@ -1,11 +1,9 @@
 import { vi, beforeEach, afterEach } from 'vitest';
 import { resetSupabaseMocks } from './mocks/supabase';
-import { resetStripeMocks } from './mocks/stripe';
 
 // Reset mocks before each test
 beforeEach(() => {
   resetSupabaseMocks();
-  resetStripeMocks();
 });
 
 // Clean up after each test
@@ -17,8 +15,6 @@ afterEach(() => {
 vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL', 'https://test.supabase.co');
 vi.stubEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY', 'test-anon-key');
 vi.stubEnv('SUPABASE_SERVICE_ROLE_KEY', 'test-service-role-key');
-vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test_123');
-vi.stubEnv('STRIPE_WEBHOOK_SECRET', 'whsec_test123');
 vi.stubEnv('NEXT_PUBLIC_APP_URL', 'http://localhost:3000');
 
 // Mock Web Crypto API for tests (required for attribution server-side tracking)

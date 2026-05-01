@@ -28,7 +28,13 @@
       "Bash(netstat -ano -p tcp)",
       "Bash(ps -W)",
       "Bash(curl -s -o /tmp/en_test.html -w \"status=%{http_code}\\\\n\" http://localhost:3000/en)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(git rm *)"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "magicui",
+    "context7",
+    "vibe_kanban"
+  ]
 }

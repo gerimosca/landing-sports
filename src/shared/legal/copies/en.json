@@ -17,7 +17,7 @@
         "items": {
           "identity": "Contact details: name, surname, email and phone number.",
           "shipping": "Shipping and billing address: street, city, postal code and country.",
-          "payment": "Payment details: processed directly and securely by Stripe. We do not store or have access to your full card numbers.",
+          "payment": "Payment details: this site does not process online payments. Orders are confirmed and paid through WhatsApp. We do not collect or store card data on this site.",
           "order": "Order history: products purchased, amount, shipping status and related communications.",
           "customization": "Customization data: name and number of the dorsal you choose for your jersey.",
           "technical": "Technical data: IP address, browser type, device and usage information collected through cookies."
@@ -46,7 +46,7 @@
         "title": "Sharing Data with Third Parties",
         "intro": "We do not sell your data. We only share it with the providers strictly necessary to deliver the service:",
         "items": {
-          "payment": "Payment providers: Stripe processes payments in compliance with the PCI-DSS standard.",
+          "payment": "Messaging: orders are managed via WhatsApp (Meta Platforms Ireland Ltd.) under their privacy policy.",
           "shipping": "Shipping and logistics companies: they receive your shipping details solely to deliver your order.",
           "hosting": "Technology providers: web hosting, database and transactional email delivery.",
           "legal": "Competent authorities: when required by law."
@@ -101,7 +101,7 @@
         "description": "These cookies are essential for the store to function and for you to complete your purchase. They cannot be disabled — without them, you wouldn't be able to add products to the cart or check out. They do not require your consent.",
         "items": {
           "session": "Shopping cart: remember the jerseys and customizations (name, number, size) you add while browsing.",
-          "auth": "Security and payment: Stripe cookies that process payments securely and prevent fraud during checkout.",
+          "auth": "Security: cookies needed to keep the site secure and prevent abuse during browsing.",
           "preferences": "Preferences: remember your language (English/Spanish), your cookie banner choices, and your display settings."
         }
       },

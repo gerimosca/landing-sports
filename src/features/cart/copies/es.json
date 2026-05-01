@@ -76,20 +76,5 @@
   "continueShopping": "Seguir Comprando",
   "close": "Cerrar",
   "added": "¡Agregado al carrito!",
-  "itemCount": "{count, plural, one {# artículo} other {# artículos}}",
-  "successTitle": "¡Pedido confirmado!",
-  "orderNumber": "Pedido #{number}",
-  "successDescription": "Gracias por tu compra. Tu pedido está en camino.",
-  "orderSummary": "Resumen del Pedido",
-  "qty": "Cant:",
-  "discount": "3x2 Promo",
-  "total": "Total",
-  "shippingTo": "Envío a",
-  "emailNotice": "Recibirás toda la información de tu pedido por email",
-  "emailNoticeDetail": "Hemos enviado la confirmación a {email}",
-  "cancelTitle": "Pedido no completado",
-  "cancelDescription": "Tu pago no se ha procesado. No se ha realizado ningún cargo. Los artículos de tu carrito siguen guardados.",
-  "errorTitle": "Algo salió mal",
-  "errorDescription": "No pudimos verificar tu pago. Si se te ha cobrado, por favor contáctanos.",
-  "backToCart": "Volver al Carrito"
+  "itemCount": "{count, plural, one {# artículo} other {# artículos}}"
 }
