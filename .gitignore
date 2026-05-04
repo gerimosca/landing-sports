@@ -61,3 +61,6 @@ src/i18n/generated/
 # Planning files (move to docs/ when done)
 *.plan.md
 *.wip.md
+
+# Diagnostic artifacts from optimize:images
+low-res-images.csv

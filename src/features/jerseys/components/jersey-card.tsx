@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
+import { ResponsiveImage } from '@/shared/components/ui/responsive-image';
 import { useLocale, useTranslations } from 'next-intl';
 import { getTeamDisplayName } from '../config/data';
 import { ShoppingCart, Star, ChevronLeft, ChevronRight, Pencil, X, Truck } from 'lucide-react';
@@ -210,13 +210,13 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
                 aria-label={t('card.viewImage', { index: i + 1 })}
                 className="relative w-full h-full flex-shrink-0 snap-center bg-gradient-to-b from-zinc-800 to-zinc-900 cursor-zoom-in"
               >
-                <Image
+                <ResponsiveImage
                   src={src}
                   alt={`${teamName} - ${i + 1}`}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition-opacity duration-500 ease-in-out pointer-events-none"
-                  loading={i === 0 ? 'eager' : 'lazy'}
+                  priority={i === 0}
                   onLoad={(e) => {
                     const img = e.currentTarget;
                     img.style.opacity = '1';
@@ -373,7 +373,7 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
                   key={i}
                   className="relative w-full h-full flex-shrink-0 snap-center flex items-center justify-center"
                 >
-                  <Image
+                  <ResponsiveImage
                     src={src}
                     alt={`${teamName} - ${i + 1}`}
                     fill
@@ -449,7 +449,7 @@ export function JerseyCard({ jersey, isOpen, onOpen, onClose }: JerseyCardProps)
             <div className="relative min-h-20 flex items-center">
               {jersey.images?.[0] && (
                 <div className="absolute left-0 top-0 w-20 h-20 rounded-lg overflow-hidden bg-zinc-900 border border-zinc-800">
-                  <Image
+                  <ResponsiveImage
                     src={jersey.images[0]}
                     alt={teamName}
                     fill

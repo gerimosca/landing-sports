@@ -42,6 +42,7 @@
     "home:generate": "node scripts/home-generator.mjs",
     "seo:generate": "node scripts/seo-generator.mjs",
     "check:links": "node scripts/check-links.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "validate:architecture": "node scripts/validate-architecture.mjs",
     "cleanup": "node scripts/maintenance/cleanup.mjs",
     "pre-push": "npm run type-check && npm run lint && npm run test && npm run check:links && npm run validate:architecture",
@@ -107,6 +108,7 @@
     "husky": "^9.1.7",
     "jsdom": "^27.2.0",
     "linkinator": "^6.3.0",
+    "sharp": "^0.34.5",
     "vitest": "^4.0.10"
   }
 }

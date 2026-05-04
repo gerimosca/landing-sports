@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft, Mail, MapPin, Phone, Truck, Globe } from 'lucide-react';
-import Image from 'next/image';
+import { ResponsiveImage } from '@/shared/components/ui/responsive-image';
 import Link from 'next/link';
 import { useCart } from '../cart-context';
 import { cartItemKey, dorsalExtraCost } from '../types';
@@ -222,7 +222,10 @@ export function CartPage() {
 
     lines.push(t('whatsappRefsTitle'));
     items.forEach((item, idx) => {
-      lines.push(`${idx + 1}. ${brand.website}${item.jersey.image}`);
+      const original = item.jersey.image;
+      const lastDot = original.lastIndexOf('.');
+      const webpPath = lastDot === -1 ? original : `${original.slice(0, lastDot)}-800.webp`;
+      lines.push(`${idx + 1}. ${brand.website}${webpPath}`);
     });
 
     return lines.join('\n');
@@ -282,7 +285,7 @@ export function CartPage() {
                 >
                   {/* Jersey thumbnail */}
                   <div className="w-20 h-24 md:w-24 md:h-28 flex-shrink-0 bg-zinc-800 rounded-md overflow-hidden relative">
-                    <Image
+                    <ResponsiveImage
                       src={jersey.image}
                       alt={jersey.team}
                       fill

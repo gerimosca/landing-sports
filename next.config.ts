@@ -7,9 +7,11 @@ const nextConfig: NextConfig = {
   // TODO: Re-enable after fixing all route references
   // typedRoutes: true,
 
-  // Disable image optimization in dev to avoid LRUCache bug
+  // Disable Vercel image optimization: we pre-generate responsive WebP variants
+  // via `npm run optimize:images` and serve them as static assets to stay
+  // within Vercel's free tier (no Image Optimization cache reads consumed).
   images: {
-    unoptimized: process.env.NODE_ENV === 'development',
+    unoptimized: true,
   },
 
   // Optimize logging for reduced output
